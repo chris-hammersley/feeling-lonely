@@ -2594,7 +2594,7 @@ xclip
 .button-group{
   position: absolute;
   bottom: 15px;
-  left: 50%;
+  left: 40%;
   transform: translateX(-50%);
   z-index: 999;
 }
