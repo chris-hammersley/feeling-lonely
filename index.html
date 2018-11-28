@@ -72,7 +72,7 @@
                   <div class="card h-100">
                         <!-- START Video Chat Ryan Player 1-->  
                         <div id="videochat" hidden>
-                            <video src="assets/video/Ryan-TOD1.mp4" type="video/mp4" id="ryan1" width="300">
+                            <video src="assets/video/ryan-TD-yanina.mp4" type="video/mp4" id="ryan1" width="300">
                               video not supported
                             </video>
                             <div class="card-body">
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div id="videochat3" hidden>
-                            <video src="assets/video/Ryan-OM.mp4" type="video/mp4" id="ryan2" width="300">
+                            <video src="assets/video/ryan-WILD-yanina.mp4" type="video/mp4" id="ryan2" width="300">
                               video not supported
                             </video>
                             <div class="card-body">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div id="videochat5" hidden>
-                            <video src="assets/video/Ryan-TOD2.mp4" type="video/mp4" id="ryan3" width="300">
+                            <video src="assets/video/ryan-MOVE-yanina.mp4" type="video/mp4" id="ryan3" width="300">
                               video not supported
                             </video>
                             <div class="card-body">
@@ -118,7 +118,7 @@
                         <!-- END Video Chat Ryan Player 1 -->
                         <!-- START Video Chat Yanina Player 1-->
                         <div id="videochat9" hidden>
-                            <video src="assets/video/Yanina-EYEBALL.mp4" type="video/mp4" id="yanina5" width="300">
+                            <video src="assets/video/Yanina-MOVE-Ryan.mp4" type="video/mp4" id="yanina5" width="300">
                               video not supported
                             </video>
                             <div class="card-body">
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                         <div id="videochat4" hidden>
-                            <video src="assets/video/OM-Yanina.mp4" type="video/mp4" id="yanina2" loop width="300">
+                            <video src="assets/video/Yanina-TD-Ryan.mp4" type="video/mp4" id="yanina2" loop width="300">
                               video not supported
                             </video>
                             <div class="card-body">
@@ -168,7 +168,7 @@
                             </div>
                         </div>
                         <div id="videochat6" hidden>
-                            <video src="assets/video/TOD2-Yanina.mp4" type="video/mp4" id="yanina3" loop width="300">
+                            <video src="assets/video/Yanina-wild-Ryan.mp4" type="video/mp4" id="yanina3" loop width="300">
                               video not supported
                             </video>
                             <div class="card-body">
@@ -192,7 +192,7 @@
                      <!-- END Video Chat Yanina Player 2-->
                     <!-- START Video Chat Ryan Player 2-->
                         <div id="videochat10" hidden>
-                            <video src="assets/video/Ryan-dancing-mirror.mp4" type="video/mp4" id="ryan5" loop width="300">
+                            <video src="assets/video/ryan-MOVE-yanina.mp4" type="video/mp4" id="ryan5" loop width="300">
                               video not supported
                             </video>
                             <div class="card-body">
@@ -474,82 +474,167 @@
                 {
                     $("#videochat").show();
                     $('#ryan1').get(0).play()
-                    $("#videochat2").show();
-                    $('#yanina1').get(0).play()
-                }
-                else if (wheelPower == 2)
-                {
-                    $("#videochat7").show();
-                    $('#ryan4').get(0).play()
-                    $("#videochat8").show();
-                    $('#yanina4').get(0).play()
-                }
-                else if (wheelPower == 3)
-                {
-                    $("#videochat3").show();
-                    $('#ryan2').get(0).play()
                     $("#videochat4").show();
                     $('#yanina2').get(0).play()
                 }
-            }
-            else if (indicatedSegment.text == "Yanina")
-            {
-                if (wheelPower == 1)
-                {
-                    $("#videochat5").show();
-                    $('#ryan3').get(0).play()
-                    $("#videochat6").show();
-                    $('#yanina3').get(0).play()
-                }
                 else if (wheelPower == 2)
-                {
-                    $("#videochat11").show();
-                    $('#yanina6').get(0).play()
-                    $("#videochat12").show();
-                    $('#ryan6').get(0).play()
-                }
-                else if (wheelPower == 3)
                 {
                     $("#videochat9").show();
                     $('#yanina5').get(0).play()
                     $("#videochat10").show();
                     $('#ryan5').get(0).play()
                 }
+                else if (wheelPower == 3)
+                {
+                    $("#videochat3").show();
+                    $('#ryan2').get(0).play()
+                    $("#videochat6").show();
+                    $('#yanina3').get(0).play()
+                }
+            }
+            else if (indicatedSegment.text == "Yanina")
+            {
+                if (wheelPower == 1)
+                {
+                    $("#videochat").show();
+                    $('#ryan1').get(0).play()
+                    $("#videochat4").show();
+                    $('#yanina2').get(0).play()
+                }
+                else if (wheelPower == 2)
+                {
+                    $("#videochat9").show();
+                    $('#yanina5').get(0).play()
+                    $("#videochat10").show();
+                    $('#ryan5').get(0).play()
+                }
+                else if (wheelPower == 3)
+                {
+                    $("#videochat3").show();
+                    $('#ryan2').get(0).play()
+                    $("#videochat6").show();
+                    $('#yanina3').get(0).play()
+                }
             }
             else if (indicatedSegment.text == "Jake")
             {
-                $("#videochat5").show();
-                $('#ryan3').get(0).play()
-                $("#videochat6").show();
-                $('#yanina3').get(0).play()
+                if (wheelPower == 1)
+                {
+                    $("#videochat").show();
+                    $('#ryan1').get(0).play()
+                    $("#videochat4").show();
+                    $('#yanina2').get(0).play()
+                }
+                else if (wheelPower == 2)
+                {
+                    $("#videochat9").show();
+                    $('#yanina5').get(0).play()
+                    $("#videochat10").show();
+                    $('#ryan5').get(0).play()
+                }
+                else if (wheelPower == 3)
+                {
+                    $("#videochat3").show();
+                    $('#ryan2').get(0).play()
+                    $("#videochat6").show();
+                    $('#yanina3').get(0).play()
+                }
             }
             else if (indicatedSegment.text == "Alan")
             {
-                $("#videochat7").show();
-                $('#ryan4').get(0).play()
-                $("#videochat8").show();
-                $('#yanina4').get(0).play()
+                if (wheelPower == 1)
+                {
+                    $("#videochat").show();
+                    $('#ryan1').get(0).play()
+                    $("#videochat4").show();
+                    $('#yanina2').get(0).play()
+                }
+                else if (wheelPower == 2)
+                {
+                    $("#videochat9").show();
+                    $('#yanina5').get(0).play()
+                    $("#videochat10").show();
+                    $('#ryan5').get(0).play()
+                }
+                else if (wheelPower == 3)
+                {
+                    $("#videochat3").show();
+                    $('#ryan2').get(0).play()
+                    $("#videochat6").show();
+                    $('#yanina3').get(0).play()
+                }
             }
             else if (indicatedSegment.text == "Liv")
             {
-                $("#videochat5").show();
-                $('#ryan3').get(0).play()
-                $("#videochat6").show();
-                $('#yanina3').get(0).play()
+                if (wheelPower == 1)
+                {
+                    $("#videochat").show();
+                    $('#ryan1').get(0).play()
+                    $("#videochat4").show();
+                    $('#yanina2').get(0).play()
+                }
+                else if (wheelPower == 2)
+                {
+                    $("#videochat9").show();
+                    $('#yanina5').get(0).play()
+                    $("#videochat10").show();
+                    $('#ryan5').get(0).play()
+                }
+                else if (wheelPower == 3)
+                {
+                    $("#videochat3").show();
+                    $('#ryan2').get(0).play()
+                    $("#videochat6").show();
+                    $('#yanina3').get(0).play()
+                }
             }
             else if (indicatedSegment.text == "Naomi")
             {
-                $("#videochat3").show();
-                $('#ryan2').get(0).play()
-                $("#videochat4").show();
-                $('#yanina2').get(0).play()
+                if (wheelPower == 1)
+                {
+                    $("#videochat").show();
+                    $('#ryan1').get(0).play()
+                    $("#videochat4").show();
+                    $('#yanina2').get(0).play()
+                }
+                else if (wheelPower == 2)
+                {
+                    $("#videochat9").show();
+                    $('#yanina5').get(0).play()
+                    $("#videochat10").show();
+                    $('#ryan5').get(0).play()
+                }
+                else if (wheelPower == 3)
+                {
+                    $("#videochat3").show();
+                    $('#ryan2').get(0).play()
+                    $("#videochat6").show();
+                    $('#yanina3').get(0).play()
+                }
             }
             else if (indicatedSegment.text == "Julian")
             {
-                $("#videochat5").show();
-                $('#ryan3').get(0).play()
-                $("#videochat6").show();
-                $('#yanina3').get(0).play()
+                if (wheelPower == 1)
+                {
+                    $("#videochat").show();
+                    $('#ryan1').get(0).play()
+                    $("#videochat4").show();
+                    $('#yanina2').get(0).play()
+                }
+                else if (wheelPower == 2)
+                {
+                    $("#videochat9").show();
+                    $('#yanina5').get(0).play()
+                    $("#videochat10").show();
+                    $('#ryan5').get(0).play()
+                }
+                else if (wheelPower == 3)
+                {
+                    $("#videochat3").show();
+                    $('#ryan2').get(0).play()
+                    $("#videochat6").show();
+                    $('#yanina3').get(0).play()
+                }
             }
         }
 </script>
