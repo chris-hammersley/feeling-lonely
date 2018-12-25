@@ -126,6 +126,29 @@ img {
   }
 }
 
+.overlay-name {
+  background: rgba(0,0,0,0);
+  position: absolute;
+  top: 90; right: 0; bottom: 0; left: 0;
+  display: flex;
+  align-items: bottom;
+  justify-content: left;
+}
+
+.overlay-status {
+  background: rgba(0,0,0,0);
+  position: absolute;
+  top: 110; right: 0; bottom: 0; left: 0;
+  display: flex;
+  align-items: bottom;
+  justify-content: left;
+  text-shadow: 2px 2px #ff0000;
+}
+
+.hide {
+ display: none;
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -2792,3 +2815,29 @@ body {
 .pagination {
   margin-bottom: 30px;
 }
+
+.ryan {
+    margin: 3px;
+    width: 300px;
+    background-color: #eb5617;
+    box-shadow: 0 0 15px 7px #eb5617;
+    /*animation: glow 5s infinite alternate; */
+}
+
+/*@keyframes glow {
+  from {
+    box-shadow: 0 0 15px -7px #EB5617;
+  }
+  to {
+    box-shadow: 0 0 15px 7px #EB5617;
+  }*/
+
+/*  .yanina {
+  margin: 3px;
+  width: 300px;
+  background-color: purple;
+  box-shadow: 0 0 15px 7px purple;
+  transform: rotateY(180deg);
+  -webkit-transform:rotateY(180deg); // Safari and Chrome
+  -moz-transform:rotateY(180deg); // Firefox
+} */
