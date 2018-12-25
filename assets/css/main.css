@@ -142,7 +142,7 @@ img {
   display: flex;
   align-items: bottom;
   justify-content: left;
-  text-shadow: 2px 2px #ff0000;
+  text-shadow: 2px 2px #000;
 }
 
 .hide {
