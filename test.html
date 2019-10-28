@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--
+    Winhweel.js one image per segment wheel example by Douglas McKechie @ www.dougtesting.net
+    The MIT License (MIT) Copyright (c) 2016 Douglas McKechie
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+-->
+    <head>
+        <title>ways of forgetting</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Chris Hammersley">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link href="assets/css/bootstrap3.1.0/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/main-new.css" rel="stylesheet">
+
+        <!-- JS -->
+        <script src="assets/js/plugins/Winwheel.js"></script>        
+        <script src="assets/js/vendor/TweenMax.min.js"></script>
+        <script src="assets/js/vendor/jquery-2.1.1.min.js"></script>
+        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+        <!-- can I get rid of the 3 following js since they are part of TweenMax? -->
+        <!--script src="assets/js/plugins/gsap2.1.2/CSSPlugin.min.js"></script>
+        <script src="assets/js/plugins/gsap2.1.2/EasePack.min.js"></script>
+        <script src="assets/js/plugins/gsap2.1.2/TweenLite.min.js"></script>
+        <script src="assets/js/jquery-scrollto/lib/jquery-scrollto.js"></script-->
+        <script src="assets/js/plugins/jquery.lettering-0.6.1.min.js"></script>
+        <!--script src="assets/js/plugins/jquery.visible.min.js"></script-->
+        <script src="assets/js/plugins/circletype.min.js"></script>
+        <script src="assets/js/plugins/jquery.wait.js"></script>
+        <script src="assets/js/plugins/animate-headline.js"></script>
+        <script src="assets/js/main.js"></script>
+    </head>
+    <body onscroll="hideLoader()">
+        <div id="loading"><!--ANIMATED INTRO BEGIN-->
+            <div id="scroll2play"><h2>(Scroll Down to Play)</h2></div>
+        </div><!--ANIMATED INTRO END-->
+        <!-- TITLE -->
+        <div id="title" class="title">a feature film by meryl murman
+          <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
+        </div><!-- TITLE END-->
+        <div id="spacer"></div><!--this is the div for spacer/scrolling purposes-->
+        <!-- NEW GRID LAYOUT -->
+            <div id="thrill" class="section">
+                <!-- DIV FOR THRILL SELECTOR -->
+                <div id="diamond-buttons" class="col module">
+                    <div id="padding-top" class="section">
+                        <!--div id="desktop-padding-row" class="col span_3_of_3">
+                        &nbsp;
+                        </div-->
+                    </div>
+                    <div id="diamond-top" class="section">
+                        <div class="col span_1_of_3"><p></p>
+                        <p id="blueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
+                        </div>
+                        <div id="pw1" class="col span_1_of_3 triangle-up noselect" onmouseenter="playTruthDare();" onClick="powerSelected(1);">
+                        <p>Truth/Dare</p>
+                        </div>
+                    </div>
+                    <div id="diamond-middle" class="section">
+                        <div id="pw2" class="col span_1_of_3 triangle-left noselect" onmouseenter="playMove();" onClick="powerSelected(2);">
+                        <p>Move Me</p>
+                        </div>
+                        <div class="col span_1_of_3 square">
+                        &nbsp;
+                        </div>
+                        <div id="pw3" class="col span_1_of_3 triangle-right noselect" onmouseenter="playWild();" onClick="powerSelected(3);">
+                        <p>Wild Card</p>
+                        </div>
+                    </div>
+                    <div id="diamond-bottom" class="section">
+                        <div class="col span_1_of_3">
+                        &nbsp;
+                        </div>
+                        <div id="spin_button" class="col span_1_of_3 disabled triangle-down" onClick="calculatePrize();">
+                        <p class="jumble">SPIN</p>
+                        </div>
+                        <div class="col span_1_of_3">
+                        &nbsp;
+                        </div>
+                    </div>
+                    <div id="padding-top" class="section">
+                        <div class="col span_1_of_3">
+                        &nbsp;
+                        </div>
+                        <div class="col span_1_of_3">
+                        &nbsp;
+                        </div>
+                        <div class="col span_1_of_3">
+                        &nbsp;
+                        </div>
+                    </div>
+                </div> <!--CLOSES DIAMOND-BUTTONS col span DIV -->
+                <!-- DIV FOR SPIN WHEEL-->
+                <div id="wheel" class="col span_1_of_2 module" align="center" valign="center">
+                    <div id="connections" class="rotate45">
+                        <p id="greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
+                    </div>
+                    <div id="connections-mobile" class="rotate45" hidden>
+                        <p id="mobile-greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
+                    </div>
+                    <img id="prizePointer" src="assets/images/wheel_arrow.png" alt="V" />
+                    <canvas id="canvas" class="img-fluid rounded mb-3 mb-md-0" width="420" height="420">
+                    <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try a browser like Chrome or Firefox to play the game.</p>
+                    </canvas>
+                </div><!-- END SPIN WHEEL -->
+                <!-- BEGIN MOBILE THRILL SELECTOR-->
+                <div class="square-center">
+                    <div class="square-container" hidden>
+                        <div id="mpw2" class="mobile-square move noselect" onClick="powerSelected(2);">
+                            <p>Move Me</p>
+                        </div>
+                        <div id="mpw1" class="mobile-square truth noselect" onClick="powerSelected(1);">
+                            <p>Truth/Dare</p>
+                        </div>
+                        <div style='clear:both'></div>
+                        <div id="mpw3" class="mobile-square wild noselect" onClick="powerSelected(3);">
+                            <p>Wild Card</p>
+                        </div>
+                        <div id="mspin_button" class="mobile-square spin noselect" onClick="calculatePrize();">
+                            <p class="awkward">SPIN</p>
+                        </div>
+                        <div>
+                            <p id="mblueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
+                        </div>
+                    </div><!--CLOSES CONTAINER-->
+                </div><!--CLOSES CENTER-->
+
+        <!-- HOME BUTTON -->
+        <div id="home" class="round-button button-home rectangular-button" hidden>
+            <div class="round-button-circle">
+                <a href="teaser.html" onmouseenter="playHome()" class="round-button rectangular-button">Home</a>
+            </div>
+        </div>
+
+            </div><!--CLOSES THRILL SECTION-->
+                <!-- NON-CENTERED MOBILE THRILL SECTION-->
+                <!--div class="square-container" hidden>
+                    <div class="square-center"></div-->
+                        <!--div id="mpw2" class="mobile-square move" onClick="powerSelected(2);">
+                            <p>Move Me</p>
+                        </div>
+                        <div id="mpw1" class="mobile-square truth" onClick="powerSelected(1);">
+                            <p>Truth/Dare</p>
+                        </div>
+                        <div style='clear:both'></div>
+                        <div id="mpw3" class="mobile-square wild" onClick="powerSelected(3);">
+                            <p>Wild Card</p>
+                        </div>
+                        <div id="mspin_button" class="mobile-square spin" onClick="calculatePrize();">
+                            <p class="awkward">SPIN</p>
+                        </div>
+                    <div>
+                        <p id="mblueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
+                    </div>
+                    </div-->
+                <!--/div--><!--CLOSES MOBILE THRILL SELECTOR-->
+
+        <!-- BLACKSCREEN DIV LEFT-->
+        <!--div id="container-blackscreen" hidden>
+            <div id="blackscreen" class="blackscreen col span_1_of_2"></div>
+        </div-->
+        <!-- NEW GRID LAYOUT -->
+              <!-- BEGIN LEFT VIDEO CHAT WINDOW -->
+              <div id="videochatwindow-left" class="col span_1_of_2 chatleft-gray noselect" hidden>
+                <div id="videochat1" hidden>
+                    <video id="video-left" type="video/mp4" hidden>
+                      video not supported
+                    </video>
+                    <div id="left-name-ryan" class="overlay-name overlay-left name noselect" hidden></div>
+                    <div id="left-status-ryan" class="typewriter status noselect" hidden></div>
+                    <div id="left-name-yanina" class="overlay-name overlay-left name noselect" hidden></div>
+                    <div id="left-status-yanina" class="typewriter status noselect" hidden></div>
+                    <div id="left-name-alan" class="overlay-name overlay-left name noselect" hidden></div>
+                    <div id="left-status-alan" class="typewriter status noselect" hidden></div>
+                    <div id="left-name-naomi" class="overlay-name overlay-left name noselect" hidden></div>
+                    <div id="left-status-naomi" class="typewriter status noselect" hidden></div>
+                </div>
+              </div> <!--CLOSES LEFT CHAT DIV-->
+        <!-- BLACKSCREEN DIV RIGHT-->
+        <!--div id="container-blackscreen" hidden>
+            <div id="blackscreen" class="blackscreen col span_1_of_2"></div>
+        </div-->
+              <div id="videochatwindow-right" class="col span_1_of_2 chatright-gray noselect" hidden>
+                <!-- RIGHT VIDEO CHAT WINDOW -->
+                <div id="videochat2" class="swing" hidden>
+                    <video id="video-right" type="video/mp4" hidden>                
+                        video not supported
+                    </video>
+                    <div id="connecting" class="blueglow noselect name" hidden>Connecting...</div>
+                    <div id="right-name-ryan" class="overlay-name overlay-right name noselect" hidden></div>
+                    <div id="right-status-ryan" class="typewriter status noselect" hidden></div>
+                    <div id="right-name-ryan2" class="overlay-name overlay-right name noselect" hidden></div>
+                    <div id="right-status-ryan2" class="typewriter status noselect" hidden></div>
+                    <div id="right-name-yanina" class="overlay-name overlay-right name noselect" hidden></div>
+                    <div id="right-status-yanina" class="typewriter status noselect" hidden></div>
+                    <div id="right-name-yanina2" class="overlay-name overlay-right name noselect" hidden></div>
+                    <div id="right-status-yanina2" class="typewriter status noselect" hidden></div>
+                    <div id="right-name-yanina3" class="overlay-name overlay-right name noselect" hidden></div>
+                    <div id="right-status-yanina3" class="typewriter status noselect" hidden></div>
+                    <div id="right-name-naomi" class="overlay-name overlay-right name noselect" hidden></div>
+                    <div id="right-status-naomi" class="typewriter status noselect" hidden></div>
+                </div>         
+              </div> <!--CLOSES RIGHT CHAT DIV-->
+
+        <!-- REPORT USER BUTTON -->
+                <div id="report" class="round-button button-report rectangular-button noselect" hidden>
+                    <div class="round-button-circle">
+                    <a href="#" class="round-button rectangular-button" onmouseenter="playEscape()" onClick="reportUser();">Escape</a>
+                    </div>
+                </div>
+
+        <!-- MOBILE BUTTONS-->
+                <!--BACK TO GAME BUTTON MOBILE >
+                <div id="report-mobile" class="rectangular-button report-mobile noselect">
+                    <a href="#" onClick="reportUser();">Back to Play Game</a>
+                </div>
+                < HOME BUTTON MOBILE >
+                <div id="home-mobile" class="rectangular-button home-mobile" hidden>
+                        <a href="teaser.html" onmouseenter="playHome();">Home</a>
+                </div-->
+
+        <!--MODALS-->
+        <div id="alert" class="modal" tabindex="-1" role="dialog" aria-labelledby="alert" aria-hidden="true">
+            <div id="modal-body" class="modal-body">
+                <p>&nbsp;</p>
+            </div>
+                <button type="button" class="modal-button btn" data-dismiss="modal" data-target="#alert">OK</button>
+        </div>
+        <!--div id="report-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="report-modal" aria-hidden="true">
+            <div id="report-modal-body" class="modal-body">
+                <p>&nbsp;</p>
+            </div>
+                <button type="button" class="modal-button btn" data-dismiss="modal" data-target="#report-modal">OK</button>
+        </div-->        
+
+        <!-- HIDDEN COUNTER -->
+        <div hidden>
+            <a id="counter" href="#"></a>
+        </div>
+
+        <!-- JS -->
+        <script>
+        // -------------------------------------
+        // Start Animated GIF then Fade to Page
+        // -------------------------------------
+
+        // currently set to fade after 5 sec - change here to fade on scroll after adding 'scroll to play' text
+        $(window).ready(function(){
+            setTimeout(showScroll2Play, 5000);
+            $(this).scrollTop(0);
+
+            firstScroll();
+
+        });
+
+        function showScroll2Play(){
+            $('#scroll2play').fadeIn(1000);
+        }
+        function hideLoader(){
+            $('#loading').fadeOut(1500);
+            $('#scroll2play').fadeOut(1500);
+            $("#pw2").wait(1200).addClass('triangle-left-animation');
+            $("#pw1").wait(1500).addClass('triangle-up-animation');
+            $("#pw3").wait(1700).addClass('triangle-right-animation');
+        }
+
+        function firstScroll(){
+        // Set Diamond & Wheel Modules to fixed position after scrolling
+        $(window).scroll(function(e) {   
+            if($(window).scrollTop() >=675) {
+                $(window).scrollTop(675);
+            }
+        });
+        }
+
+        // Letter & Word formatting control: SPIN, CHOOSE, WHEEL OF CHANCE CONNECTIONS 
+        $(document).ready(function() {
+            $(".jumble").lettering();
+            $(".awkward").lettering();
+            $(".blueglow").lettering('words');
+            $(".mblueglow").lettering('words');
+            $("#greenglow").lettering('words');
+            $(".mobile-greenglow").lettering('words');
+            $("#greenglow").lettering('words').children('span').lettering();
+        });
+        
+        // wheel of chance connections desktop
+        const wheelConnection = new CircleType(document.getElementById('connections'));
+        wheelConnection.radius(230); /* original is 225 */
+
+        // wheel of chance connections mobile
+        const wheelConnectionMobile = new CircleType(document.getElementById('connections-mobile'));
+        wheelConnectionMobile.radius(190); //originally 170
+
+        // --------------------------------------------------------------------
+        // Create new wheel object specifying the parameters at creation time
+        // --------------------------------------------------------------------
+        var theWheel = new Winwheel({
+            'numSegments'       : 7,                 // Specify number of segments.
+            'pointerAngle'      : 0,                 // Sets the prize location selector
+            'outerRadius'       : 200,               // Set outer radius so wheel fits inside the background. original is 200
+            'drawText'          : true,              // Code drawn text can be used with segment images.
+            'textFontSize'      : 18,
+            'responsive'   : true,                   // This wheel is responsive!
+            'textOrientation'   : 'horizontal',
+            'textAlignment'     : 'outer',
+            'textDirection'     : 'reversed',        // Set direction. normal (default) or reversed.
+            'textMargin'        : 15,
+            'textFontFamily'    : 'Helvetica',
+//            'textStrokeStyle'   : 'black',
+            'textLineWidth'     : 1,
+//            'textFillStyle'     : 'white',
+            'strokeStyle'       : 'gray',           // Segment line color. Again segment lines only drawn if this is specified.
+            'lineWidth'         : 1,                // Width of lines around segments.
+           'imageOverlay'      : false,             // If set to true in image drawing mode the outline of the segments will be displayed over the image. Does nothing in code drawMode.
+            'segments'          :                    // Define segments including image and text below.
+            [
+              {'fillStyle' : '#A8A8A7', 'text' : 'Ryan'},
+              {'fillStyle' : '#BDBCBC', 'text' : 'Yanina'},
+              {'fillStyle' : '#D0D0D0', 'text' : 'Alan'},
+              {'fillStyle' : '#F6F6F6', 'text' : 'Jake', 'url' : 'teaser.html'},
+              {'fillStyle' : '#7C7C7B', 'text' : 'Liv', 'url' : 'teaser.html'},
+              {'fillStyle' : '#E3E3E3', 'text' : 'Naomi'},
+              {'fillStyle' : '#929292', 'text' : 'Julian', 'url' : 'teaser.html'}
+            ],
+            'prizeAngle'        :   // Define segments for each person's image angle
+            [
+                {'stopAtRyan' : (1 + Math.floor((Math.random() * 43)))},
+                {'stopAtYanina' : (50 + Math.floor((Math.random() * 43)))},
+                {'stopAtAlan' : (101 + Math.floor((Math.random() * 43)))},
+                {'stopAtJake' : (153 + Math.floor((Math.random() * 43)))},
+                {'stopAtLiv' : (204 + Math.floor((Math.random() * 43)))},
+                {'stopAtNaomi' : (256 + Math.floor((Math.random() * 43)))},
+                {'stopAtJulian' : (307 + Math.floor((Math.random() * 43)))}
+            ],
+            'animation' :           // Specify the animation to use
+            {
+                'type'     : 'spinToStop',
+                'duration' : 5,     // Duration in seconds
+                'spins'    : 7,     // Number of complete spins
+                'callbackSound' : playSound,
+                'callbackFinished' : alertPrize,
+             //   'callbackAfter' : 'drawTriangle()' // removed after adding image prizePointer
+            },
+            'pointerGuide' : 
+            {
+                'display' : false,
+                'strokeStyle' : 'orange',
+                'lineWidth' : 4
+            },
+        });
+
+        // -------------------------------------------------------
+        // Function to handle the callbackSound ticking sounds
+        // -------------------------------------------------------
+
+        // Var used for tick sound
+       //  var audio = new Audio('assets/audio/WOF Website Sounds__Tick 1.wav');  // Create audio object and load file
+
+       // create audio array of tick sound files
+        var audiosource = [
+          "assets/audio/WOF Website Sounds__Tick 1.wav",
+          "assets/audio/WOF Website Sounds__Tick 2.wav",
+          "assets/audio/WOF Website Sounds__Tick 3.wav",
+          "assets/audio/WOF Website Sounds__Tick 4.wav",
+          "assets/audio/WOF Website Sounds__Tick 5.wav",
+          "assets/audio/WOF Website Sounds__Tick 6.wav"
+        ];
+
+        function playSound() {
+            // assign random tick number, create audio object & load random tick sound
+            var rand = Math.floor((Math.random() * 6) + 1);
+            var audio = new Audio(audiosource[rand]);
+            // Stop and rewind the sound (stops it if already playing)
+            audio.pause();
+            audio.currentTime = 0;
+            audio.play();
+        }
+
+        // -------------------------------------------------------
+        // Mouseover & Click Audio Objects
+        // -------------------------------------------------------
+
+        var truthdare_audio = new Audio('assets/audio/btn_truth.wav');
+        var move_audio = new Audio('assets/audio/btn_move.wav');
+        var wild_audio = new Audio('assets/audio/btn_wild.wav');
+        var spin_audio = new Audio('assets/audio/btn_spin.wav');
+        var alert_audio = new Audio('assets/audio/new_alert_msg.wav');
+        var escape_audio = new Audio('assets/audio/btn_escape.wav');
+        var buttonclick_audio = new Audio('assets/audio/btn_click.wav');
+        var home_audio = new Audio('assets/audio/btn_home.wav');
+
+        function playTruthDare() {
+            // Stop and rewind the sound (stops it if already playing)
+            truthdare_audio.pause();
+            truthdare_audio.currentTime = 0;
+            truthdare_audio.play();
+        }
+
+        function playMove() {
+            // Stop and rewind the sound (stops it if already playing)
+            move_audio.pause();
+            move_audio.currentTime = 0;
+            move_audio.play();
+        }
+
+        function playWild() {
+            // Stop and rewind the sound (stops it if already playing)
+            wild_audio.pause();
+            wild_audio.currentTime = 0;
+            wild_audio.play();
+        }
+
+        function playAlert() {
+            // Stop and rewind the sound (stops it if already playing)
+            alert_audio.pause();
+            alert_audio.currentTime = 0;
+            alert_audio.play();
+        }
+
+        function playEscape() {
+            // Stop and rewind the sound (stops it if already playing)
+            escape_audio.pause();
+            escape_audio.currentTime = 0;
+            escape_audio.play();
+        }
+
+        function playClick() {
+            // Stop and rewind the sound (stops it if already playing)
+            buttonclick_audio.pause();
+            buttonclick_audio.currentTime = 0;
+            buttonclick_audio.play();
+        }
+
+        function playHome() {
+            // Stop and rewind the sound (stops it if already playing)
+            home_audio.pause();
+            home_audio.currentTime = 0;
+            home_audio.play();
+        }
+
+        // -------------------------------------------------------
+        // Local Storage & Page Visit Counter  
+        // -------------------------------------------------------         
+
+            var n = localStorage.getItem('on_load_counter');
+            if (n === null) {
+                n = 0;
+            } 
+            n++;
+
+            localStorage.setItem("on_load_counter", n);
+            document.getElementById('counter').innerHTML = n;
+
+            if (n === 3) {
+                localStorage.removeItem('on_load_counter');             
+            }
+
+        // -------------------------------------------------------
+        // SPIN Counter - used to pick who the wheel lands on
+        // -------------------------------------------------------             
+
+            var i = 1;
+
+        // -------------------------------------------------------------------------------------
+        // STEP 1: Calculate stopAngle before spinning animation. Called from SPIN Click button.
+        // -------------------------------------------------------------------------------------
+
+        function calculatePrize() {
+
+            // Disable Spin Button so it can't click again while wheel is spinning
+            document.getElementById('spin_button').classList.add('disabled');
+            document.getElementById('mspin_button').classList.add('disabled');
+
+            // Disable Thrill Level buttons so they can't be clicked while wheel is spinning
+            document.getElementById('pw1').classList.add('disabled');
+            document.getElementById('pw2').classList.add('disabled');
+            document.getElementById('pw3').classList.add('disabled');
+
+            // Mobile Version
+            document.getElementById('mpw1').classList.add('disabled');
+            document.getElementById('mpw2').classList.add('disabled');
+            document.getElementById('mpw3').classList.add('disabled');
+
+            // Play the Spin Audio Sound - set to beginning first
+            spin_audio.pause();
+            spin_audio.currentTime = 0;
+            spin_audio.play();
+
+            // CHECK THE PAGE VISIT COUNTER
+            if (n == 1) {
+                // CHECK THE SPIN COUNTER
+                if (i == 1) {
+                    stopAt = (2 + Math.floor((Math.random() * 43))); // Ryan
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                }
+                if (i == 2) {
+                    stopAt = (102 + Math.floor((Math.random() * 43))); // Alan
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                } 
+                if (i == 3) {
+                    stopAt = (257 + Math.floor((Math.random() * 43))); // Naomi
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                } 
+                if (i == 4) {
+                    stopAt = (205 + Math.floor((Math.random() * 43))); // Liv
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                }  
+                if (i == 5) {
+                    i = 1;
+                }
+                i++;            
+            }
+
+            if (n == 2) {
+                if (i == 1) {
+                    stopAt = (2 + Math.floor((Math.random() * 43))); // Ryan
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                }
+                if (i == 2) {
+                    stopAt = (102 + Math.floor((Math.random() * 43))); // Alan
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                } 
+                if (i == 3) {
+                    stopAt = (257 + Math.floor((Math.random() * 43))); // Naomi
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                } 
+                if (i == 4) {
+                    stopAt = (51 + Math.floor((Math.random() * 43))); // Yanina
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                }  
+                if (i == 5) {
+                    stopAt = (308 + Math.floor((Math.random() * 43))); // Julian
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();                   
+                }          
+            }
+
+            if (n == 3) {
+                if (i == 1) {
+                    stopAt = (2 + Math.floor((Math.random() * 43))); // Ryan
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                }
+                if (i == 2) {
+                    stopAt = (257 + Math.floor((Math.random() * 43))); // Naomi
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                } 
+                if (i == 3) {
+                    stopAt = (51 + Math.floor((Math.random() * 43))); // Yanina
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                } 
+                if (i == 4) {
+                    stopAt = (102 + Math.floor((Math.random() * 43))); // Alan
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();
+                }
+                if (i == 5) {
+                    stopAt = (154 + Math.floor((Math.random() * 43))); // Jake
+                    theWheel.animation.stopAngle = stopAt; 
+                    theWheel.startAnimation();                    
+                }         
+            }
+        } // END CALCULATE PRIZE
+
+        // -------------------------------------------------------
+        // Function to handle the onClick on the power buttons.
+        // -------------------------------------------------------
+ 
+        // Variables used by code in page to activate level controls
+        var wheelPower    = 0;
+        var wheelSpinning = false;
+
+        function powerSelected(powerLevel) {
+            // Ensure that power can't be changed while wheel is spinning
+            if (wheelSpinning == false)
+            {
+                // Reset all to grey in case this is not the first time the user has selected level
+                document.getElementById('pw1').classList.remove("pw1");
+                document.getElementById('pw2').classList.remove("pw2");
+                document.getElementById('pw3').classList.remove("pw3");
+                // Mobile Version
+                document.getElementById('mpw1').classList.remove("mpw1");
+                document.getElementById('mpw2').classList.remove("mpw2");
+                document.getElementById('mpw3').classList.remove("mpw3");
+
+                // Now light up the selected cell by changing the class
+                if (powerLevel == 1)
+                {
+                    truthdare_audio.pause();
+                    truthdare_audio.currentTime = 0;
+                    truthdare_audio.play();
+                    document.getElementById('pw1').classList.add("pw1");
+                    document.getElementById('mpw1').classList.add("mpw1");
+                }
+
+                if (powerLevel == 2)
+                {
+                    move_audio.pause();
+                    move_audio.currentTime = 0;
+                    move_audio.play();
+                    document.getElementById('pw2').classList.add("pw2");
+                    document.getElementById('mpw2').classList.add("mpw2");
+                }
+
+                if (powerLevel == 3)
+                {
+                    wild_audio.pause();
+                    wild_audio.currentTime = 0;
+                    wild_audio.play();
+                    document.getElementById('pw3').classList.add("pw3");
+                    document.getElementById('mpw3').classList.add("mpw3");
+                }
+
+                // Remove blueglow fader
+                document.getElementById('blueglow').classList.remove('blueglow');
+                document.getElementById('mblueglow').classList.remove('blueglow');
+
+                // Set wheelPower var used when spin button is clicked.
+                wheelPower = powerLevel;
+
+                // Light up the spin button by removing disabled and adding clickable; add spin_button class to light it up
+                document.getElementById('spin_button').classList.add("clickable", "spin_button");
+                document.getElementById('spin_button').classList.remove("disabled");
+                // Mobile Version
+                document.getElementById('mspin_button').classList.add("clickable", "mspin_button");
+                document.getElementById('mspin_button').classList.remove("disabled");
+            }
+        }
+
+        // -------------------------------------------------------
+        // Click handler for spin button.
+        // -------------------------------------------------------
+        function startSpin()
+        {
+
+            // Set the stopAngle of the animation before starting the spin
+            theWheel.animation.stopAngle = stopAt;
+
+            // Ensure that spinning can't be clicked again while already running
+            if (wheelSpinning == false)
+            {
+                // Power level adjusts the number of spins for the wheel
+                if (wheelPower == 1)
+                {
+                    theWheel.animation.spins = 3;
+                }
+                else if (wheelPower == 2)
+                {
+                    theWheel.animation.spins = 8;
+                }
+                else if (wheelPower == 3)
+                {
+                    theWheel.animation.spins = 15;
+                }
+
+                // Begin the spin animation by calling startAnimation on the wheel object
+                theWheel.startAnimation();
+
+                // Set to true so that power can't be changed and spin button re-enabled
+                wheelSpinning = true;
+            }
+        }
+
+        // ---------------------------------------------------------------------------------------------------------------------------------
+        // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
+        // Indicated segment is passed as parameter as 99% of the time you will want to know this to inform the user of their prize.
+        // ---------------------------------------------------------------------------------------------------------------------------------
+        function alertPrize(indicatedSegment)
+        {
+            // Get the number of the winning segment.
+            var winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
+
+            if (indicatedSegment.text === "Ryan")
+            {
+            theWheel.segments[winningSegmentNumber].fillStyle = '#e74b09'; // ryan
+            $('#alert').css('background-color', '#e74b09');
+            }
+            if (indicatedSegment.text === "Alan")
+            {
+            theWheel.segments[winningSegmentNumber].fillStyle = '#15a6f8'; // alan
+            $('#alert').css('background', '#15a6f8');
+            } 
+            if (indicatedSegment.text === "Naomi")
+            {
+            theWheel.segments[winningSegmentNumber].fillStyle = '#ead600'; // naomi  
+            $('#alert').css('background', '#ead600');
+            } 
+            if (indicatedSegment.text === "Yanina")
+            {
+            theWheel.segments[winningSegmentNumber].fillStyle = '#b74ef9'; // yanina
+            $('#alert').css('background', '#b74ef9');
+            } 
+            if (indicatedSegment.text === "Julian")
+            {
+            theWheel.segments[winningSegmentNumber].fillStyle = '#5bbe84'; // julian
+            $('#alert').css('background', '#5bbe84');
+            }
+            if (indicatedSegment.text === "Jake")
+            {
+            theWheel.segments[winningSegmentNumber].fillStyle = '#a7a7a7'; // jake
+            $('#alert').css('background', '#a7a7a7');
+            }
+            if (indicatedSegment.text === "Liv")
+            {
+            theWheel.segments[winningSegmentNumber].fillStyle = '#de1b2e'; // liv
+            $('#alert').css('background', '#de1b2e');
+            }
+
+            // Redraw the Winwheel
+            theWheel.draw();
+
+        // --------------------------------------------------------------
+        // SHOW MODAL ALERT
+        // --------------------------------------------------------------
+
+            // Make sure the modal dialog is empty
+            $('#modal-body').html("");
+
+            if (indicatedSegment.text === "Julian" || 
+                indicatedSegment.text === "Jake" || 
+                indicatedSegment.text === "Liv")
+            {
+            $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to watch the teaser?');
+            }
+            else {
+             $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to video chat?');
+            }
+
+            $("#alert").modal("show");
+
+            // Play alert sound
+            alert_audio.pause();
+            alert_audio.currentTime = 0;
+            alert_audio.play();
+
+        // --------------------------------------------------------------
+        // WAIT FOR MODAL CLOSE TO OPEN VIDEO CHAT WINDOWS
+        // --------------------------------------------------------------
+            $('#alert').click('dialogclose', function() {
+
+            if (indicatedSegment.text === "Julian" || 
+                indicatedSegment.text === "Jake" || 
+                indicatedSegment.text === "Liv")
+            {
+                window.location = indicatedSegment.url;                
+            }
+            else {
+
+            // WIPE UP BLACK SCREEN AFTER ALERT IS DISMISSED
+/*            $("#blackscreen").slideUp(2000); */
+
+            // HIDE the Main Container, Spin Wheel & Thrill Level Selection Panel
+            $("#wheel").hide();
+            $("#title").hide();
+            $("#home").hide();
+            $("#thrill").slideUp(1500); // hide or slide up the main container
+
+            // SHOW the Video Chat Windows
+            $("#videochat").show(); // this is the main video chat container
+            $("#videochatwindow-left").show();
+            $("#videochatwindow-right").show();
+            $("#report").wait(15000).show();
+
+            $("#thrill").wait(2000).hide(); // hide the main container
+
+            // SLIDE UP the Video Chat Windows
+/*            $("#videochat").slideUp(); // this is the main video chat container
+            $("#videochatwindow-left").slideUp();
+            $("#videochatwindow-right").slideUp();
+            $("#report").slideUp(); */
+
+            // BEGIN TRACK 1 BY COUNTER (Check Counter to see Which Track to Play)
+            if (n == 1) {
+
+            // Show Different Videos in DIV based on indicatedSegment
+            if (indicatedSegment.text == "Ryan") // TANGO
+            { 
+                // make sure connecting shows
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369089895.sd.mp4?s=63a7dfb00badc009903eea927e4ecac73317a6b2&profile_id=165?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369089830.sd.mp4?s=cf331c9bf49e1d1484b2226afc03cf53fdf2ac38&profile_id=165?autoplay=1";
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').show();
+                $('#video-right').show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "57.5s");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-left').classList.add("jitterLeft");
+                $('#left-name-ryan').wait(5000).show().text('Ryan').wait(139000).detach(":contains('Ryan')");
+                $('#left-status-ryan').wait(42000).show().text('My dance card is always empty...').wait(102000).detach(":contains('My dance card is always empty...')");
+//                $("#videochatwindow-right").removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#connecting').wait(56000).hide();
+                $('#right-name-yanina').wait(57000).show().text('Yanina').wait(87000).detach(":contains('Yanina')");
+                $('#right-status-yanina').wait(60000).show().text('Wait, what is a dance card?').wait(84000).detach(":contains('Wait, what is a dance card?')");
+            }
+            else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
+            {
+                // make sure name and status are empty
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165?autoplay=1";
+                $('#video-left').show();
+                $('#video-right').show();
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "40.5s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+                document.getElementById('video-left').classList.add("jitterLeft");   
+                $('#left-name-ryan').detach(":contains('Ryan')");
+                $('#left-status-ryan').detach(":contains('My dance card is always empty...')");
+                $('#left-name-alan').wait(14000).show().text('Alan').wait(113000).detach(":contains('Alan')");
+                $('#left-status-alan').wait(20000).show().text('My skin is too beautiful to keep hidden!').wait(107000).detach(":contains('My skin is too beautiful to keep hidden!')");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-yanina').detach(":contains('Yanina')");
+                $('#right-status-yanina').detach(":contains('Wait, what is a dance card?')");
+                $('#connecting').wait(39000).hide();
+                $('#right-name-yanina2').hide().wait(41000).show().text('Yanina').wait(86000).detach(":contains('Yanina')");
+                $('#right-status-yanina2').wait(48000).show().text('be boo, be boo bop').wait(79000).detach(":contains('be boo, be boo bop')");
+            }
+            else if (indicatedSegment.text == "Naomi") // POEM
+            {
+                // make sure name and status are empty
+                $('#connecting').show();
+ 
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165?autoplay=1";
+                $('#video-left').show();
+                $('#video-right').show(); 
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "26s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedAlan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-alan').detach(":contains('Alan')");
+                $('#left-status-alan').detach(":contains('My skin is too beautiful to keep hidden!')");
+                $('#left-status-alan').detach(":contains('I live in the palace of my imagination')");
+                $('#left-name-naomi').wait(5000).show().text('Naomi').wait(163000).detach(":contains('Naomi')");
+                $('#left-status-naomi').wait(23000).show().text('I ply my craft from Paris to Versailles').wait(145000).detach(":contains('I ply my craft from Paris to Versailles')");
+                $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-yanina2').detach(":contains('Yanina')");
+                $('#right-status-yanina2').detach(":contains('be boo, be boo bop')");
+                $('#connecting').wait(25000).hide();
+                $('#right-name-ryan').wait(27000).show().text('Ryan').wait(120000).detach(":contains('Ryan')");
+                $('#right-status-ryan').wait(28000).show().text('Sonic love ballads for sale...cheap').wait(119000).detach(":contains('Sonic love ballads for sale...cheap')");
+            }
+        } // END TRACK 1 BY COUNTER
+
+            // BEGIN TRACK 2 BY COUNTER
+            if (n == 2) {
+
+            // Show Different Videos in DIV based on indicatedSegment
+            if (indicatedSegment.text == "Ryan") // DRILL
+            { 
+                // make sure name and status are empty
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369177617.sd.mp4?s=e729c7a1e59fb1e7489174d71d62d1c8b8275ec2&profile_id=165?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369177468.sd.mp4?s=f9925b27525b46000f7cfad150349788fbbee2c8&profile_id=165?autoplay=1";
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').show();
+                $('#video-right').show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "29.5s");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-ryan').wait(9000).show().text('Ryan').wait(182000).detach(":contains('Ryan')");
+                $('#left-status-ryan').wait(10000).show().text('Polyglotinous...').wait(181000).detach(":contains('Polyglotinous...')");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#connecting').wait(28000).hide();
+                $('#right-name-yanina').wait(29000).show().text('Yanina').wait(189000).detach(":contains('Yanina')");
+                $('#right-status-yanina').wait(36000).show().text('A skeptical believer.').wait(182000).detach(":contains('A skeptical believer.')");
+            }
+            else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
+            {
+                // make sure name and status are empty
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165?autoplay=1";
+                $('#video-left').show();
+                $('#video-right').show();
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "40.5s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+                document.getElementById('video-left').classList.add("jitterLeft");   
+                $('#left-name-ryan').detach(":contains('Ryan')");
+                $('#left-status-ryan').detach(":contains('Polyglotinous...')");
+                $('#left-name-alan').wait(14000).show().text('Alan').wait(113000).detach(":contains('Alan')");
+                $('#left-status-alan').wait(20000).show().text('My skin is too beautiful to keep hidden!').wait(107000).detach(":contains('My skin is too beautiful to keep hidden!')");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-yanina').detach(":contains('Yanina')");
+                $('#right-status-yanina').detach(":contains('A skeptical believer.')");
+                $('#right-status-yanina2').detach(":contains('Oops! I left the camera on...')");
+                $('#connecting').wait(39000).hide();
+                $('#right-name-yanina2').hide().wait(41000).show().text('Yanina').wait(86000).detach(":contains('Yanina')");
+                $('#right-status-yanina2').wait(48000).show().text('be boo, be boo bop').wait(79000).detach(":contains('be boo, be boo bop')");
+            }
+            else if (indicatedSegment.text == "Naomi") // HARP
+            {
+                // make sure name and status are empty
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369176601.sd.mp4?s=ba330522843dbe23a8f8326208d6fab244f9fc61&profile_id=164?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369175753.sd.mp4?s=4c6f3ad2f38124a17c213f30706a3e9b4c95d14d&profile_id=165?autoplay=1";
+                $('#video-left').show();
+                $('#video-right').show(); 
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "48.5s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedAlan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-alan').detach(":contains('Alan')");
+                $('#left-status-alan').detach(":contains('My skin is too beautiful to keep hidden!')");
+                $('#left-status-alan').detach(":contains('I live in the palace of my imagination')");
+                $('#left-name-naomi').wait(10000).show().text('Naomi').wait(175000).detach(":contains('Naomi')");
+                $('#left-status-naomi').wait(20000).show().text('How do you like me now that I am smiling?').wait(165000).detach(":contains('How do you like me now that I am smiling?')");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-yanina2').detach(":contains('Yanina')");
+                $('#right-status-yanina2').detach(":contains('be boo, be boo bop')");
+                $('#connecting').wait(47000).hide();
+                $('#right-name-yanina3').wait(49000).show().text('Yanina').wait(136000).detach(":contains('Yanina')");
+                $('#right-status-yanina3').wait(51000).show().text('My inner rage on outer display.').wait(134000).detach(":contains('My inner rage on outer display.')");
+            }
+            else if (indicatedSegment.text == "Yanina") // NAKED IN SF
+            {
+                // make sure name and status are empty
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369089997.sd.mp4?s=3bcc122e733c56fb24083e84463cd2849484f62e&profile_id=164?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369089951.sd.mp4?s=b13c69637d02feaca1fb01597fefb687a02a55b2&profile_id=164?autoplay=1";
+                $("#videochat1").show();
+                $("#videochat2").show();              
+                $('#video-left').show();
+                $('#video-right').show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "32.5s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedNaomi");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-naomi').detach(":contains('Naomi')");
+                $('#left-status-naomi').detach(":contains('How do you like me now that I am smiling?')");
+                $('#left-name-yanina').wait(9000).show().text('Yanina').wait(95000).detach(":contains('Yanina')");
+                $('#left-status-yanina').wait(10000).show().text('I want to go hunt for treasure.').wait(94000).detach(":contains('I want to go hunt for treasure.')");
+                $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-yanina3').detach(":contains('Yanina')");
+                $('#right-status-yanina3').detach(":contains('My inner rage on outer display.')");
+                $('#right-name-ryan').detach(":contains('Ryan')").hide();
+                $('#right-status-ryan').detach(":contains('Is it too late to turn back...?')").hide();
+                $('#connecting').wait(32000).hide();
+                $('#right-name-ryan').wait(34000).show().text('Ryan').wait(73000).detach(":contains('Ryan')");
+                $('#right-status-ryan').wait(44000).show().text('Is it too late to turn back...?').wait(71000).detach(":contains('Is it too late to turn back...?')");                
+            }
+        } // END TRACK 2 BY COUNTER
+
+            // BEGIN TRACK 3 BY COUNTER
+            if (n == 3) {
+
+            // Show Different Videos in DIV based on indicatedSegment
+            if (indicatedSegment.text == "Ryan") // EYEBALL
+            { 
+                // make sure name and status are empty
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369179252.sd.mp4?s=ea4b2e9c7187a10101aa7e8a1672a3d6aeb7ba09&profile_id=165?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369179202.sd.mp4?s=2ae3bf5299b9824adfe8bdb795376d07fcaa503a&profile_id=165?autoplay=1";
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').show();
+                $('#video-right').show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "18s");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-left').classList.add("jitterLeft");
+                $('#left-name-ryan').wait(5000).show().text('Ryan').wait(86000).detach(":contains('Ryan')");
+                $('#left-status-ryan').wait(8000).show().text('I float like a butterfly...').wait(83000).detach(":contains('I float like a butterfly...')");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#connecting').wait(15000).hide();
+                $('#right-name-yanina').wait(16000).show().text('Yanina').wait(75000).detach(":contains('Yanina')");
+                $('#right-status-yanina').wait(38000).show().text('I might be your lucky starrr...').wait(69000).detach(":contains('I might be your lucky starrr...')");
+            }
+            else if (indicatedSegment.text == "Naomi") // POEM
+                // make sure name and status are empty
+                $('#connecting').show();
+ 
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165?autoplay=1";
+                $('#video-left').show();
+                $('#video-right').show(); 
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "26s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-ryan').detach(":contains('Ryan')");
+                $('#left-status-ryan').detach(":contains('I float like a butterfly...')");
+                $('#left-name-naomi').wait(5000).show().text('Naomi').wait(163000).detach(":contains('Naomi')");
+                $('#left-status-naomi').wait(23000).show().text('I ply my craft from Paris to Versailles').wait(145000).detach(":contains('I ply my craft from Paris to Versailles')");
+                $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-yanina').detach(":contains('Yanina')");
+                $('#right-status-yanina').detach(":contains('I might be your lucky starrr...')");
+                $('#connecting').wait(25000).hide();
+                $('#right-name-ryan').wait(27000).show().text('Ryan').wait(120000).detach(":contains('Ryan')");
+                $('#right-status-ryan').wait(28000).show().text('Sonic love ballads for sale...cheap').wait(119000).detach(":contains('Sonic love ballads for sale...cheap')");
+            }
+            else if (indicatedSegment.text == "Yanina") // NAKED IN SF
+            {
+                // make sure name and status are empty
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "https://player.vimeo.com/external/369089997.sd.mp4?s=3bcc122e733c56fb24083e84463cd2849484f62e&profile_id=164?autoplay=1";
+                document.getElementById('video-right').src = "https://player.vimeo.com/external/369089951.sd.mp4?s=b13c69637d02feaca1fb01597fefb687a02a55b2&profile_id=164?autoplay=1";
+                $("#videochat1").show();
+                $("#videochat2").show();              
+                $('#video-left').show();
+                $('#video-right').show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "32.5s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedNaomi");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-naomi').detach(":contains('Naomi')");
+                $('#left-status-naomi').detach(":contains('I ply my craft from Paris to Versailles')");
+                $('#left-name-yanina').wait(9000).show().text('Yanina').wait(95000).detach(":contains('Yanina')");
+                $('#left-status-yanina').wait(10000).show().text('I want to go hunt for treasure.').wait(94000).detach(":contains('I want to go hunt for treasure.')");
+//                $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-ryan').detach(":contains('Ryan')");
+                $('#right-status-ryan').detach(":contains('Sonic love ballads for sale...cheap')");
+                $('#connecting').wait(32000).hide();
+                $('#right-name-ryan2').wait(34000).show().text('Ryan').wait(73000).detach(":contains('Ryan')");
+                $('#right-status-ryan2').wait(44000).show().text('Is it too late to turn back...?').wait(71000).detach(":contains('Is it too late to turn back...?')");  
+            }
+            else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
+            {
+                // make sure name and status are empty
+                $('#connecting').show();
+
+                document.getElementById('video-left').src = "assets/video/Alan-WILD-Yanina-Dance.mp4";
+                document.getElementById('video-right').src = "assets/video/Alan-WILD-Yanina-Dance-Reaction.mp4";
+                $('#video-left').show();
+                $('#video-right').show();
+                $("#videochat1").show();
+                $("#videochat2").show();
+                $('#video-left').get(0).play();
+                $('#video-right').get(0).play();
+                $("body").get(0).style.setProperty("--jitter", "40.5s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedYanina");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-yanina').detach(":contains('Yanina')");
+                $('#left-status-yanina').detach(":contains('I want to go hunt for treasure.')");
+                $('#left-name-alan').wait(14000).show().text('Alan').wait(113000).detach(":contains('Alan')");
+                $('#left-status-alan').wait(20000).show().text('I live in the palace of my imagination').wait(107000).detach(":contains('I live in the palace of my imagination')");
+                $("#videochatwindow-right").removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-ryan2').detach(":contains('Ryan')");
+                $('#right-status-ryan2').detach(":contains('Is it too late to turn back...?')");
+                $('#connecting').wait(39000).hide();
+                $('#right-name-yanina2').wait(41000).show().text('Yanina').wait(86000).detach(":contains('Yanina')");
+                $('#right-status-yanina2').wait(42000).show().text('Oops! I left the camera on...').wait(85000).detach(":contains('Oops! I left the camera on...')");
+            }
+        } // END TRACK 3 BY COUNTER
+    });
+    }
+
+        // ------------------------------------
+        // Report User Alert Button on Videos
+        // ------------------------------------
+
+        function reportUser(indicatedSegment) {
+            $('#video-left').get(0).pause();
+            $('#video-right').get(0).pause();
+
+            document.getElementById("videochatwindow-left").removeAttribute("class");
+            document.getElementById("videochatwindow-right").removeAttribute("class");
+
+            alert_audio.pause();
+            alert_audio.currentTime = 0;
+            alert_audio.play();
+
+            myHandler();
+        }
+
+        // ----------------------------------------------------------------------------
+        // Function to reset SPIN button/wheel after videos end or after report button
+        // ----------------------------------------------------------------------------
+
+        document.getElementById('video-left').addEventListener('ended',myHandler,false);
+        document.getElementById('video-right').addEventListener('ended',myHandler,false);
+
+        function myHandler(e) {
+
+            // Enable Spin Button so it can click again while wheel is spinning
+            document.getElementById('spin_button').classList.remove('disabled');
+            document.getElementById('mspin_button').classList.remove('disabled');
+
+            // Disable Thrill Level buttons so they can't be clicked while wheel is spinning
+            document.getElementById('pw1').classList.remove('disabled');
+            document.getElementById('pw2').classList.remove('disabled');
+            document.getElementById('pw3').classList.remove('disabled');
+
+            // Mobile Version
+            document.getElementById('mpw1').classList.remove('disabled');
+            document.getElementById('mpw2').classList.remove('disabled');
+            document.getElementById('mpw3').classList.remove('disabled');
+
+            // Spin counter
+            if (i == 5) {
+                i = 1;
+            }
+            i++;
+
+            // After Event - pause all videos
+            $('#video-left').get(0).pause();
+            $('#video-right').get(0).pause();
+
+            // Hide all name and status divs
+            $('#left-name-ryan').hide();
+            $('#left-status-ryan').hide();
+            $('#right-name-ryan').hide();
+            $('#right-status-ryan').hide();
+            $('#right-name-ryan2').hide();
+            $('#right-status-ryan2').hide();
+
+            $('#left-name-yanina').hide();
+            $('#left-status-yanina').hide();
+            $('#right-name-yanina').hide();
+            $('#right-status-yanina').hide();
+            $('#right-name-yanina2').hide();
+            $('#right-status-yanina2').hide();
+            $('#right-name-yanina3').hide();
+            $('#right-status-yanina3').hide();
+
+            $('#left-name-alan').hide();
+            $('#left-status-alan').hide();
+            $('#right-name-alan').hide();
+            $('#right-status-alan').hide();
+
+            $('#left-name-naomi').hide();
+            $('#left-status-naomi').hide();
+            $('#right-name-naomi').hide();
+            $('#right-status-naomi').hide();
+
+            // After video pause, hide video divs
+            // add the slide down animation here I think
+            // MIGHT need to remove hide for the left & right windows?
+            $("#videochat").hide();
+            $("#videochatwindow-left").hide();
+            $("#videochatwindow-right").hide();            
+            $("#videochat1").hide();
+            $("#videochat2").hide();
+            $("#report").hide();
+
+            // Now show the Main Container, Spin Wheel & Thrill Level Selection Panel
+            $("#thrill").show(); // this is now the main thrill wheel container
+            $("#wheel").show();
+            $("#title").show();
+            $("#home").show();
+
+            // After Slide Down - hide all videos
+            $('#video-left').delay(2000).hide();
+            $('#video-right').delay(2000).hide();
+
+            // Reset Videos
+            document.getElementById('video-left').src = "";
+            document.getElementById('video-right').src = "";
+            document.getElementById('videochatwindow-left').className = "col span_1_of_2 chatleft-gray noselect";
+            document.getElementById('videochatwindow-right').className = "col span_1_of_2 chatright-gray noselect";
+            document.getElementById('video-left').className = "";
+            document.getElementById('video-right').className = "";
+
+            theWheel.stopAnimation(false);  // Stop the animation, false as param so does not send callback function.
+/*            theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees. */
+            theWheel.rotationAngle = theWheel.rotationAngle % 360; // reset the wheel but keep its current position
+            theWheel.draw();                // Call draw to render changes to the wheel.
+
+            document.getElementById('pw1').classList.remove('pw1'); // Remove power level colors
+            document.getElementById('pw2').classList.remove('pw2'); // Remove power level colors
+            document.getElementById('pw3').classList.remove('pw3'); // Remove power level colors
+            document.getElementById('spin_button').classList.remove('spin_button', 'clickable');
+            document.getElementById('spin_button').classList.add('disabled');
+            // Mobile Version
+            document.getElementById('mpw1').classList.remove('mpw1'); // Remove power level colors
+            document.getElementById('mpw2').classList.remove('mpw2'); // Remove power level colors
+            document.getElementById('mpw3').classList.remove('mpw3'); // Remove power level colors
+            document.getElementById('mspin_button').classList.remove('mspin_button', 'clickable');
+            document.getElementById('mspin_button').classList.add('disabled');
+
+            // Make sure blueglow fader is working
+            document.getElementById('blueglow').classList.add('blueglow');
+            // Mobile Version
+            document.getElementById('mblueglow').classList.add('blueglow');
+
+            wheelSpinning = false;          // Reset power buttons to false so spin can be clicked again.
+
+        }
+
+    // Swap DIV windows for mobile on click
+        function SwapDivsWithClick(div1,div2)
+        {
+           d1 = document.getElementById('video-right');
+           d2 = document.getElementById('video-left');
+
+           // swap
+           d1.setAttribute('id','video-left');
+           d2.setAttribute('id','video-right');
+        }
+
+</script>
+    <script src="assets/js/vendor/bootstrap3.1.0/bootstrap.min.js"></script>
+    <!--script src="assets/css/bootstrap1.34.7/bootstrap-dialog.min.css"></script>
+    <script src="assets/js/vendor/bootstrap1.34.7/bootstrap-dialog.min.js"></script-->
+    </body>
+</html>

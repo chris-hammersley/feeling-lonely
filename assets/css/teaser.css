@@ -1,0 +1,458 @@
+body {
+  background-color: #fff;
+  font-family: Helvetica;
+  min-height: 2000px;
+  margin: 0px;
+  position: relative;
+}
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+.teaser-image-box{
+  width: 300px;
+ /* height: 125px; */
+/*  position: fixed; */
+  top:50%;
+  left:50%;
+  margin: -100px 0 0 -150px;
+  transition: 2s ease-in-out;
+}
+.teaser-image-box.animate{
+  -webkit-transform: translateX(300%);
+  transform: translateX(33%);
+  width: 1166px;
+}
+#container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: url("../images/background_white_outline.gif") no-repeat center center;
+  background-size: 50%;
+}
+#container-about {
+  width: 100%;
+  bottom: 0px;
+  display: none;
+  position: fixed;
+}
+.container{
+  clear: both;
+  height: 2000px;
+}
+#title {
+  text-align: justify;
+  color: #000;
+  font-size:24px;
+  padding-top:20px;
+  line-height: 26px;
+  padding-left:20px;
+  padding-right: 20px;
+  position: relative;
+  font-family: Helvetica;
+  z-index: 5;
+}
+span{
+  width:100%;
+  height:0.5em;
+  display:inline-block;
+}
+#teaser-box {
+  width: 100%;
+/*  height: 88%; */
+  margin-top: -70px;
+  transform: scale(0.865);
+/*  padding-left: 100px;
+  padding-right: 100px; */
+}
+#teaser {
+  width:100%; /* changed from 85% to center on screen */
+  height:70%;
+}
+/* Show to See All Divs
+div { outline: 1px solid red !important; } */
+
+/* Overlay Style for Thank You Video Box */
+.overlay {
+  background-color: #db8420;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: -33%;
+  display:none;
+  height: 100%;
+  overflow: hidden;
+  width: 33%;
+  z-index: 1;
+/*  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%); */
+}
+.selected {
+  animation: slide-in 2s forwards;
+  -webkit-animation: slide-in 2s forwards;
+}
+.dismiss {
+  animation: slide-out 5s forwards;
+  -webkit-animation: slide-out 5s forwards;
+}
+
+@keyframes slide-in {
+  0 {
+    -webkit-transform: translateX(0%);
+  }
+  100% {
+    -webkit-transform: translateX(100%);
+  }
+}
+
+@-webkit-keyframes slide-in {
+  0 {
+    transform: translateX(0%);
+  }
+  100%  {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-out {
+  0 {
+    transform: translateX(100%);
+  }
+  100%  {
+    transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes slide-out {
+  0 {
+    -webkit-transform: translateX(100%);
+  }
+  100%  {
+    -webkit-transform: translateX(0%);
+  }
+}
+/* MODAL ALERT */
+.modal {
+  width: 540px;
+  height: 200px;
+  font-size: 24px;
+  line-height: 26px;
+  position: fixed;
+  top: 30%; 
+  left: 30%;
+  background-color: #c175f4;
+  text-align: center;
+  z-index: 1; /* 1px higher than the overlay layer */
+}
+/* MODAL OK BUTTON */
+.modal-button {
+  position: relative;
+  font-size: 24px;
+  line-height: 40px;
+  border-size: 2px;
+  padding: 0 0 20px;
+  border: solid;
+  border-color: black;
+  margin-top: 40px;
+}
+/* ABOUT BLOCK */
+.about {
+  display: block;
+  z-index: 0;
+  padding-top: 50px;
+  padding-right: 140px;
+  font-size: 36px;
+  text-align: center;
+  background-color: #42bcf4;
+/*  position: absolute;
+  top:380px; */
+  width: 100%;
+/*  height: 2000px; */
+  height: 384px;
+}
+.clear {
+    clear:both;
+}
+/* VIDEO CHAT WINDOW ELEMENTS IN ORDER OF APPEARANCE */
+/*#thankyou-window{
+  background-color: #f4a941;
+  text-align: center;
+  position: absolute;
+  height: 2000px;
+  width: 33%
+  top: 0;
+  left: -33%;
+}*/
+#thanks{
+  position: fixed; /* needs to be absolute for wipe to work - nope */
+  margin-top: 50px;
+  left: 14.4%;
+  width: 320px;
+  height: 568px;
+  clip: rect(0px 320px 568px 0px);
+}
+.thanks-background {
+  position:relative;
+  height: 100%;
+  width: 33%;
+  display:inline-block;
+  background-color: #db8420;
+}
+.left-right {
+  overflow:hidden;
+  height:200px;
+  width:200px;
+  position:relative;
+  background-color:#333;
+}
+/*  COLUMN SETUP  */
+.col {
+  display: block;
+  float: left;
+  margin: 0 0 0 0%;
+}
+/*  GRID OF TWO  */
+.span_3_of_3 {
+  width: 100%;
+}
+.span_2_of_3 {
+  width: 66%;
+}
+.span_1_of_3 {
+  width: 33%;
+}
+/* CIRCLE BUTTONS */
+.round-button {
+  width:76px;
+}
+.round-button a {
+  display:block;
+  float:left;
+  width:100%;
+  padding-top:30%;
+  padding-bottom:20px;
+  line-height:13px;
+  text-align:center;
+  font-family:Helvetica sans-serif;
+  font-size:12px;
+  font-weight:600;
+  text-decoration:none;
+  z-index: 10;
+}
+.round-button-circle {
+  width: 100%;
+  height:0;
+  padding-bottom: 100%;
+  border-radius: 50%;
+  overflow:hidden;
+}
+.buttonWhite {
+  border: 1px solid #000000;
+  background: #f2f9f9; /* off white */
+  color:#2f2f30;
+}
+.buttonBlack {
+  border: 1px solid #000000;
+  background: #000000; /* black */
+  color: #ffffff;
+}
+.buttonWhiteText {
+  color:#2f2f30;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.buttonBlackText {
+  color: #fff;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.round-button-circle.buttonWhite:hover {
+  border: 1px solid #b74ef9;
+  background: #b74ef9; /*purple*/
+  color:#ffffff;
+}
+.round-button-circle.buttonBlack:hover {
+  border: 1px solid #de1b2e;
+  background: #de1b2e; /*red*/
+}
+.buttonText:hover {
+  color:#ffffff;
+}
+.buttonPurple {
+  border: 1px solid #b74ef9;
+  background: #b74ef9;
+  color:#2f2f30;
+  -webkit-transition: background 1s ease-in-out;
+  -moz-transition: background 1s ease-in-out;
+  -o-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
+}
+.buttonRed {
+  border: 1px solid #de1b2e;
+  background: #de1b2e;
+  color: #ffffff;
+  -webkit-transition: background 1s ease-in-out;
+  -moz-transition: background 1s ease-in-out;
+  -o-transition: background 1s ease-in-out;
+  transition: background 1s ease-in-out;
+}
+.buttonPurpleText {
+  color:#2f2f30;
+  font-size: 12px;
+  margin-top: 10px;
+  -webkit-transition: color 1s ease-in-out;
+  -moz-transition: color 1s ease-in-out;
+  -o-transition: color 1s ease-in-out;
+  transition: color 1s ease-in-out;
+}
+.buttonRedText {
+  color: #ffffff;
+  font-size: 12px;
+  margin-top: 10px;
+  -webkit-transition: color 1s ease-in-out;
+  -moz-transition: color 1s ease-in-out;
+  -o-transition: color 1s ease-in-out;
+  transition: color 1s ease-in-out;
+}
+/* BUTTON POSITION */
+.button-game {
+  position: absolute;
+  bottom: 20px;
+  margin-left: 60px;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+.button-about {
+  position: absolute;
+  bottom: 20px;
+  left: 160px;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+/* EMAIL POSITION */
+.form-group {
+  bottom: 20px;
+  margin-right: 140px;
+  display: inline;
+}
+.form {
+  position: absolute;
+  bottom: 20px;
+  left: 67%;
+}
+input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid black;
+  width:250px;
+}
+button {
+  background:none!important;
+  font-color: #000;
+  border:none; 
+  padding:0!important;
+  font: Helvetica;
+  cursor: pointer;
+  bottom: 20px;
+}
+a {
+  font-color: #000;
+  border:none; 
+  font: Helvetica;
+  cursor: pointer;
+  bottom: 20px;
+  font-size: 12px;
+  text-decoration: none;
+}
+#email-submit{
+  margin-right:35px;
+}
+#facebook, #instagram {
+  margin-right: 15px;
+}
+.bw{
+  color: #000000;
+}
+.email{
+  color: #f4a941; 
+}
+.facebook{
+  color: #15a6f8;
+}
+.instagram{
+  color: #b74ef9;
+}
+.imdb{
+  color: #de1b2e;
+}
+
+/* FOR PHONES 480 x 853 : NEEDS TO STAY THIS LARGE TO AFFECT ALL MOBILE DEVICES BELOW THIS - BUT NEED TO ADJUST & CENTER */
+
+@media screen and (max-width: 481px) {
+body{
+  height: 850px;
+  font-size:16px;
+}
+#title {
+  display: none;
+}
+#teaser-box {
+  margin-top: 58%;
+}
+ /* RECTANGULAR BUTTON */
+.rectangular-button {
+  width: 100%;
+  height: 40px;
+  background-color: black;
+  color: white;
+  padding-top: 15px;
+}
+.buttonBlue {
+  text-align: center;
+  border: none;
+  background: #15a6f8;
+  color: #ffffff;
+  position: fixed;
+  bottom:40px;
+}
+.buttonBlack {
+  text-align: center;
+  border: none;
+  background: #000000;
+  color: #000;
+  position: fixed;
+  bottom:0;
+}
+/* EMAIL POSITION */
+.form-group {
+  top: 20px;
+  display: inline;
+}
+.form {
+  top: 20px;
+  bottom:auto;
+  left: 5%;
+  width: 100%
+}
+input {
+  width: 160px;
+}
+#facebook, #instagram, #imdb {
+  margin-right:2%;
+}
+#game-mobile, #about-mobile{
+  display:block;
+}
+#email-submit{
+  margin-right:5%;
+}
+#game, #about-button{
+  display: none;
+}
+}

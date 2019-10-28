@@ -1,33 +1,20 @@
 <!DOCTYPE html>
+<html lang="en">
 <!--
     Winhweel.js one image per segment wheel example by Douglas McKechie @ www.dougtesting.net
-    See website for tutorials and other documentation.
-
     The MIT License (MIT)
     Copyright (c) 2016 Douglas McKechie
-
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
     in the Software without restriction, including without limitation the rights
     to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
     copies of the Software, and to permit persons to whom the Software is
     furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
 -->
-<html lang="en">
     <head>
-        <title>Are You Feeling Lonely...?</title>
+        <title>ways of forgetting</title>
         <meta charset="UTF-8">
+        <meta name="author" content="Chris Hammersley">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600&amp;subset=latin-ext" rel="stylesheet">
@@ -41,22 +28,24 @@
         <script src="assets/js/plugins/Winwheel.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-        <!--script src="assets/js/vendor/jquery-1.12.0.min.js"></script-->
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/plugins/swup.min.js"></script>
     </head>
     <body>
         <div class="container">
             <!-- TITLE -->
-              <h1 class="my-4"><em>ways of forgetting</em>
+              <h1 id="title" class="my-4"><em>ways of forgetting</em>
                 <small>...a wheel of chance connections...</small>
               </h1>
             <!-- SPIN WHEEL & THRILL LEVEL SELECTOR - CENTERED -->
               <div id="thrill" class="row">
                 <div class="col-md-5">
-                  <h3>Choose a Thrill Level.<br /> Then Click Spin.</h3>
-                        <div id="pw1" class="power" onClick="powerSelected(1);"><p>Truth/Dare</p></div>
-                        <div id="pw2" class="power" onClick="powerSelected(2);"><p>Move Me</p></div>
-                        <div id="pw3" class="power" onClick="powerSelected(3);"><p>Wild Card</p></div>
-                        <img id="spin_button" class="disabled" src="assets/images/spin_off.png" alt="Spin" onClick="startSpin();" />
+                  <h3>Choose a Thrill Level.</h3>
+                        <div id="pw1" class="triangle-up" onClick="powerSelected(1);"><p>Truth/Dare</p></div>
+                        <div id="pw2" class="triangle-left" onClick="powerSelected(2);"><p>Move Me</p></div>
+                        <div id="pw3" class="triangle-right" onClick="powerSelected(3);"><p>Wild Card</p></div>
+                        <img id="spin_button" class="disabled triangle-down" src="assets/images/spin_off.png" alt="Spin" onClick="startSpin();" />
                 </div>
                 <div class="col-md-7" id="wheel" width="421" height="564" align="center" valign="center">
                     <canvas class="img-fluid rounded mb-3 mb-md-0" id="canvas" width="420" height="420">
@@ -64,33 +53,33 @@
                         </canvas>
                 </div>
               </div>
+          </div>
             <!-- /SPIN WHEEL -->
 
             <!-- LEFT VIDEO CHAT WINDOW -->
-              <div id="videochatwindow" class="row" hidden>
-                <div class="col-lg-6 portfolio-item">
-                  <div class="card h-100">
+              <div id="videochatwindow-left" class="col-lg-6" hidden>
+                  <div>
                         <!-- START Video Chat Ryan Player 1-->  
                         <div id="videochat1" hidden>
-                            <video src="assets/video/Ryan-TD-Yanina-Edit1.mp4" type="video/mp4" id="ryan1" width="300">
+                            <video src="assets/video/Ryan-TD-Yanina-Edit3.mp4" type="video/mp4" id="ryan1" width="300">
                               video not supported
                             </video>
                             <div class="overlay-name">
                               <h4>
                                 Ryan Masson
                               </h4>
-                              <p class="overlay-status">I've got that eye...</p>
+                              <p class="overlay-status">Always on the outskirts of LA...</p>
                             </div>
                         </div>
                         <div id="videochat3" hidden>
-                            <video src="assets/video/Ryan-TD-Yanina-Edit2.mp4" type="video/mp4" id="ryan2" width="300">
+                            <video src="assets/video/Ryan-TD-Yanina-Edit3.mp4" type="video/mp4" id="ryan2" width="300">
                               video not supported
                             </video>
                             <div class="overlay-name">
                               <h4>
                                 Ryan Masson
                               </h4>
-                              <p class="overlay-status">I definitely want to get close to someone tonight</p>
+                              <p class="overlay-status">Always on the outskirts of LA...</p>
                             </div>
                         </div>
                         <div id="videochat5" hidden>
@@ -101,7 +90,7 @@
                               <h4>
                                 Ryan Masson
                               </h4>
-                              <p class="overlay-status">Looking for the key to love</p>
+                              <p class="overlay-status">Does anyone see me? the real me...</p>
                             </div>
                         </div>
                         <div id="videochat7" hidden>
@@ -125,7 +114,7 @@
                               <h4>
                                 Yanina Orellana
                               </h4>
-                              <p class="overlay-status">Spinning and spinning around this crazy universe!</p>
+                              <p class="overlay-status">I feel like a leaf on the wind...</p>
                             </div>
                         </div>
                         <div id="videochat11" hidden>
@@ -136,17 +125,17 @@
                               <h4>
                                 Yanina Orellana
                               </h4>
-                              <p class="overlay-status">Spinning and spinning around this crazy universe!</p>
+                              <p class="overlay-status">I wanna get away from this place and go somewhere that's new.</p>
                             </div>
                         </div>
                   </div>
                 </div>
                 <!-- RIGHT VIDEO CHAT WINDOW -->
-                <div id="videochatwindow" class="col-lg-6 portfolio-item">
-                  <div class="card h-100">
+                <div id="videochatwindow-right" class="col-lg-6">
+                  <div>
                     <!-- START Video Chat Yanina Player 2-->
-                        <div id="videochat2" hidden>
-                            <video src="assets/video/Ryan-TD-Yanina-Reaction-Edit1.mp4" type="video/mp4" id="yanina1" width="300">
+                        <div id="videochat2" class="swing" hidden>
+                            <video src="assets/video/Ryan-TD-Yanina-Reaction-Edit3.mp4" type="video/mp4" id="yanina1" width="300">
                               video not supported
                             </video>
                             <div class="overlay-name">
@@ -156,18 +145,18 @@
                               <p class="overlay-status">Giddy in Guadalajara, Mexico</p>
                             </div>
                         </div>
-                        <div id="videochat4" hidden>
-                            <video src="assets/video/Ryan-TD-Yanina-Reaction-Edit2.mp4" type="video/mp4" id="yanina2" width="300">
+                        <div id="videochat4" class="swing" hidden>
+                            <video src="assets/video/Ryan-TD-Yanina-Reaction-Edit3.mp4" type="video/mp4" id="yanina2" width="300">
                               video not supported
                             </video>
                             <div class="overlay-name">
                               <h4>
                                 Yanina Orellana
                               </h4>
-                              <p class="overlay-status">Must move, must get...away?</p>
+                              <p class="overlay-status">Giddy in Guadalajara, Mexico</p>
                             </div>
                         </div>
-                        <div id="videochat6" hidden>
+                        <div id="videochat6" class="swing" hidden>
                             <video src="assets/video/Ryan-WILD-Yanina-Reaction-Edit1.mp4" type="video/mp4" id="yanina3" width="300">
                               video not supported
                             </video>
@@ -175,10 +164,10 @@
                               <h4>
                                 Yanina Orellana
                               </h4>
-                              <p class="overlay-status">Struggling to connect with someone who has disconnected.</p>
+                              <p class="overlay-status">I hate separations...</p>
                             </div>
                         </div>
-                        <div id="videochat8" hidden>
+                        <div id="videochat8" class="swing" hidden>
                             <video src="assets/video/Ryan-WILD-Yanina-Reaction-Edit3.mp4" type="video/mp4" id="yanina4" width="300">
                               video not supported
                             </video>
@@ -191,7 +180,7 @@
                         </div>
                      <!-- END Video Chat Yanina Player 2-->
                     <!-- START Video Chat Ryan Player 2-->
-                        <div id="videochat10" hidden>
+                        <div id="videochat10" class="swing" hidden>
                             <video src="assets/video/Yanina-MOVE-Ryan-Reaction-Edit1.mp4" type="video/mp4" id="ryan5" width="300">
                               video not supported
                             </video>
@@ -199,10 +188,10 @@
                               <h4>
                                 Ryan Masson
                               </h4>
-                              <p class="overlay-status">Dancing to my own beat</p>
+                              <p class="overlay-status">I'll huff and I'll puff and I'll blow...</p>
                             </div>
                         </div>
-                        <div id="videochat12" hidden>
+                        <div id="videochat12" class="swing" hidden>
                             <video src="assets/video/Yanina-MOVE-Ryan-Reaction-Edit3.mp4" type="video/mp4" id="ryan6" width="300">
                               video not supported
                             </video>
@@ -210,10 +199,10 @@
                               <h4>
                                 Ryan Masson
                               </h4>
-                              <p class="overlay-status">I feel it coming in the air tonight, oh lord</p>
+                              <p class="overlay-status">I hide myself, from myself</p>
                             </div>
                         </div>
-                        <div id="videochat14" hidden>
+                        <div id="videochat14" class="swing" hidden>
                             <video src="assets/video/Yanina-MOVE-Ryan-Reaction-Edit4.mp4" type="video/mp4" id="ryan7" width="300">
                               video not supported
                             </video>
@@ -227,12 +216,173 @@
                     <!-- END Video Chat Ryan Player 2-->
                   </div>
                 </div>
-            </div>
 
-        <div class="button-group">
-            <a href="#" id="report" hidden class="btn btn-outline-primary button-sm" onClick="reportUser();">Report User</a>
-            <a href="https://www.merylmurman.me/film-ways-of-forgetting/" id="leave" hidden class="btn btn-outline-primary button-sm" target="new">Get Me Out of Here!</a>
-        </div>
+        <!-- BEGIN LEFT VIDEO CHAT WINDOW >
+        <div id="videochat" class="container flex-direction">
+              <div id="videochatwindow-left" class="a-slide" hidden>
+                  <div class="div1">
+                        <!-- START Video Chat Ryan Player 1>  
+                        <div id="videochat1" hidden>
+                            <video src="https://player.vimeo.com/external/318304940.sd.mp4?s=25006a11709acb32def466cedbd7df526a7b98eb&profile_id=165?autoplay=1" type="video/mp4" id="ryan1">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Ryan Masson
+                              </h4>
+                              <p class="overlay-status">Always on the outskirts of LA...</p>
+                            </div>
+                        </div>
+                        <div id="videochat3" hidden>
+                            <video src="https://player.vimeo.com/external/318304940.sd.mp4?s=25006a11709acb32def466cedbd7df526a7b98eb&profile_id=165?autoplay=1" type="video/mp4" id="ryan2">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Ryan Masson
+                              </h4>
+                              <p class="overlay-status">Always on the outskirts of LA...</p>
+                            </div>
+                        </div>
+                        <div id="videochat5" hidden>
+                            <video src="assets/video/Ryan-WILD-Yanina-Edit1.mp4" type="video/mp4" id="ryan3">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Ryan Masson
+                              </h4>
+                              <p class="overlay-status">Does anyone see me? the real me...</p>
+                            </div>
+                        </div>
+                        <div id="videochat7" hidden>
+                            <video src="assets/video/Ryan-WILD-Yanina-Edit3.mp4" type="video/mp4" id="ryan4">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Ryan Masson
+                              </h4>
+                              <p class="overlay-status">hey bebo, mi scias, ke vi ne ŝatos min</p>
+                            </div>
+                        </div>
+                        <!-- END Video Chat Ryan Player 1 >
+                        <!-- START Video Chat Yanina Player 1>
+                        <div id="videochat9" hidden>
+                            <video src="assets/video/Yanina-MOVE-Ryan-Edit1.mp4" type="video/mp4" id="yanina5">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Yanina Orellana
+                              </h4>
+                              <p class="overlay-status">I feel like a leaf on the wind...</p>
+                            </div>
+                        </div>
+                        <div id="videochat11" hidden>
+                            <video src="assets/video/Yanina-MOVE-Ryan-Edit3.mp4" type="video/mp4" id="yanina6">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Yanina Orellana
+                              </h4>
+                              <p class="overlay-status">I wanna get away from this place and go somewhere that's new.</p>
+                            </div>
+                        </div>
+                  </div>
+                </div>
+                <!-- RIGHT VIDEO CHAT WINDOW >
+                <div id="videochatwindow-right" class="a-slide" hidden>
+                  <div class="div2">
+                    <!-- START Video Chat Yanina Player 2>
+                        <div id="videochat2" class="swing" hidden>
+                            <video src="https://player.vimeo.com/external/318305056.sd.mp4?s=ebdaae5adc5491bf8d718b64912c1c784a1ebaaa&profile_id=165?autoplay=1" type="video/mp4" id="yanina1">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Yanina Orellana
+                              </h4>
+                              <p class="overlay-status">Giddy in Guadalajara, Mexico</p>
+                            </div>
+                        </div>
+                        <div id="videochat4" class="swing" hidden>
+                            <video src="https://player.vimeo.com/external/318305056.sd.mp4?s=ebdaae5adc5491bf8d718b64912c1c784a1ebaaa&profile_id=165?autoplay=1" type="video/mp4" id="yanina2">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Yanina Orellana
+                              </h4>
+                              <p class="overlay-status">Giddy in Guadalajara, Mexico</p>
+                            </div>
+                        </div>
+                        <div id="videochat6" class="swing" hidden>
+                            <video src="assets/video/Ryan-WILD-Yanina-Reaction-Edit1.mp4" type="video/mp4" id="yanina3">
+                              video not supported
+                            </video>
+                            <div class="overlay-name hide" id="yanina-blurb">
+                              <h4>
+                                Yanina Orellana
+                              </h4>
+                              <p class="overlay-status">I hate separations...</p>
+                            </div>
+                        </div>
+                        <div id="videochat8" class="swing" hidden>
+                            <video src="assets/video/Ryan-WILD-Yanina-Reaction-Edit3.mp4" type="video/mp4" id="yanina4">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Yanina Orellana
+                              </h4>
+                              <p class="overlay-status">A sexy accent makes life interesting...</p>
+                            </div>
+                        </div>
+                     <!-- END Video Chat Yanina Player 2>
+                    <!-- START Video Chat Ryan Player 2>
+                        <div id="videochat10" class="swing" hidden>
+                            <video src="assets/video/Yanina-MOVE-Ryan-Reaction-Edit1.mp4" type="video/mp4" id="ryan5">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Ryan Masson
+                              </h4>
+                              <p class="overlay-status">I'll huff and I'll puff and I'll blow...</p>
+                            </div>
+                        </div>
+                        <div id="videochat12" class="swing" hidden>
+                            <video src="assets/video/Yanina-MOVE-Ryan-Reaction-Edit3.mp4" type="video/mp4" id="ryan6">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Ryan Masson
+                              </h4>
+                              <p class="overlay-status">I hide myself, from myself</p>
+                            </div>
+                        </div>
+                        <div id="videochat14" class="swing" hidden>
+                            <video src="assets/video/Yanina-MOVE-Ryan-Reaction-Edit4.mp4" type="video/mp4" id="ryan7">
+                              video not supported
+                            </video>
+                            <div class="overlay-name">
+                              <h4>
+                                Ryan Masson
+                              </h4>
+                              <p class="overlay-status">This must mean something...anything...please</p>
+                            </div>
+                        </div>
+                    <!-- END Video Chat Ryan Player 2>
+                  </div>
+                </div>
+            </div-->
+
+            <div class="round-button button-group" id="leave"><div class="round-button-circle"><a href="teaser.html" class="round-button">Home</a></div></div>
+
+            <div class="round-button button-report" id="report" hidden><div class="round-button-circle"><a href="#" class="round-button" onClick="reportUser();">Escape</a></div></div>
 
         <!-- JS -->
         <script src="assets/js/plugins/animate-headline.js"></script>
@@ -248,27 +398,45 @@
         // --------------------------------------------------------------------
         var theWheel = new Winwheel({
             'numSegments'       : 7,                 // Specify number of segments.
-            'pointerAngle'      : 0,                 // Sets the prize location selector
+//            'pointerAngle'      : 0,                 // Sets the prize location selector
             'outerRadius'       : 200,               // Set outer radius so wheel fits inside the background.
-            'drawText'          : true,              // Code drawn text can be used with segment images.
-            'textFontSize'      : 16,
-            'textOrientation'   : 'curved',
-            'textAlignment'     : 'inner',
-            'textMargin'        : 90,
-            'textFontFamily'    : 'monospace',
-            'textStrokeStyle'   : 'black',
-            'textLineWidth'     : 3,
-            'textFillStyle'     : 'white',
-            'drawMode'          : 'segmentImage',    // Must be segmentImage to draw wheel using one image per segment.
+            'drawText'          : false,              // Code drawn text can be used with segment images.
+            'textFontSize'      : 22,
+            'textOrientation'   : 'horizontal',
+            'textAlignment'     : 'outer',
+            'textDirection'     : 'reversed',     // Set direction. normal (default) or reversed.
+            'textMargin'        : 15,
+            'textFontFamily'    : 'Montserrat',
+//            'textStrokeStyle'   : 'black',
+//            'textLineWidth'     : 2,
+//            'textFillStyle'     : 'white',
+//            'drawMode'          : 'segmentImage',    // Must be segmentImage to draw wheel using one image per segment.
             'segments'          :                    // Define segments including image and text below.
             [
-               {'image' : 'assets/images/ryan.png',  'text' : 'Ryan'},
+              {'fillStyle' : '#939393', 'text' : 'Ryan'},
+              {'fillStyle' : '#565656', 'text' : 'Yanina'},
+              {'fillStyle' : '#858585', 'text' : 'Alan'},
+              {'fillStyle' : '#C0C0C0', 'text' : 'Jake'},
+              {'fillStyle' : '#5D5D5D', 'text' : 'Liv'},
+              {'fillStyle' : '#B0B0B0', 'text' : 'Naomi'},
+              {'fillStyle' : '#8F8F8F', 'text' : 'Julian'}
+              /* {'image' : 'assets/images/ryan.png',  'text' : 'Ryan'},
                {'image' : 'assets/images/yanina.png',   'text' : 'Yanina'},
                {'image' : 'assets/images/alan.png',  'text' : 'Alan'},
                {'image' : 'assets/images/jake.png',  'text' : 'Jake'},
                {'image' : 'assets/images/liv.png', 'text' : 'Liv'},
                {'image' : 'assets/images/naomi.png', 'text' : 'Naomi'},
-               {'image' : 'assets/images/julian.png',  'text' : 'Julian'}
+               {'image' : 'assets/images/julian.png',  'text' : 'Julian'} */
+            ],
+            'prizeAngle'        :                    // Define segments for each person's image angle
+            [
+                {'stopAtRyan' : (1 + Math.floor((Math.random() * 43))),},
+                {'stopAtYanina' : (50 + Math.floor((Math.random() * 43))),},
+                {'stopAtAlan' : (101 + Math.floor((Math.random() * 43))),},
+                {'stopAtJake' : (153 + Math.floor((Math.random() * 43))),},
+                {'stopAtLiv' : (204 + Math.floor((Math.random() * 43))),},
+                {'stopAtNaomi' : (256 + Math.floor((Math.random() * 43))),},
+                {'stopAtJulian' : (307 + Math.floor((Math.random() * 43))),},
             ],
             'animation' :           // Specify the animation to use.
             {
@@ -276,13 +444,14 @@
                 'duration' : 5,     // Duration in seconds.
                 'spins'    : 7,     // Number of complete spins
                 'callbackSound' : playSound,
-                'callbackFinished' : alertPrize
+                'callbackFinished' : alertPrize,
+                'callbackAfter' : 'drawTriangle()'
             },
             'pointerGuide' : 
             {
-                'display' : true,
+                'display' : false,
                 'strokeStyle' : 'orange',
-                'lineWidth' : 2
+                'lineWidth' : 4
             }
         });
 
@@ -295,15 +464,36 @@
         {
             // This formula always makes the wheel stop somewhere inside Yanina at least
             // 1 degree away from the start and end edges of the segment.
-            var stopAt = (50 + Math.floor((Math.random() * 43)))
+            //var stopAt = (50 + Math.floor((Math.random() * 43)))
+            var stopAt = prizeAngle
      
             // Important thing is to set the stopAngle of the animation before stating the spin.
+            // can this be a variable stopAtRyan/etc. if those variables are still active? would that still let it seem random among the remaining people? maybe a function to randomize prizeAngle?
             myWheel.animation.stopAngle = stopAt;
      
             // May as well start the spin from here.
             myWheel.startAnimation();
         }
-*/
+*/    
+            // Function to draw pointer using code
+            drawTriangle();
+         
+            function drawTriangle()
+            {
+                // Get the canvas context the wheel uses.
+                let ctx = theWheel.ctx;
+         
+                ctx.strokeStyle = 'black';     // Set line colour.
+                ctx.fillStyle   = 'dark-grey';     // Set fill colour.
+                ctx.lineWidth   = 2;
+                ctx.beginPath();              // Begin path.
+                ctx.moveTo(180, 2);           // Move to initial position.
+                ctx.lineTo(220, 2);           // Draw lines to make the shape.
+                ctx.lineTo(200, 140);
+                ctx.lineTo(180, 2);
+                ctx.stroke();                 // Complete the path by stroking (draw lines).
+                ctx.fill();                   // Then fill.
+            }
         
         // -------------------------------------------------------
         // Function to handle the callbackSound ticking.
@@ -427,22 +617,23 @@
 
         function myHandler(e) {
         // After Event - pause all videos
-            $('#ryan1').get(0).pause()
-            $('#ryan2').get(0).pause()
-            $('#ryan3').get(0).pause()            
-            $('#ryan4').get(0).pause()
-            $('#ryan5').get(0).pause()
-            $('#ryan6').get(0).pause()
-            $('#ryan7').get(0).pause()
-            $('#yanina1').get(0).pause()
-            $('#yanina2').get(0).pause()
-            $('#yanina3').get(0).pause()
-            $('#yanina4').get(0).pause()
-            $('#yanina5').get(0).pause()
-            $('#yanina6').get(0).pause()
+            $('#ryan1').get(0).pause();
+            $('#ryan2').get(0).pause();
+            $('#ryan3').get(0).pause();           
+            $('#ryan4').get(0).pause();
+            $('#ryan5').get(0).pause();
+            $('#ryan6').get(0).pause();
+            $('#ryan7').get(0).pause();
+            $('#yanina1').get(0).pause();
+            $('#yanina2').get(0).pause();
+            $('#yanina3').get(0).pause();
+            $('#yanina4').get(0).pause();
+            $('#yanina5').get(0).pause();
+            $('#yanina6').get(0).pause();
 
         // After video pause, hide video divs
-            $("#videochatwindow").hide();
+            $("#videochatwindow-left").hide();
+            $("#videochatwindow-right").hide();            
             $("#videochat1").hide();
             $("#videochat2").hide();
             $("#videochat3").hide();
@@ -459,6 +650,7 @@
 
             // Now show the Spin Wheel & Thrill Level Selection Panel
             $("#wheel").show();
+            $("#title").show();
             $("#thrill").show();
             $("#report").hide();
             $("#leave").show();
@@ -473,14 +665,14 @@
             document.getElementById('pw3').className = "";
             document.getElementById('spin_button').className = "disabled";
 
-            wheelSpinning = false;          // Reset to false to power buttons and spin can be clicked again.
+            wheelSpinning = false;          // Reset power buttons to false so spin can be clicked again.
 
             // Light up the spin button by changing it's source image and adding a clickable class to it.
             document.getElementById('spin_button').src = "assets/images/spin_on.png";
         }
 
         // -------------------------------------------------------
-        // Function for reset button.
+        // Function for reset button. REMOVED THIS cwh
         // -------------------------------------------------------
         function resetWheel()
         {
@@ -501,19 +693,19 @@
 
         function reportUser(indicatedSegment) {
         // After Report User - reset all videos
-            $('#ryan1').get(0).load()
-            $('#ryan2').get(0).load()
-            $('#ryan3').get(0).load()       
-            $('#ryan4').get(0).load()
-            $('#ryan5').get(0).load()
-            $('#ryan6').get(0).load()
-            $('#ryan7').get(0).load() 
-            $('#yanina1').get(0).load()
-            $('#yanina2').get(0).load()
-            $('#yanina3').get(0).load()
-            $('#yanina4').get(0).load()
-            $('#yanina5').get(0).load()
-            $('#yanina6').get(0).load()
+            $('#ryan1').get(0).load();
+            $('#ryan2').get(0).load();
+            $('#ryan3').get(0).load();      
+            $('#ryan4').get(0).load();
+            $('#ryan5').get(0).load();
+            $('#ryan6').get(0).load();
+            $('#ryan7').get(0).load();
+            $('#yanina1').get(0).load();
+            $('#yanina2').get(0).load();
+            $('#yanina3').get(0).load();
+            $('#yanina4').get(0).load();
+            $('#yanina5').get(0).load();
+            $('#yanina6').get(0).load();
  
         alert('This user has been reported. Thank you for your diligence in keeping our community safe.');
         
@@ -527,13 +719,73 @@
         // ---------------------------------------------------------------------------------------------------------------------------------------
         function alertPrize(indicatedSegment)
         {
-            // Do basic alert of the segment text. You would probably want to do something more interesting with this information.
+
+            // Get the number of the winning segment.
+            var winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
+            theWheel.segments[winningSegmentNumber].fillStyle = '#FF9933';
+            theWheel.draw();
+            drawTriangle();
+
+            // Do basic alert of the segment text.
             alert(indicatedSegment.text + ' says Hi! Are you ready to video chat?');
+         
+            /* Make the winning one yellow.
+            if (indicatedSegment.text == "Ryan")
+            {
+              theWheel.segments[1].fillStyle = '#FF9933';
+              theWheel.draw();
+              drawColorTriangle();
+              alert('Ryan says Hi! Are you ready to video chat?');
+            }
+            else if (indicatedSegment.text == "Yanina")
+            {
+              theWheel.segments[2].fillStyle = '#9900CC';  
+              theWheel.draw();
+              drawColorTriangle();
+              alert('Yanina says Hi! Are you ready to video chat?');
+            }
+            else if (indicatedSegment.text == "Jake")
+            {
+              theWheel.segments[3].fillStyle = '#00CCFF';
+              theWheel.draw();
+              drawColorTriangle();
+              alert('Jake says Hi! Are you ready to video chat?');
+            }
+            else if (indicatedSegment.text == "Alan")
+            {
+              theWheel.segments[4].fillStyle = '#0099CC';
+              theWheel.draw();
+              drawColorTriangle();
+              alert('Alan says Hi! Are you ready to video chat?');
+            }
+            else if (indicatedSegment.text == "Liv")
+            {
+              theWheel.segments[5].fillStyle = '#DB281F';
+              theWheel.draw();
+              drawColorTriangle();
+              alert('Liv says Hi! Are you ready to video chat?');
+            }
+            else if (indicatedSegment.text == "Naomi")
+            {
+              theWheel.segments[6].fillStyle = '#DBB51F';
+              theWheel.draw();
+              drawColorTriangle();
+              alert('Naomi says Hi! Are you ready to video chat?');
+            }
+            else if (indicatedSegment.text == "Julian") 
+            {
+              theWheel.segments[7].fillStyle = '#00CC00';
+              theWheel.draw();
+              drawColorTriangle();
+              alert('Julian says Hi! Are you ready to video chat?');
+            } */
 
             // Hide the Spin Wheel & Thrill Level Selection Panel
             $("#wheel").hide();
             $("#thrill").hide();
-            $("#videochatwindow").show();
+            $("#title").hide();
+            $("#videochatwindow-left").show();
+            $("#videochatwindow-right").show();
             $("#report").show();
             $("#leave").hide();
 
@@ -543,23 +795,23 @@
                 if (wheelPower == 1)
                 {
                     $("#videochat1").show();
-                    $('#ryan1').get(0).play()
+                    $('#ryan1').get(0).play();
                     $("#videochat2").show();
-                    $('#yanina1').get(0).play()
+                    $('#yanina1').get(0).play();
                 }
                 else if (wheelPower == 2)
                 {
                     $("#videochat9").show();
-                    $('#yanina5').get(0).play()
+                    $('#yanina5').get(0).play();
                     $("#videochat10").show();
-                    $('#ryan5').get(0).play()
+                    $('#ryan5').get(0).play();
                 }
                 else if (wheelPower == 3)
                 {
                     $("#videochat5").show();
-                    $('#ryan3').get(0).play()
+                    $('#ryan3').get(0).play();
                     $("#videochat6").show();
-                    $('#yanina3').get(0).play()
+                    $('#yanina3').get(0).play();
                 }
             }
             else if (indicatedSegment.text == "Yanina")
@@ -567,23 +819,23 @@
                 if (wheelPower == 1)
                 {
                     $("#videochat3").show();
-                    $('#ryan2').get(0).play()
+                    $('#ryan2').get(0).play();
                     $("#videochat4").show();
-                    $('#yanina2').get(0).play()
+                    $('#yanina2').get(0).play();
                 }
                 else if (wheelPower == 2)
                 {
                     $("#videochat11").show();
-                    $('#yanina6').get(0).play()
+                    $('#yanina6').get(0).play();
                     $("#videochat12").show();
-                    $('#ryan6').get(0).play()
+                    $('#ryan6').get(0).play();
                 }
                 else if (wheelPower == 3)
                 {
                     $("#videochat7").show();
-                    $('#ryan4').get(0).play()
+                    $('#ryan4').get(0).play();
                     $("#videochat8").show();
-                    $('#yanina4').get(0).play()
+                    $('#yanina4').get(0).play();
                 }
             }
             else if (indicatedSegment.text == "Jake")
@@ -591,23 +843,23 @@
                 if (wheelPower == 1)
                 {
                     $("#videochat1").show();
-                    $('#ryan1').get(0).play()
+                    $('#ryan1').get(0).play();
                     $("#videochat2").show();
-                    $('#yanina1').get(0).play()
+                    $('#yanina1').get(0).play();
                 }
                 else if (wheelPower == 2)
                 {
                     $("#videochat11").show();
-                    $('#yanina6').get(0).play()
+                    $('#yanina6').get(0).play();
                     $("#videochat14").show();
-                    $('#ryan7').get(0).play()
+                    $('#ryan7').get(0).play();
                 }
                 else if (wheelPower == 3)
                 {
                     $("#videochat5").show();
-                    $('#ryan3').get(0).play()
+                    $('#ryan3').get(0).play();
                     $("#videochat6").show();
-                    $('#yanina3').get(0).play()
+                    $('#yanina3').get(0).play();
                 }
             }
             else if (indicatedSegment.text == "Alan")
@@ -615,23 +867,23 @@
                 if (wheelPower == 1)
                 {
                     $("#videochat3").show();
-                    $('#ryan2').get(0).play()
+                    $('#ryan2').get(0).play();
                     $("#videochat4").show();
-                    $('#yanina2').get(0).play()
+                    $('#yanina2').get(0).play();
                 }
                 else if (wheelPower == 2)
                 {
                     $("#videochat9").show();
-                    $('#yanina5').get(0).play()
+                    $('#yanina5').get(0).play();
                     $("#videochat10").show();
-                    $('#ryan5').get(0).play()
+                    $('#ryan5').get(0).play();
                 }
                 else if (wheelPower == 3)
                 {
                     $("#videochat7").show();
-                    $('#ryan4').get(0).play()
+                    $('#ryan4').get(0).play();
                     $("#videochat8").show();
-                    $('#yanina4').get(0).play()
+                    $('#yanina4').get(0).play();
                 }
             }
             else if (indicatedSegment.text == "Liv")
@@ -639,23 +891,23 @@
                 if (wheelPower == 1)
                 {
                     $("#videochat1").show();
-                    $('#ryan1').get(0).play()
+                    $('#ryan1').get(0).play();
                     $("#videochat2").show();
-                    $('#yanina1').get(0).play()
+                    $('#yanina1').get(0).play();
                 }
                 else if (wheelPower == 2)
                 {
                     $("#videochat11").show();
-                    $('#yanina6').get(0).play()
+                    $('#yanina6').get(0).play();
                     $("#videochat12").show();
-                    $('#ryan6').get(0).play()
+                    $('#ryan6').get(0).play();
                 }
                 else if (wheelPower == 3)
                 {
                     $("#videochat5").show();
-                    $('#ryan3').get(0).play()
+                    $('#ryan3').get(0).play();
                     $("#videochat6").show();
-                    $('#yanina3').get(0).play()
+                    $('#yanina3').get(0).play();
                 }
             }
             else if (indicatedSegment.text == "Naomi")
@@ -663,23 +915,23 @@
                 if (wheelPower == 1)
                 {
                     $("#videochat3").show();
-                    $('#ryan2').get(0).play()
+                    $('#ryan2').get(0).play();
                     $("#videochat4").show();
-                    $('#yanina2').get(0).play()
+                    $('#yanina2').get(0).play();
                 }
                 else if (wheelPower == 2)
                 {
                     $("#videochat11").show();
-                    $('#yanina6').get(0).play()
+                    $('#yanina6').get(0).play();
                     $("#videochat14").show();
-                    $('#ryan7').get(0).play()
+                    $('#ryan7').get(0).play();
                 }
                 else if (wheelPower == 3)
                 {
                     $("#videochat7").show();
-                    $('#ryan4').get(0).play()
+                    $('#ryan4').get(0).play();
                     $("#videochat8").show();
-                    $('#yanina4').get(0).play()
+                    $('#yanina4').get(0).play();
                 }
             }
             else if (indicatedSegment.text == "Julian")
@@ -687,29 +939,26 @@
                 if (wheelPower == 1)
                 {
                     $("#videochat1").show();
-                    $('#ryan1').get(0).play()
+                    $('#ryan1').get(0).play();
                     $("#videochat2").show();
-                    $('#yanina1').get(0).play()
+                    $('#yanina1').get(0).play();
                 }
                 else if (wheelPower == 2)
                 {
                     $("#videochat9").show();
-                    $('#yanina5').get(0).play()
+                    $('#yanina5').get(0).play();
                     $("#videochat10").show();
-                    $('#ryan5').get(0).play()
+                    $('#ryan5').get(0).play();
                 }
                 else if (wheelPower == 3)
                 {
                     $("#videochat5").show();
-                    $('#ryan3').get(0).play()
+                    $('#ryan3').get(0).play();
                     $("#videochat6").show();
-                    $('#yanina3').get(0).play()
+                    $('#yanina3').get(0).play();
                 }
             }
         }
 </script>
-        <!-- Core JS Files -->
-        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     </body>
 </html>

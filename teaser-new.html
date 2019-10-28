@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ways of forgetting teaser</title>
+    
+    <!-- CSS-->
+    <link rel="stylesheet" href="assets/css/teaser.css">
+    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"-->
+
+    <!-- JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vissense/0.9.0/vissense.js"></script>
+
+    <!--script src="assets/js/plugins/swup.min.js"></script-->
+
+</head>
+<!-- START Original attempt basic HTML-->
+<body>
+    <div id="container">
+        <div id="title">a feature film by meryl murman
+          <span>&nbsp;<p>&nbsp;</p> </span>
+        </div>
+        <div class="container">
+            <div class="teaser-image-box">
+                <video src="https://player.vimeo.com/external/332264394.hd.mp4?s=b385ec8765fa05bedc98af90670c89a5693bd339&profile_id=175" poster="assets/images/Bridge.png" id="teaser" onclick="this.paused ? this.play() : this.pause();">
+                video not supported
+                </video>
+            </div>
+        </div>
+        <div class="round-button button-game" id="game">
+            <div class="round-button-circle colorWhite">
+                <a href="index.html" class="round-button colorWhiteText">Play Game</a>
+            </div>
+        </div>
+        <div class="round-button button-about">
+            <div class="round-button-circle colorBlack">
+                <a href="#" class="round-button colorBlackText colorText" onClick="scrollAbout();">About</a>
+            </div>
+        </div>
+        <div id="about" class="about slide-down">
+            <p>Seven millennials, running from their lonely, hyper-digitized existence,<br/>
+                cross paths while escaping into their imaginations.<br/>
+            Their outlandish dance towards self-discovery and interconnection <br/>
+            brings them face-to-face with parts of themselves they’d rather forget.</p>
+        </div>
+        <div id="alert" class="modal" data-toggle="modal" hidden><p>All of the MOTHERFLOCKERS <br/>thank you for signing up!</p>
+            <button id="ok-button" class="modal-button" data-dismiss="modal">&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <!--onclick="showThankYou();"-->
+        </div>
+        <div id="left-thankyou-window" class="overlay span1_of_3">
+            <video src="assets/video/thank-you.mp4" type="video/mp4" id="thanks" onclick="this.paused ? this.play() : this.pause();">
+              video not supported
+            </video>
+        </div>
+        <div class="clear"></div>
+            <div class="form-group">
+                <form class="form" action="https://docs.google.com/forms/u/4/d/e/1FAIpQLSeumUxbAatX7ilCfBDrBOY9kyxsaZ5TSRz8cWURJzQ4qv63_Q/formResponse" target="hidden_iframe" onsubmit="submitted=!0" method="POST" id="mG61Hd">
+                <input name="emailAddress" type="email" id="emailNewsletter" onfocus="this.placeholder=''" onBlur="this.placeholder='ways.of.forgetting@gmail.com'" placeholder="ways.of.forgetting@gmail.com">
+                <button name="fvv" id="email-submit" value="1" type="submit" style="padding-right:40px;">
+                Submit</button>
+                <button onClick="showAlert();">
+                Thank You</button>
+                <button onclick="https://www.facebook.com/flockdance.nola/" id="facebook">Fb</button>
+                <button onclick="https://www.instagram.com/motherflockers/" id="instagram">Ig</button>
+                <button onclick="https://www.imdb.com/title/tt7412176/" id="imdb">Imbd</button>
+                </form>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+            </div>
+    </div>
+<!-- END Basic HTML-->
+
+ 
+    <script>
+        $(window).scroll(function(){
+
+            console.log($(this).scrollTop());
+
+            if($(this).scrollTop()>=300){
+                $('.teaser-image-box').addClass('animate');
+            }else{
+                $('.teaser-image-box').removeClass('animate');
+            }
+        });
+
+        // --------------------------------------------------------------
+        // SLIDE ABOUT DIV
+        // --------------------------------------------------------------
+        function scrollAbout() {
+            //var tempScrollTop = $(window).scrollTop();
+            if (document.getElementById("about").classList.item(1) === "slide-up") {
+                document.getElementById("about").style.display = "block";
+                document.getElementById("about").classList.remove("slide-up");
+                document.getElementById("about").classList.add("slide-down");
+             //   $(window).scrollTop(tempScrollTop);
+                $('#teaser').get(0).play();
+            } else if (document.getElementById("about").classList.item(1) === "slide-down") {
+                document.getElementById("about").style.display = "block";
+                document.getElementById("about").classList.remove("slide-down");                
+                document.getElementById("about").classList.add("slide-up");
+                $('#teaser').get(0).pause();
+            }
+        }
+
+        // --------------------------------------------------------------
+        // SLIDE SIDEWAYS TO SHOW THANK YOU
+        // --------------------------------------------------------------
+
+            // SHOW MODAL ALERT
+            function showAlert() {
+                $("#alert").modal("show");
+     //           event.preventDefault();
+            }
+            // SHOW THANK YOU VIDEO
+            function showThankYou() {
+            $("#left-thankyou-window").show();
+            $("#thanks").get(0).play();
+    //        event.preventDefault();  
+            setTimeout(function() {
+            // replace the url in quotes below to where you want to the user to be redirected to
+            window.location = "file:///Users/IonMediaPortable/Box%20Sync/GitHub/feeling-lonely/teaser.html";
+            }, 30000);  
+            document.getElementById("mG61Hd").reset();            
+            }
+
+            document.getElementById('thanks').addEventListener('ended',myHandler,false);
+            function myHandler(e) {
+                // After video finishes - pause the video by ID
+                $('#thanks').get(0).pause();
+                // After video pauses, hide video div by ID
+                $("#left-thankyou-window").hide(); 
+            }
+
+            // SUBMIT EMAIL TO GOOGLE FORM
+            var submitted=false;
+                // Script to show dialogue and reset form
+                document.getElementById("email-submit").addEventListener("click", function(){
+                $("#alert").modal("show");
+                }, 1000);
+
+            // SLIDE RIGHT / LEFT THANK YOU
+            $("#ok-button").click(function() {
+                $("#left-thankyou-window").animate(
+                        {"width": "66%"},
+                        "slow");
+            });
+
+    </script>
+
+</body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
