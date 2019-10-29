@@ -456,7 +456,7 @@
             localStorage.setItem("on_load_counter", n);
             document.getElementById('counter').innerHTML = n;
 
-            if (n === 3) {
+            if (n === 4) {
                 localStorage.removeItem('on_load_counter');             
             }
 
@@ -826,14 +826,14 @@
                 $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
                 document.getElementById('video-left').classList.add("jitterLeft");   
-                $('#left-name-ryan').detach(":contains('Ryan')");
-                $('#left-status-ryan').detach(":contains('My dance card is always empty...')");
+                $('#left-name-ryan').detach(":contains('Ryan')").hide();
+                $('#left-status-ryan').detach(":contains('My dance card is always empty...')").hide();
                 $('#left-name-alan').wait(14000).show().text('Alan').wait(113000).detach(":contains('Alan')");
                 $('#left-status-alan').wait(20000).show().text('My skin is too beautiful to keep hidden!').wait(107000).detach(":contains('My skin is too beautiful to keep hidden!')");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-yanina').detach(":contains('Yanina')");
-                $('#right-status-yanina').detach(":contains('Wait, what is a dance card?')");
+                $('#right-name-yanina').detach(":contains('Yanina')").hide();
+                $('#right-status-yanina').detach(":contains('Wait, what is a dance card?')").hide();
                 $('#connecting').wait(39000).hide();
                 $('#right-name-yanina2').hide().wait(41000).show().text('Yanina').wait(86000).detach(":contains('Yanina')");
                 $('#right-status-yanina2').wait(48000).show().text('be boo, be boo bop').wait(79000).detach(":contains('be boo, be boo bop')");
@@ -916,14 +916,14 @@
                 $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
                 document.getElementById('video-left').classList.add("jitterLeft");   
-                $('#left-name-ryan').detach(":contains('Ryan')");
-                $('#left-status-ryan').detach(":contains('Polyglotinous...')");
+                $('#left-name-ryan').detach(":contains('Ryan')").hide();
+                $('#left-status-ryan').detach(":contains('Polyglotinous...')").hide();
                 $('#left-name-alan').wait(14000).show().text('Alan').wait(113000).detach(":contains('Alan')");
                 $('#left-status-alan').wait(20000).show().text('My skin is too beautiful to keep hidden!').wait(107000).detach(":contains('My skin is too beautiful to keep hidden!')");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-yanina').detach(":contains('Yanina')");
-                $('#right-status-yanina').detach(":contains('A skeptical believer.')");
+                $('#right-name-yanina').detach(":contains('Yanina')").hide();
+                $('#right-status-yanina').detach(":contains('A skeptical believer.')").hide();
                 $('#right-status-yanina2').detach(":contains('Oops! I left the camera on...')");
                 $('#connecting').wait(39000).hide();
                 $('#right-name-yanina2').hide().wait(41000).show().text('Yanina').wait(86000).detach(":contains('Yanina')");
@@ -946,15 +946,15 @@
                 $("#videochatwindow-left").removeClass("backgroundAnimatedAlan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
                 document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-alan').detach(":contains('Alan')");
-                $('#left-status-alan').detach(":contains('My skin is too beautiful to keep hidden!')");
-                $('#left-status-alan').detach(":contains('I live in the palace of my imagination')");
+                $('#left-name-alan').detach(":contains('Alan')").hide();
+                $('#left-status-alan').detach(":contains('My skin is too beautiful to keep hidden!')").hide();
+                $('#left-status-alan').detach(":contains('I live in the palace of my imagination')").hide();
                 $('#left-name-naomi').wait(10000).show().text('Naomi').wait(175000).detach(":contains('Naomi')");
                 $('#left-status-naomi').wait(20000).show().text('How do you like me now that I am smiling?').wait(165000).detach(":contains('How do you like me now that I am smiling?')");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-yanina2').detach(":contains('Yanina')");
-                $('#right-status-yanina2').detach(":contains('be boo, be boo bop')");
+                $('#right-name-yanina2').detach(":contains('Yanina')").hide();
+                $('#right-status-yanina2').detach(":contains('be boo, be boo bop')").hide();
                 $('#connecting').wait(47000).hide();
                 $('#right-name-yanina3').wait(49000).show().text('Yanina').wait(136000).detach(":contains('Yanina')");
                 $('#right-status-yanina3').wait(51000).show().text('My inner rage on outer display.').wait(134000).detach(":contains('My inner rage on outer display.')");
