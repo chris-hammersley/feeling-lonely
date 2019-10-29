@@ -513,11 +513,7 @@
                     stopAt = (205 + Math.floor((Math.random() * 43))); // Liv
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();
-                }  
-                if (i == 5) {
-                    i = 1;
-                }
-                i++;            
+                }             
             }
 
             if (n == 2) {
@@ -1160,10 +1156,17 @@
             document.getElementById('mpw3').classList.remove('disabled');
 
             // Spin counter
-            if (i == 5) {
-                i = 1;
+            if (n == 1) {
+                if (i == 4) {
+                    i = 1;
+                }
+                i++;                
             }
-            i++;
+            else 
+                if (i == 5) {
+                    i = 1;
+                }
+                i++;              
 
             // After Event - pause all videos
             $('#video-left').get(0).pause();
