@@ -456,7 +456,7 @@
             localStorage.setItem("on_load_counter", n);
             document.getElementById('counter').innerHTML = n;
 
-            if (n === 4) {
+            if (n === 3) {
                 localStorage.removeItem('on_load_counter');             
             }
 
@@ -532,12 +532,12 @@
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();
                 } 
-                if (i == 4) {
+                if (i == 4) /*{
                     stopAt = (51 + Math.floor((Math.random() * 43))); // Yanina
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();
                 }  
-                if (i == 5) {
+                if (i == 5) */{
                     stopAt = (308 + Math.floor((Math.random() * 43))); // Julian
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();                   
@@ -560,12 +560,12 @@
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();
                 } 
-                if (i == 4) {
+                if (i == 4) /*{
                     stopAt = (102 + Math.floor((Math.random() * 43))); // Alan
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();
                 }
-                if (i == 5) {
+                if (i == 5) */{
                     stopAt = (154 + Math.floor((Math.random() * 43))); // Jake
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();                    
@@ -1155,7 +1155,7 @@
             document.getElementById('mpw2').classList.remove('disabled');
             document.getElementById('mpw3').classList.remove('disabled');
 
-            // Spin counter
+            /* Spin counter attempt with 3 videos in round 1 vs 4 videos in rounds 2-3 
             if (n == 1) {
                 if (i == 4) {
                     i = 1;
@@ -1167,7 +1167,13 @@
                     i = 1;
                 }
                 i++;
-            }           
+            }       */    
+
+            // SPIN COUNTER CHECK
+            if (i == 4) {
+                i = 1;
+            }
+            i++;
 
             // After Event - pause all videos
             $('#video-left').get(0).pause();
