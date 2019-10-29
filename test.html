@@ -20,15 +20,8 @@
         <script src="assets/js/plugins/Winwheel.js"></script>        
         <script src="assets/js/vendor/TweenMax.min.js"></script>
         <script src="assets/js/vendor/jquery-2.1.1.min.js"></script>
-        <script src="assets/js/vendor/bootstrap3.1.0/bootstrap.min.js"></script>
         <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-        <!-- can I get rid of the 3 following js since they are part of TweenMax? -->
-        <!--script src="assets/js/plugins/gsap2.1.2/CSSPlugin.min.js"></script>
-        <script src="assets/js/plugins/gsap2.1.2/EasePack.min.js"></script>
-        <script src="assets/js/plugins/gsap2.1.2/TweenLite.min.js"></script>
-        <script src="assets/js/jquery-scrollto/lib/jquery-scrollto.js"></script-->
         <script src="assets/js/plugins/jquery.lettering-0.6.1.min.js"></script>
-        <!--script src="assets/js/plugins/jquery.visible.min.js"></script-->
         <script src="assets/js/plugins/circletype.min.js"></script>
         <script src="assets/js/plugins/jquery.wait.js"></script>
         <script src="assets/js/plugins/animate-headline.js"></script>
@@ -242,7 +235,6 @@
             <a id="counter" href="#"></a>
         </div>
 
-        <!-- JS -->
         <script>
         // -------------------------------------
         // Start Animated GIF then Fade to Page
@@ -266,6 +258,9 @@
             $("#pw2").wait(1200).addClass('triangle-left-animation');
             $("#pw1").wait(1500).addClass('triangle-up-animation');
             $("#pw3").wait(1700).addClass('triangle-right-animation');
+            $("#pw2").wait(1200).addClass('triangle-left-animation');
+            $("#pw1").wait(1500).addClass('triangle-up-animation');
+            $("#pw3").wait(1700).addClass('triangle-right-animation');
         }
 
         function firstScroll(){
@@ -273,8 +268,8 @@
         $(window).scroll(function(e) {   
             if($(window).scrollTop() >=675) {
                 $(window).scrollTop(675);
-            }
-        });
+                }
+            });
         }
 
         // Letter & Word formatting control: SPIN, CHOOSE, WHEEL OF CHANCE CONNECTIONS 
@@ -450,15 +445,19 @@
             var n = localStorage.getItem('on_load_counter');
             if (n === null) {
                 n = 0;
-            } 
+            }
+            else if (n >= 3) {
+                n = 0;
+            }
             n++;
 
             localStorage.setItem("on_load_counter", n);
             document.getElementById('counter').innerHTML = n;
 
-            if (n === 3) {
-                localStorage.removeItem('on_load_counter');             
-            }
+      /*      if (n >= 4) {
+            //    localStorage.removeItem('on_load_counter');
+                localStorage.setItem('on_load_counter', 1);    
+            }  */
 
         // -------------------------------------------------------
         // SPIN Counter - used to pick who the wheel lands on
@@ -514,7 +513,7 @@
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();
                 }             
-            }
+            } // CLOSES N1
 
             if (n == 2) {
                 if (i == 1) {
@@ -532,17 +531,12 @@
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();
                 } 
-                if (i == 4) /*{
-                    stopAt = (51 + Math.floor((Math.random() * 43))); // Yanina
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                }  
-                if (i == 5) */{
+                if (i == 4) {
                     stopAt = (308 + Math.floor((Math.random() * 43))); // Julian
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();                   
                 }          
-            }
+            } // CLOSES N2
 
             if (n == 3) {
                 if (i == 1) {
@@ -560,18 +554,13 @@
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();
                 } 
-                if (i == 4) /*{
-                    stopAt = (102 + Math.floor((Math.random() * 43))); // Alan
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                }
-                if (i == 5) */{
+                if (i == 4) {
                     stopAt = (154 + Math.floor((Math.random() * 43))); // Jake
                     theWheel.animation.stopAngle = stopAt; 
                     theWheel.startAnimation();                    
                 }         
-            }
-        } // END CALCULATE PRIZE
+            } //  CLOSES N3
+        } // END CALCULATE PRIZE FUNCTION
 
         // -------------------------------------------------------
         // Function to handle the onClick on the power buttons.
@@ -635,15 +624,14 @@
                 // Mobile Version
                 document.getElementById('mspin_button').classList.add("clickable", "mspin_button");
                 document.getElementById('mspin_button').classList.remove("disabled");
-            }
-        }
+            } // CLOSES MAIN IF
+        } // CLOSES POWER SELECTED FUNCTION
 
         // -------------------------------------------------------
         // Click handler for spin button.
         // -------------------------------------------------------
         function startSpin()
         {
-
             // Set the stopAngle of the animation before starting the spin
             theWheel.animation.stopAngle = stopAt;
 
@@ -669,12 +657,12 @@
 
                 // Set to true so that power can't be changed and spin button re-enabled
                 wheelSpinning = true;
-            }
-        }
+            } // CLOSES MAIN IF
+        } // CLOSES FUNCTION
 
         // ---------------------------------------------------------------------------------------------------------------------------------
         // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
-        // Indicated segment is passed as parameter as 99% of the time you will want to know this to inform the user of their prize.
+        // Indicated segment is passed as parameter.
         // ---------------------------------------------------------------------------------------------------------------------------------
         function alertPrize(indicatedSegment)
         {
@@ -717,12 +705,12 @@
             $('#alert').css('background', '#de1b2e');
             }
 
-            // Redraw the Winwheel
+            // Redraw the SPIN Wheel
             theWheel.draw();
 
-        // --------------------------------------------------------------
-        // SHOW MODAL ALERT
-        // --------------------------------------------------------------
+            // --------------------------------------------------------------
+            // SHOW MODAL ALERT
+            // --------------------------------------------------------------
 
             // Make sure the modal dialog is empty
             $('#modal-body').html("");
@@ -731,10 +719,10 @@
                 indicatedSegment.text === "Jake" || 
                 indicatedSegment.text === "Liv")
             {
-            $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to watch the teaser?');
+                $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to watch the teaser?');
             }
             else {
-             $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to video chat?');
+                $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to video chat?');
             }
 
             $("#alert").modal("show");
@@ -744,9 +732,10 @@
             alert_audio.currentTime = 0;
             alert_audio.play();
 
-        // --------------------------------------------------------------
-        // WAIT FOR MODAL CLOSE TO OPEN VIDEO CHAT WINDOWS
-        // --------------------------------------------------------------
+            // --------------------------------------------------------------
+            // WAIT FOR MODAL CLOSE TO OPEN VIDEO CHAT WINDOWS
+            // --------------------------------------------------------------
+
             $('#alert').click('dialogclose', function() {
 
             if (indicatedSegment.text === "Julian" || 
@@ -764,7 +753,7 @@
             $("#wheel").hide();
             $("#title").hide();
             $("#home").hide();
-            $("#thrill").slideUp(1500); // hide or slide up the main container
+            $("#thrill").slideUp(1500); // slide up the main container
 
             // SHOW the Video Chat Windows
             $("#videochat").show(); // this is the main video chat container
@@ -780,8 +769,8 @@
             $("#videochatwindow-right").slideUp();
             $("#report").slideUp(); */
 
-            // BEGIN TRACK 1 BY COUNTER (Check Counter to see Which Track to Play)
-            if (n == 1) {
+        // BEGIN TRACK 1 BY COUNTER (Check Counter to see Which Track to Play)
+        if (n == 1) {
 
             // Show Different Videos in DIV based on indicatedSegment
             if (indicatedSegment.text == "Ryan") // TANGO
@@ -791,10 +780,10 @@
 
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369089895.sd.mp4?s=63a7dfb00badc009903eea927e4ecac73317a6b2&profile_id=165?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369089830.sd.mp4?s=cf331c9bf49e1d1484b2226afc03cf53fdf2ac38&profile_id=165?autoplay=1";
-                $("#videochat1").show();
-                $("#videochat2").show();
                 $('#video-left').show();
                 $('#video-right').show();
+                $("#videochat1").show();
+                $("#videochat2").show();
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $("body").get(0).style.setProperty("--jitter", "57.5s");
@@ -802,7 +791,6 @@
                 document.getElementById('video-left').classList.add("jitterLeft");
                 $('#left-name-ryan').wait(5000).show().text('Ryan').wait(139000).detach(":contains('Ryan')");
                 $('#left-status-ryan').wait(42000).show().text('My dance card is always empty...').wait(102000).detach(":contains('My dance card is always empty...')");
-//                $("#videochatwindow-right").removeClass("backgroundAnimatedRyan");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
                 $('#connecting').wait(56000).hide();
@@ -846,7 +834,7 @@
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165?autoplay=1";
                 $('#video-left').show();
-                $('#video-right').show(); 
+                $('#video-right').show();
                 $("#videochat1").show();
                 $("#videochat2").show();
                 $('#video-left').get(0).play();
@@ -855,24 +843,23 @@
                 $("#videochatwindow-left").removeClass("backgroundAnimatedAlan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
                 document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-alan').detach(":contains('Alan')");
-                $('#left-status-alan').detach(":contains('My skin is too beautiful to keep hidden!')");
-                $('#left-status-alan').detach(":contains('I live in the palace of my imagination')");
+                $('#left-name-alan').detach(":contains('Alan')").hide();
+                $('#left-status-alan').detach(":contains('My skin is too beautiful to keep hidden!')").hide();
                 $('#left-name-naomi').wait(5000).show().text('Naomi').wait(163000).detach(":contains('Naomi')");
                 $('#left-status-naomi').wait(23000).show().text('I ply my craft from Paris to Versailles').wait(145000).detach(":contains('I ply my craft from Paris to Versailles')");
                 $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-yanina2').detach(":contains('Yanina')");
-                $('#right-status-yanina2').detach(":contains('be boo, be boo bop')");
+                $('#right-name-yanina2').detach(":contains('Yanina')").hide();
+                $('#right-status-yanina2').detach(":contains('be boo, be boo bop')").hide();
                 $('#connecting').wait(25000).hide();
                 $('#right-name-ryan').wait(27000).show().text('Ryan').wait(120000).detach(":contains('Ryan')");
                 $('#right-status-ryan').wait(28000).show().text('Sonic love ballads for sale...cheap').wait(119000).detach(":contains('Sonic love ballads for sale...cheap')");
             }
         } // END TRACK 1 BY COUNTER
 
-            // BEGIN TRACK 2 BY COUNTER
-            if (n == 2) {
+        // BEGIN TRACK 2 BY COUNTER
+        if (n == 2) {
 
             // Show Different Videos in DIV based on indicatedSegment
             if (indicatedSegment.text == "Ryan") // DRILL
@@ -882,10 +869,10 @@
 
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369177617.sd.mp4?s=e729c7a1e59fb1e7489174d71d62d1c8b8275ec2&profile_id=165?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369177468.sd.mp4?s=f9925b27525b46000f7cfad150349788fbbee2c8&profile_id=165?autoplay=1";
-                $("#videochat1").show();
-                $("#videochat2").show();
                 $('#video-left').show();
                 $('#video-right').show();
+                $("#videochat1").show();
+                $("#videochat2").show();
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $("body").get(0).style.setProperty("--jitter", "29.5s");
@@ -924,7 +911,6 @@
                 document.getElementById('video-right').classList.add("jitterRight");
                 $('#right-name-yanina').detach(":contains('Yanina')").hide();
                 $('#right-status-yanina').detach(":contains('A skeptical believer.')").hide();
-                $('#right-status-yanina2').detach(":contains('Oops! I left the camera on...')");
                 $('#connecting').wait(39000).hide();
                 $('#right-name-yanina2').hide().wait(41000).show().text('Yanina').wait(86000).detach(":contains('Yanina')");
                 $('#right-status-yanina2').wait(48000).show().text('be boo, be boo bop').wait(79000).detach(":contains('be boo, be boo bop')");
@@ -948,53 +934,20 @@
                 document.getElementById('video-left').classList.add("jitterLeft");                    
                 $('#left-name-alan').detach(":contains('Alan')").hide();
                 $('#left-status-alan').detach(":contains('My skin is too beautiful to keep hidden!')").hide();
-                $('#left-status-alan').detach(":contains('I live in the palace of my imagination')").hide();
                 $('#left-name-naomi').wait(10000).show().text('Naomi').wait(175000).detach(":contains('Naomi')");
                 $('#left-status-naomi').wait(20000).show().text('How do you like me now that I am smiling?').wait(165000).detach(":contains('How do you like me now that I am smiling?')");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
                 $('#right-name-yanina2').detach(":contains('Yanina')").hide();
                 $('#right-status-yanina2').detach(":contains('be boo, be boo bop')").hide();
-                $('#connecting').wait(47000).hide();
-                $('#right-name-yanina3').wait(49000).show().text('Yanina').wait(136000).detach(":contains('Yanina')");
-                $('#right-status-yanina3').wait(51000).show().text('My inner rage on outer display.').wait(134000).detach(":contains('My inner rage on outer display.')");
-            }
-            else if (indicatedSegment.text == "Yanina") // NAKED IN SF
-            {
-                // make sure name and status are empty
-                $('#connecting').show();
-
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369089997.sd.mp4?s=3bcc122e733c56fb24083e84463cd2849484f62e&profile_id=164?autoplay=1";
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369089951.sd.mp4?s=b13c69637d02feaca1fb01597fefb687a02a55b2&profile_id=164?autoplay=1";
-                $("#videochat1").show();
-                $("#videochat2").show();              
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $("body").get(0).style.setProperty("--jitter", "32.5s");
-                $("#videochatwindow-left").removeClass("backgroundAnimatedNaomi");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-naomi').detach(":contains('Naomi')");
-                $('#left-status-naomi').detach(":contains('How do you like me now that I am smiling?')");
-                $('#left-name-yanina').wait(9000).show().text('Yanina').wait(95000).detach(":contains('Yanina')");
-                $('#left-status-yanina').wait(10000).show().text('I want to go hunt for treasure.').wait(94000).detach(":contains('I want to go hunt for treasure.')");
-                $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-yanina3').detach(":contains('Yanina')");
-                $('#right-status-yanina3').detach(":contains('My inner rage on outer display.')");
-                $('#right-name-ryan').detach(":contains('Ryan')").hide();
-                $('#right-status-ryan').detach(":contains('Is it too late to turn back...?')").hide();
-                $('#connecting').wait(32000).hide();
-                $('#right-name-ryan').wait(34000).show().text('Ryan').wait(73000).detach(":contains('Ryan')");
-                $('#right-status-ryan').wait(44000).show().text('Is it too late to turn back...?').wait(71000).detach(":contains('Is it too late to turn back...?')");                
+                $('#connecting').wait(51000).hide();
+                $('#right-name-yanina3').wait(52000).show().text('Yanina').wait(136000).detach(":contains('Yanina')");
+                $('#right-status-yanina3').wait(54000).show().text('My inner rage on outer display.').wait(134000).detach(":contains('My inner rage on outer display.')");
             }
         } // END TRACK 2 BY COUNTER
 
-            // BEGIN TRACK 3 BY COUNTER
-            if (n == 3) {
+        // BEGIN TRACK 3 BY COUNTER
+        if (n == 3) {
 
             // Show Different Videos in DIV based on indicatedSegment
             if (indicatedSegment.text == "Ryan") // EYEBALL
@@ -1002,12 +955,12 @@
                 // make sure name and status are empty
                 $('#connecting').show();
 
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369179252.sd.mp4?s=ea4b2e9c7187a10101aa7e8a1672a3d6aeb7ba09&profile_id=165?autoplay=1";
+                document.getElementById('video-left').src = "https://player.vimeo.com/video/369179252?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369179202.sd.mp4?s=2ae3bf5299b9824adfe8bdb795376d07fcaa503a&profile_id=165?autoplay=1";
-                $("#videochat1").show();
-                $("#videochat2").show();
                 $('#video-left').show();
                 $('#video-right').show();
+                $("#videochat1").show();
+                $("#videochat2").show();
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $("body").get(0).style.setProperty("--jitter", "18s");
@@ -1022,6 +975,7 @@
                 $('#right-status-yanina').wait(38000).show().text('I might be your lucky starrr...').wait(69000).detach(":contains('I might be your lucky starrr...')");
             }
             else if (indicatedSegment.text == "Naomi") // POEM
+            {
                 // make sure name and status are empty
                 $('#connecting').show();
  
@@ -1037,15 +991,15 @@
                 $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
                 document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-ryan').detach(":contains('Ryan')");
-                $('#left-status-ryan').detach(":contains('I float like a butterfly...')");
+                $('#left-name-ryan').detach(":contains('Ryan')").hide();
+                $('#left-status-ryan').detach(":contains('I float like a butterfly...')").hide();
                 $('#left-name-naomi').wait(5000).show().text('Naomi').wait(163000).detach(":contains('Naomi')");
                 $('#left-status-naomi').wait(23000).show().text('I ply my craft from Paris to Versailles').wait(145000).detach(":contains('I ply my craft from Paris to Versailles')");
                 $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-yanina').detach(":contains('Yanina')");
-                $('#right-status-yanina').detach(":contains('I might be your lucky starrr...')");
+                $('#right-name-yanina').detach(":contains('Yanina')").hide();
+                $('#right-status-yanina').detach(":contains('I might be your lucky starrr...')").hide();
                 $('#connecting').wait(25000).hide();
                 $('#right-name-ryan').wait(27000).show().text('Ryan').wait(120000).detach(":contains('Ryan')");
                 $('#right-status-ryan').wait(28000).show().text('Sonic love ballads for sale...cheap').wait(119000).detach(":contains('Sonic love ballads for sale...cheap')");
@@ -1057,62 +1011,32 @@
 
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369089997.sd.mp4?s=3bcc122e733c56fb24083e84463cd2849484f62e&profile_id=164?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369089951.sd.mp4?s=b13c69637d02feaca1fb01597fefb687a02a55b2&profile_id=164?autoplay=1";
-                $("#videochat1").show();
-                $("#videochat2").show();              
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $("body").get(0).style.setProperty("--jitter", "32.5s");
-                $("#videochatwindow-left").removeClass("backgroundAnimatedNaomi");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-naomi').detach(":contains('Naomi')");
-                $('#left-status-naomi').detach(":contains('I ply my craft from Paris to Versailles')");
-                $('#left-name-yanina').wait(9000).show().text('Yanina').wait(95000).detach(":contains('Yanina')");
-                $('#left-status-yanina').wait(10000).show().text('I want to go hunt for treasure.').wait(94000).detach(":contains('I want to go hunt for treasure.')");
-//                $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-ryan').detach(":contains('Ryan')");
-                $('#right-status-ryan').detach(":contains('Sonic love ballads for sale...cheap')");
-                $('#connecting').wait(32000).hide();
-                $('#right-name-ryan2').wait(34000).show().text('Ryan').wait(73000).detach(":contains('Ryan')");
-                $('#right-status-ryan2').wait(44000).show().text('Is it too late to turn back...?').wait(71000).detach(":contains('Is it too late to turn back...?')");  
-            }
-            else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
-            {
-                // make sure name and status are empty
-                $('#connecting').show();
-
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165?autoplay=1";
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165?autoplay=1";
                 $('#video-left').show();
                 $('#video-right').show();
                 $("#videochat1").show();
                 $("#videochat2").show();
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
-                $("body").get(0).style.setProperty("--jitter", "40.5s");
-                $("#videochatwindow-left").removeClass("backgroundAnimatedYanina");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+                $("body").get(0).style.setProperty("--jitter", "32.5s");
+                $("#videochatwindow-left").removeClass("backgroundAnimatedNaomi");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-yanina').detach(":contains('Yanina')");
-                $('#left-status-yanina').detach(":contains('I want to go hunt for treasure.')");
-                $('#left-name-alan').wait(14000).show().text('Alan').wait(113000).detach(":contains('Alan')");
-                $('#left-status-alan').wait(20000).show().text('I live in the palace of my imagination').wait(107000).detach(":contains('I live in the palace of my imagination')");
-                $("#videochatwindow-right").removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                $('#left-name-naomi').detach(":contains('Naomi')").hide();
+                $('#left-status-naomi').detach(":contains('I ply my craft from Paris to Versailles')").hide();
+                $('#left-name-yanina').wait(9000).show().text('Yanina').wait(95000).detach(":contains('Yanina')");
+                $('#left-status-yanina').wait(10000).show().text('I want to go hunt for treasure.').wait(94000).detach(":contains('I want to go hunt for treasure.')");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-ryan2').detach(":contains('Ryan')");
-                $('#right-status-ryan2').detach(":contains('Is it too late to turn back...?')");
-                $('#connecting').wait(39000).hide();
-                $('#right-name-yanina2').wait(41000).show().text('Yanina').wait(86000).detach(":contains('Yanina')");
-                $('#right-status-yanina2').wait(42000).show().text('Oops! I left the camera on...').wait(85000).detach(":contains('Oops! I left the camera on...')");
+                $('#right-name-ryan').detach(":contains('Ryan')").hide();
+                $('#right-status-ryan').detach(":contains('Sonic love ballads for sale...cheap')").hide();
+                $('#connecting').wait(32000).hide();
+                $('#right-name-ryan2').wait(34000).show().text('Ryan').wait(73000).detach(":contains('Ryan')");
+                $('#right-status-ryan2').wait(44000).show().text('Is it too late to turn back...?').wait(71000).detach(":contains('Is it too late to turn back...?')");  
             }
         } // END TRACK 3 BY COUNTER
-    });
-    }
+    } // CLOSE ELSE
+        }); // CLOSE ALERT DIALOG FUNCTION
+    } // CLOSE ALERT PRIZE FUNCTION
 
         // ------------------------------------
         // Report User Alert Button on Videos
@@ -1154,20 +1078,6 @@
             document.getElementById('mpw1').classList.remove('disabled');
             document.getElementById('mpw2').classList.remove('disabled');
             document.getElementById('mpw3').classList.remove('disabled');
-
-            /* Spin counter attempt with 3 videos in round 1 vs 4 videos in rounds 2-3 
-            if (n == 1) {
-                if (i == 4) {
-                    i = 1;
-                }
-                i++;                
-            }
-            else {
-                if (i == 5) {
-                    i = 1;
-                }
-                i++;
-            }       */    
 
             // SPIN COUNTER CHECK
             if (i == 4) {
@@ -1272,7 +1182,6 @@
         }
 
 </script>
-    <!--script src="assets/css/bootstrap1.34.7/bootstrap-dialog.min.css"></script>
-    <script src="assets/js/vendor/bootstrap1.34.7/bootstrap-dialog.min.js"></script-->
+<script src="assets/js/vendor/bootstrap3.1.0/bootstrap.min.js"></script>
     </body>
 </html>
