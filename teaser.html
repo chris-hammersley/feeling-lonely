@@ -18,6 +18,7 @@
     <script src="assets/js/plugins/gsap2.1.2/CSSPlugin.min.js"></script>
     <script src="assets/js/plugins/gsap2.1.2/EasePack.min.js"></script>
     <script src="assets/js/plugins/gsap2.1.2/TweenLite.min.js"></script>
+    <script src="assets/js/plugins/jquery.wait.js"></script>
 
 </head>
 <!-- START Original attempt basic HTML-->
@@ -27,10 +28,11 @@
           <span>&nbsp;<p>&nbsp;</p> </span>
         </div>
         <div id="teaser-box" hidden>
-        <video id="teaser" src="https://player.vimeo.com/external/332264394.hd.mp4?s=b385ec8765fa05bedc98af90670c89a5693bd339&profile_id=175" poster="assets/images/poster.jpg" onclick="this.paused ? this.play() : this.pause();">
+        <video id="teaser" preload="auto" src="https://player.vimeo.com/external/332264394.hd.mp4?s=b385ec8765fa05bedc98af90670c89a5693bd339&profile_id=175" poster="assets/images/poster.jpg" onclick="this.paused ? this.play() : this.pause();">
         video not supported
         </video>
         </div>
+        <div id="scroll2play"><h2>(Scroll Down to Play)</h2></div>
         <div id="game" class="round-button button-game">
             <div class="gamebutton round-button-circle buttonWhite">
                 <a href="test.html" class="playgame round-button buttonWhiteText">Play Game</a>
@@ -103,6 +105,16 @@
         .build()
         .start();
 */
+
+        window.addEventListener( 'scroll', function() {
+            if ($(window).scrollTop() > 1000){
+                $('#scroll2play').hide();
+                $('#teaser').play();
+            }
+            else {
+                $('#scroll2play').show();
+            }
+             });
 
         // --------------------------------------------------------------
         // Function to SCALE video on SCROLL
@@ -216,7 +228,7 @@
                 setTimeout(function() {
                 // replace the url in quotes below to where you want to the user to be redirected to - will need to change to live page html
                 // replace the 30000 with 1-2 seconds longer than the length of the final thank you video; after this timeout, the email is submitted and page is reloaded
-                window.location = "file:///Users/IonMediaPortable/Box%20Sync/GitHub/feeling-lonely/teaser.html";
+                window.location = "/teaser.html";
                 }, 60000);
                 document.getElementById("mG61Hd").reset();       
             }

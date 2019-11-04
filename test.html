@@ -160,7 +160,7 @@
               <!-- BEGIN LEFT VIDEO CHAT WINDOW -->
               <div id="videochatwindow-left" class="col span_1_of_2 chatleft-gray noselect" hidden>
                 <div id="videochat1" hidden>
-                    <video id="video-left" type="video/mp4" hidden>
+                    <video id="video-left" preload="auto" type="video/mp4" hidden>
                       video not supported
                     </video>
                     <div id="left-name-ryan" class="overlay-name overlay-left name noselect" hidden></div>
@@ -180,7 +180,7 @@
               <div id="videochatwindow-right" class="col span_1_of_2 chatright-gray noselect" hidden>
                 <!-- RIGHT VIDEO CHAT WINDOW -->
                 <div id="videochat2" class="swing" hidden>
-                    <video id="video-right" type="video/mp4" hidden>                
+                    <video id="video-right" preload="auto" type="video/mp4" hidden>                
                         video not supported
                     </video>
                     <div id="connecting" class="blueglow noselect name" hidden>Connecting...</div>
@@ -255,9 +255,6 @@
         function hideLoader(){
             $('#loading').fadeOut(1500);
             $('#scroll2play').fadeOut(1500);
-            $("#pw2").wait(1200).addClass('triangle-left-animation');
-            $("#pw1").wait(1500).addClass('triangle-up-animation');
-            $("#pw3").wait(1700).addClass('triangle-right-animation');
             $("#pw2").wait(1200).addClass('triangle-left-animation');
             $("#pw1").wait(1500).addClass('triangle-up-animation');
             $("#pw3").wait(1700).addClass('triangle-right-animation');
@@ -1168,6 +1165,7 @@
 
             wheelSpinning = false;          // Reset power buttons to false so spin can be clicked again.
 
+            $(window).scrollTop(675);
         }
 
     // Swap DIV windows for mobile on click
