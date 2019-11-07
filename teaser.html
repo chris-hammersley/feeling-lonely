@@ -28,7 +28,7 @@
           <span>&nbsp;<p>&nbsp;</p> </span>
         </div>
         <div id="teaser-box" hidden>
-        <video id="teaser" preload="auto" src="https://player.vimeo.com/external/332264394.hd.mp4?s=b385ec8765fa05bedc98af90670c89a5693bd339&profile_id=175" poster="assets/images/poster.jpg" onclick="this.paused ? this.play() : this.pause();">
+        <video id="teaser" preload="auto" src="https://player.vimeo.com/external/339585823.hd.mp4?s=93ed0e09d922bf43ba9b32effee3e7ff313f0708&profile_id=175" poster="assets/images/poster.jpg" onclick="this.paused ? this.play() : this.pause();">
         video not supported
         </video>
         </div>
@@ -109,7 +109,7 @@
         window.addEventListener( 'scroll', function() {
             if ($(window).scrollTop() > 1000){
                 $('#scroll2play').hide();
-                $('#teaser').play();
+            //    $('#teaser').play();
             }
             else {
                 $('#scroll2play').show();
@@ -168,7 +168,7 @@
         // When the DOM is ready, initialize the scripts.
         jQuery(function( $ ){
             var container = $( "#container-about" );
-            $( "#about-button" ).click(
+            $( "#about-button, #about-mobile" ).click(
                 function( event ){
                     // Prevent the default click button event
                     event.preventDefault();
@@ -228,7 +228,7 @@
                 setTimeout(function() {
                 // replace the url in quotes below to where you want to the user to be redirected to - will need to change to live page html
                 // replace the 30000 with 1-2 seconds longer than the length of the final thank you video; after this timeout, the email is submitted and page is reloaded
-                window.location = "/teaser.html";
+                window.location = "teaser.html";
                 }, 60000);
                 document.getElementById("mG61Hd").reset();       
             }

@@ -911,8 +911,9 @@ END ELEMENTS NOT IN USE */
 .square-center{
   display: none;
 }
-
+/* ******************** */ /* ******************** */ /* ******************** */ /* ******************** */
 /* RESPONSIVE */
+/* ******************** */ /* ******************** */ /* ******************** */ /* ******************** */
 
 /* FOR TABLETS < 768 */
 @media screen and (max-width: 768px) {
@@ -923,8 +924,9 @@ END ELEMENTS NOT IN USE */
     width: 10px;
   }
 }
-
+/* ******************** */
 /* FOR PHONES 480 x 853 : NEEDS TO STAY THIS LARGE TO AFFECT ALL MOBILE DEVICES BELOW THIS - BUT NEED TO ADJUST & CENTER */
+/* ******************** */
 
 @media screen and (max-width: 481px) {
 body{
