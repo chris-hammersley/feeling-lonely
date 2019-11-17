@@ -35,6 +35,10 @@
         <div id="title" class="title">a feature film by meryl murman
           <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
         </div><!-- TITLE END-->
+        <!-- MOBILE TITLE -->
+        <div id="mtitle" class="title" hidden>a wheel of chance connections...
+          <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
+        </div><!-- MOBILE TITLE END-->
         <div id="spacer"></div><!--this is the div for spacer/scrolling purposes-->
         <!-- NEW GRID LAYOUT -->
             <div id="thrill" class="section">
@@ -93,7 +97,7 @@
                         <p id="greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
                     </div>
                     <div id="connections-mobile" class="rotate45" hidden>
-                        <p id="mobile-greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
+                        <!--p id="mobile-greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p-->
                     </div>
                     <img id="prizePointer" src="assets/images/wheel_arrow.png" alt="V" />
                     <canvas id="canvas" class="img-fluid rounded mb-3 mb-md-0" width="420" height="420">
@@ -160,7 +164,7 @@
               <!-- BEGIN LEFT VIDEO CHAT WINDOW -->
               <div id="videochatwindow-left" class="col span_1_of_2 chatleft-gray noselect" hidden>
                 <div id="videochat1" hidden>
-                    <video id="video-left" preload="auto" type="video/mp4" hidden>
+                    <video id="video-left" preload="auto" type="video/mp4" playsinline hidden>
                       video not supported
                     </video>
                     <div id="left-name-ryan" class="overlay-name overlay-left name noselect" hidden></div>
@@ -180,7 +184,7 @@
               <div id="videochatwindow-right" class="col span_1_of_2 chatright-gray noselect" hidden>
                 <!-- RIGHT VIDEO CHAT WINDOW -->
                 <div id="videochat2" class="swing" hidden>
-                    <video id="video-right" preload="auto" type="video/mp4" hidden>                
+                    <video id="video-right" preload="auto" type="video/mp4" playsinline hidden>                
                         video not supported
                     </video>
                     <div id="connecting" class="blueglow noselect name" hidden>Connecting...</div>
@@ -280,7 +284,7 @@
 
         // wheel of chance connections mobile
         const wheelConnectionMobile = new CircleType(document.getElementById('connections-mobile'));
-        wheelConnectionMobile.radius(190); //originally 170
+        wheelConnectionMobile.radius(150); //originally 170
 
         // --------------------------------------------------------------------
         // Create new wheel object specifying the parameters at creation time
@@ -770,7 +774,9 @@
                 $('#connecting').show();
 
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369089895.sd.mp4?s=63a7dfb00badc009903eea927e4ecac73317a6b2&profile_id=165?autoplay=1";
+                document.getElementById('video-left').controls = false;                
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369089830.sd.mp4?s=cf331c9bf49e1d1484b2226afc03cf53fdf2ac38&profile_id=165?autoplay=1";
+                document.getElementById('video-right').controls = false;      
                 $('#video-left').show();
                 $('#video-right').show();
                 $("#videochat1").show();

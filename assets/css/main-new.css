@@ -586,8 +586,8 @@ END ELEMENTS NOT IN USE */
 /* Formatting for A Wheel of Chance CONNECTIONS */
 .rotate45 {
     text-align: left;
-    top: 193px;
-    left: 115px;
+    top: 225px;
+    left: 130px;
     position: relative;
     width: 100px; /* 300*/
     height: 145px; /*150*/
@@ -595,11 +595,11 @@ END ELEMENTS NOT IN USE */
     color: #5bbe84;
     font-size: 12px;
     line-height: 10px; 
-    -webkit-transform: rotate(50deg);
-    -moz-transform: rotate(50deg);
-    -ms-transform: rotate(50deg);
-    -o-transform: rotate(50deg);
-    transform: rotate(50deg);
+    -webkit-transform: rotate(65deg);
+    -moz-transform: rotate(65deg);
+    -ms-transform: rotate(65deg);
+    -o-transform: rotate(65deg);
+    transform: rotate(65deg);
 }
 .greenglow .word1, .word2, .word3, .word4 { 
   color: #ffffff;
@@ -930,6 +930,7 @@ END ELEMENTS NOT IN USE */
 
 @media screen and (max-width: 481px) {
 body{
+  background-image: none;
   background-size: 80%;
   height: 0%;
   margin: auto;
@@ -954,11 +955,24 @@ h3{
 #scroll2play{
   bottom: 80px;
 }
-#title {
+#title{
+  display: none !important;
+}
+#mtitle {
+  display: inline-block;
+  text-align: justify;
+  color: #ffffff;
+  font-family: Helvetica;
+  padding-left:20px;
+  padding-right: 20px;
+  position: fixed;
+  width: 100vw;
+  top:0px;
   font-size:14px;
   line-height: 16px;
   padding-top:10px;
   margin-bottom: -90px;
+  color: #5bbe84;
 }
 /* TOP TITLE SPAN WIDTH */
 .span2{
@@ -980,10 +994,10 @@ h3{
 }
 #wheel{
   width: 100%;
-  height: 560px;
-  margin-right: 1%;
+/*  height: 560px; */
+  margin-left: 1%;
   margin-top: -30%;
-  margin-bottom: 1%;
+  margin-bottom: auto;
 }
 #prizePointer{
   position: absolute;
@@ -996,22 +1010,21 @@ h3{
 /* MODAL ALERT MOBILE */
 .modal {
   width: 100%;
-  height: 50%;
-/*  margin-top: 25%;
-  margin-bottom: 0px; */
+  height: 28%;
   top: 50%; /* controls position on page */
   left: 0%; /* controls position on page */
+  overflow: hidden;
 }
 .modal-body {
-  padding-top: 20%;
-  height: 25%;
+  padding: 5%;
+  height: 1%;
 }
 .modal-button {
   border: none;
-  margin-top: 40%;
+  margin-top: 25%;
   background-color: #E1B32E;
   width: 100%;
-  height: 50%;
+  height: 30%;
 }
 /*  COLUMN SETUP  */
 .col {
@@ -1130,7 +1143,7 @@ h3{
   line-height: 18px;
 }
 .status{
-  display: hidden;
+  display: none !important;
 }
 .typewriter {
   white-space: normal; /* nowrap keeps the content on a single line, normal fills container (for mobile) */
@@ -1213,14 +1226,14 @@ h3{
 }
 .rotate45 {
   text-align: left;
-  top: 45%; /* was 41% when circle diameter was 170 */
+/*  top: 45%;  was 41% when circle diameter was 170 */
 /*  left: 26%; removed when changed diameter & top to 45% */
   position: relative;
   width: 100px; /* 300*/
   height: 145px; /*150*/
   margin: 5;
   color: #5bbe84;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 10px; 
   -webkit-transform: rotate(85deg);
   -moz-transform: rotate(85deg);

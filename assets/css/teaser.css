@@ -98,7 +98,7 @@ div { outline: 1px solid red !important; } */
 
 /* Overlay Style for Thank You Video Box */
 .overlay {
-  background-color: #db8420;
+  background-color: #e74b09;
   text-align: center;
   position: absolute;
   top: 0;
@@ -220,7 +220,7 @@ div { outline: 1px solid red !important; } */
   height: 100%;
   width: 33%;
   display:inline-block;
-  background-color: #db8420;
+  background-color: #e74b09;
 }
 .left-right {
   overflow:hidden;
@@ -431,6 +431,7 @@ body{
   background-color: black;
   color: white;
   padding-top: 15px;
+  z-index: 10;
 }
 .buttonBlue {
   text-align: center;
@@ -456,13 +457,15 @@ body{
   font-size: 32px;
   line-height: 34px;
   height: 75%;
+  z-index: 10;
 }
 #container-about {
   display: none;
   width: 100%;
-  height: 75%;
-  bottom: 100px;
+  height: 100%;
   position: fixed;
+  bottom:-8%;
+  z-index: 0;
 }
 #thanks{
   position: fixed; /* needs to be absolute for wipe to work - nope */
@@ -477,7 +480,7 @@ body{
   height: 100%;
   width: 100%;
   display:block;
-  background-color: #db8420;
+  background-color: #e74b09;
   overflow: visible;
 }
 /* Overlay Style for Thank You Video Box */
@@ -496,23 +499,24 @@ body{
 /* MODAL ALERT MOBILE */
 .modal {
   width: 100%;
-  height: 100%;
-  top: 50%; /* controls position on page */
+/*  height: 40%; */
+  font-size: 24px;
+  line-height: 26px;
   left: 0%; /* controls position on page */
-  font-size: 32px;
-  line-height: 34px;
 }
 .modal-body {
-  padding-top: 20%;
-  height: 25%;
-  background-color: #db8420;
+  padding: 5%;
+  height: 50%;
+  background-color: #e74b09;
 }
 .modal-button {
   border: none;
-  margin-top: 40%;
-  background-color: #E1B32E;
+/*  margin-top: 5%; */
   width: 100%;
   height: 50%;
+  font-size: 24px;
+  line-height: 26px;
+  text-align: center;
 }
 /* EMAIL POSITION */
 .form-group {
