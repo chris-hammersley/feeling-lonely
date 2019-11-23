@@ -418,6 +418,10 @@ body{
   height: 850px;
   font-size:16px;
 }
+.buttonBlue a,.buttonBlack a {
+  color: #FFFFFF;
+  font-size: 16px;
+}
 #title {
   display: none;
 }
@@ -429,7 +433,7 @@ body{
   width: 100%;
   height: 40px;
   background-color: black;
-  color: white;
+  color: #FFFFFF;
   padding-top: 15px;
   z-index: 10;
 }
@@ -439,7 +443,7 @@ body{
   background: #15a6f8;
   color: #ffffff;
   position: fixed;
-  bottom:40px;
+  bottom:55px;
 }
 .buttonBlack {
   text-align: center;
@@ -499,24 +503,25 @@ body{
 /* MODAL ALERT MOBILE */
 .modal {
   width: 100%;
-/*  height: 40%; */
+  height: 30%;
   font-size: 24px;
   line-height: 26px;
   left: 0%; /* controls position on page */
 }
 .modal-body {
   padding: 5%;
-  height: 50%;
+  height: 40%;
   background-color: #e74b09;
 }
 .modal-button {
   border: none;
-/*  margin-top: 5%; */
+  margin: auto;
   width: 100%;
-  height: 50%;
+  height: 100%;
   font-size: 24px;
   line-height: 26px;
   text-align: center;
+  top:25%;
 }
 /* EMAIL POSITION */
 .form-group {

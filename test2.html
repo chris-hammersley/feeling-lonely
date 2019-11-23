@@ -5,6 +5,8 @@
     The MIT License (MIT) Copyright (c) 2016 Douglas McKechie
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all
     copies or substantial portions of the Software.
+
+    *** TESTING DIFFERENT WAYS TO REMOVE VIDEO CAPTIONS ***
 -->
     <head>
         <title>ways of forgetting</title>
@@ -27,7 +29,7 @@
         <script src="assets/js/plugins/animate-headline.js"></script>
         <script src="assets/js/main.js"></script>
     </head>
-    <body onscroll="hideLoader();">
+    <body onscroll="hideLoader()">
         <div id="loading"><!--ANIMATED INTRO BEGIN-->
             <div id="scroll2play"><h2>(Scroll Down to Play)</h2></div>
         </div><!--ANIMATED INTRO END-->
@@ -35,10 +37,6 @@
         <div id="title" class="title">a feature film by meryl murman
           <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
         </div><!-- TITLE END-->
-        <!-- MOBILE TITLE -->
-        <div id="mtitle" class="title" hidden>a wheel of chance connections...
-          <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
-        </div><!-- MOBILE TITLE END-->
         <div id="spacer"></div><!--this is the div for spacer/scrolling purposes-->
         <!-- NEW GRID LAYOUT -->
             <div id="thrill" class="section">
@@ -97,7 +95,7 @@
                         <p id="greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
                     </div>
                     <div id="connections-mobile" class="rotate45" hidden>
-                        <!--p id="mobile-greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p-->
+                        <p id="mobile-greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
                     </div>
                     <img id="prizePointer" src="assets/images/wheel_arrow.png" alt="V" />
                     <canvas id="canvas" class="img-fluid rounded mb-3 mb-md-0" width="420" height="420">
@@ -164,17 +162,17 @@
               <!-- BEGIN LEFT VIDEO CHAT WINDOW -->
               <div id="videochatwindow-left" class="col span_1_of_2 chatleft-gray noselect" hidden>
                 <div id="videochat1" hidden>
-                    <video id="video-left" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>
+                    <video id="video-left" preload="auto" type="video/mp4" playsinline hidden>
                       video not supported
                     </video>
-                    <div id="left-name-ryan" class="overlay-name overlay-left name noselect" hidden></div>
-                    <div id="left-status-ryan" class="typewriter status noselect" hidden></div>
-                    <div id="left-name-yanina" class="overlay-name overlay-left name noselect" hidden></div>
+                    <div id="left-name" class="overlay-name overlay-left name noselect" hidden><p id="left-n"></p></div>
+                    <div id="left-status" class="typewriter status status-left noselect" hidden><p id="left-s"></p></div>
+                    <!--div id="left-name-yanina" class="overlay-name overlay-left name noselect" hidden></div>
                     <div id="left-status-yanina" class="typewriter status noselect" hidden></div>
                     <div id="left-name-alan" class="overlay-name overlay-left name noselect" hidden></div>
                     <div id="left-status-alan" class="typewriter status noselect" hidden></div>
                     <div id="left-name-naomi" class="overlay-name overlay-left name noselect" hidden></div>
-                    <div id="left-status-naomi" class="typewriter status noselect" hidden></div>
+                    <div id="left-status-naomi" class="typewriter status noselect" hidden></-->
                 </div>
               </div> <!--CLOSES LEFT CHAT DIV-->
         <!-- BLACKSCREEN DIV RIGHT-->
@@ -184,14 +182,13 @@
               <div id="videochatwindow-right" class="col span_1_of_2 chatright-gray noselect" hidden>
                 <!-- RIGHT VIDEO CHAT WINDOW -->
                 <div id="videochat2" class="swing" hidden>
-                    <video id="video-right" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>                
+                    <video id="video-right" preload="auto" type="video/mp4" playsinline hidden>                
                         video not supported
                     </video>
                     <div id="connecting" class="blueglow noselect name" hidden>Connecting...</div>
-                    <div id="right-location" class="blueglow noselect name" hidden></div>
-                    <div id="right-name-ryan" class="overlay-name overlay-right name noselect" hidden></div>
-                    <div id="right-status-ryan" class="typewriter status noselect" hidden></div>
-                    <div id="right-name-ryan2" class="overlay-name overlay-right name noselect" hidden></div>
+                    <div id="right-name" class="overlay-name overlay-right name noselect" hidden><p id="right-n"></p></div>
+                    <div id="right-status" class="typewriter status status-right noselect" hidden><p id="right-s"></p></div>
+                    <!--div id="right-name-ryan2" class="overlay-name overlay-right name noselect" hidden></div>
                     <div id="right-status-ryan2" class="typewriter status noselect" hidden></div>
                     <div id="right-name-yanina" class="overlay-name overlay-right name noselect" hidden></div>
                     <div id="right-status-yanina" class="typewriter status noselect" hidden></div>
@@ -200,7 +197,7 @@
                     <div id="right-name-yanina3" class="overlay-name overlay-right name noselect" hidden></div>
                     <div id="right-status-yanina3" class="typewriter status noselect" hidden></div>
                     <div id="right-name-naomi" class="overlay-name overlay-right name noselect" hidden></div>
-                    <div id="right-status-naomi" class="typewriter status noselect" hidden></div>
+                    <div id="right-status-naomi" class="typewriter status noselect" hidden></div-->
                 </div>         
               </div> <!--CLOSES RIGHT CHAT DIV-->
 
@@ -235,9 +232,6 @@
         </div>
 
         <script>
-
-//        setTimeout(function() { window.scrollTo(0, 1) }, 100);  // supposed to remove the url bar on mobile
-
         // -------------------------------------
         // Start Animated GIF then Fade to Page
         // -------------------------------------
@@ -246,7 +240,7 @@
         $(window).ready(function(){
             setTimeout(showScroll2Play, 5000);
             $(this).scrollTop(0);
-            playOpening(); // plays the opening sound over the opening title animation
+
             firstScroll();
 
         });
@@ -257,9 +251,9 @@
         function hideLoader(){
             $('#loading').fadeOut(1500);
             $('#scroll2play').fadeOut(1500);
-            $("#pw2").wait(1500).addClass('triangle-left-animation');
-            $("#pw1").wait(1800).addClass('triangle-up-animation');
-            $("#pw3").wait(2100).addClass('triangle-right-animation');
+            $("#pw2").wait(1200).addClass('triangle-left-animation');
+            $("#pw1").wait(1500).addClass('triangle-up-animation');
+            $("#pw3").wait(1700).addClass('triangle-right-animation');
         }
 
         function firstScroll(){
@@ -288,7 +282,7 @@
 
         // wheel of chance connections mobile
         const wheelConnectionMobile = new CircleType(document.getElementById('connections-mobile'));
-        wheelConnectionMobile.radius(150); //originally 170
+        wheelConnectionMobile.radius(190); //originally 170
 
         // --------------------------------------------------------------------
         // Create new wheel object specifying the parameters at creation time
@@ -387,11 +381,6 @@
         var escape_audio = new Audio('assets/audio/btn_escape.wav');
         var buttonclick_audio = new Audio('assets/audio/btn_click.wav');
         var home_audio = new Audio('assets/audio/btn_home.wav');
-        var opening_audio = new Audio('assets/audio/opening.wav');
-
-        function playOpening() {
-            opening_audio.play();
-        }
 
         function playTruthDare() {
             // Stop and rewind the sound (stops it if already playing)
@@ -474,8 +463,6 @@
         // -------------------------------------------------------------------------------------
 
         function calculatePrize() {
-
-            opening_audio.pause();
 
             // Disable Spin Button so it can't click again while wheel is spinning
             document.getElementById('spin_button').classList.add('disabled');
@@ -765,7 +752,7 @@
             $("#videochat").show(); // this is the main video chat container
             $("#videochatwindow-left").show();
             $("#videochatwindow-right").show();
-            $("#report").wait(15000).show();
+            $("#report").wait(25000).show();
 
             $("#thrill").wait(2000).hide(); // hide the main container
 
@@ -783,11 +770,9 @@
             { 
                 // make sure connecting shows
                 $('#connecting').show();
-                $('#right-location').show();
+
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369089895.sd.mp4?s=63a7dfb00badc009903eea927e4ecac73317a6b2&profile_id=165?autoplay=1";
-                document.getElementById('video-left').controls = false;                
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369089830.sd.mp4?s=cf331c9bf49e1d1484b2226afc03cf53fdf2ac38&profile_id=165?autoplay=1";
-                document.getElementById('video-right').controls = false;      
                 $('#video-left').show();
                 $('#video-right').show();
                 $("#videochat1").show();
@@ -797,14 +782,13 @@
                 $("body").get(0).style.setProperty("--jitter", "57.5s");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
                 document.getElementById('video-left').classList.add("jitterLeft");
-                $('#left-name-ryan').wait(5000).show().text('Ryan').wait(139000).detach(":contains('Ryan')");
-                $('#left-status-ryan').wait(42000).show().text('My dance card is always empty...').wait(102000).detach(":contains('My dance card is always empty...')");
+                $('.overlay-left').wait(5000).show().html('Ryan');
+                $('.status-left').wait(42000).show().html('Outside Los Angeles');
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#connecting').wait(55000).hide();
-                $('#right-location').wait(8000).text('Guadalajara, Mexico').wait(4000).text('').wait(3000).text('New Orleans, LA').wait(5500).text('').wait(2000).text('Lost Angeles, CA').wait(2500).text('').wait(4000).text('Athens, Greece').wait(7000).text('').wait(1500).text('Guadalajara, Mexico').wait(3500).text('').wait(1000).text('NOLA').wait(2500).text('').wait(1000).text('Thessaloniki, Greece').wait(4000).empty().hide();
-                $('#right-name-yanina').wait(57000).show().text('Yanina').wait(87000).detach(":contains('Yanina')");
-                $('#right-status-yanina').wait(60000).show().text('Wait, what is a dance card?').wait(84000).detach(":contains('Wait, what is a dance card?')");
+                $('#connecting').wait(56000).hide();
+                $('.overlay-right').wait(57000).show().html('Yanina');
+                $('.status-right').wait(60000).show().html('Guadalajara, Mexico');
             }
             else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
             {
@@ -823,24 +807,20 @@
                 $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
                 document.getElementById('video-left').classList.add("jitterLeft");   
-                $('#left-name-ryan').detach(":contains('Ryan')").hide();
-                $('#left-status-ryan').detach(":contains('My dance card is always empty...')").hide();
-                $('#left-name-alan').wait(14000).show().text('Alan').wait(113000).detach(":contains('Alan')");
-                $('#left-status-alan').wait(20000).show().text('My skin is too beautiful to keep hidden!').wait(107000).detach(":contains('My skin is too beautiful to keep hidden!')");
+//                $('.overlay-left').wait(14000).show().get(0).lastChild.nodeValue = "Alan";
+                $('.overlay-left').wait(14000).show().html('Alan');
+                $('.status-left').wait(20000).show().html('City of Angels');
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-yanina').detach(":contains('Yanina')").hide();
-                $('#right-status-yanina').detach(":contains('Wait, what is a dance card?')").hide();
                 $('#connecting').wait(39000).hide();
-                $('#right-location').show().empty().wait(7000).text('Nairobi, Kenya').wait(8000).text('').wait(2000).text('NYC').wait(8000).text('').wait(1000).text('New Orleans, LA').wait(5000).text('').get(0).reset();
-                $('#right-name-yanina2').hide().wait(41000).show().text('Yanina').wait(86000).detach(":contains('Yanina')");
-                $('#right-status-yanina2').wait(48000).show().text('be boo, be boo bop').wait(79000).detach(":contains('be boo, be boo bop')");
+                $('.overlay-right').hide().wait(41000).show().html('Yanina');
+                $('.status-right').wait(48000).show().html('Someplace really hot');
             }
             else if (indicatedSegment.text == "Naomi") // POEM
             {
                 // make sure name and status are empty
                 $('#connecting').show();
-                $('#right-location').show(); 
+ 
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165?autoplay=1";
                 $('#video-left').show();
@@ -853,18 +833,14 @@
                 $("#videochatwindow-left").removeClass("backgroundAnimatedAlan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
                 document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-alan').detach(":contains('Alan')").hide();
-                $('#left-status-alan').detach(":contains('My skin is too beautiful to keep hidden!')").hide();
-                $('#left-name-naomi').wait(5000).show().text('Naomi').wait(163000).detach(":contains('Naomi')");
-                $('#left-status-naomi').wait(23000).show().text('I ply my craft from Paris to Versailles').wait(145000).detach(":contains('I ply my craft from Paris to Versailles')");
+                $('.overlay-left').wait(5000).show().html('Naomi');
+                $('.status-left').wait(23000).show().html('On Tour between Paris and Versailles');
                 $("#videochatwindow-right").removeClass("backgroundAnimatedYanina");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
                 document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-yanina2').detach(":contains('Yanina')").hide();
-                $('#right-status-yanina2').detach(":contains('be boo, be boo bop')").hide();
                 $('#connecting').wait(25000).hide();
-                $('#right-name-ryan').wait(27000).show().text('Ryan').wait(120000).detach(":contains('Ryan')");
-                $('#right-status-ryan').wait(28000).show().text('Sonic love ballads for sale...cheap').wait(119000).detach(":contains('Sonic love ballads for sale...cheap')");
+                $('.overlay-right').wait(27000).show().html('Ryan');
+                $('.status-right').wait(28000).show().html('Down and Out near Beverly Hills');
             }
         } // END TRACK 1 BY COUNTER
 
@@ -876,7 +852,7 @@
             { 
                 // make sure name and status are empty
                 $('#connecting').show();
-                $('#right-location').show();
+
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369177617.sd.mp4?s=e729c7a1e59fb1e7489174d71d62d1c8b8275ec2&profile_id=165?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369177468.sd.mp4?s=f9925b27525b46000f7cfad150349788fbbee2c8&profile_id=165?autoplay=1";
                 $('#video-left').show();
@@ -900,7 +876,7 @@
             {
                 // make sure name and status are empty
                 $('#connecting').show();
-                $('#right-location').show();
+
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165?autoplay=1";
                 $('#video-left').show();
@@ -929,7 +905,7 @@
             {
                 // make sure name and status are empty
                 $('#connecting').show();
-                $('#right-location').show();
+
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369176601.sd.mp4?s=ba330522843dbe23a8f8326208d6fab244f9fc61&profile_id=164?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369175753.sd.mp4?s=4c6f3ad2f38124a17c213f30706a3e9b4c95d14d&profile_id=165?autoplay=1";
                 $('#video-left').show();
@@ -964,7 +940,7 @@
             { 
                 // make sure name and status are empty
                 $('#connecting').show();
-                $('#right-location').show();
+
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369179252.sd.mp4?s=ea4b2e9c7187a10101aa7e8a1672a3d6aeb7ba09&profile_id=165?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369179202.sd.mp4?s=2ae3bf5299b9824adfe8bdb795376d07fcaa503a&profile_id=165?autoplay=1";
                 $('#video-left').show();
@@ -988,7 +964,7 @@
             {
                 // make sure name and status are empty
                 $('#connecting').show();
-                $('#right-location').show(); 
+ 
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165?autoplay=1";
                 $('#video-left').show();
@@ -1018,7 +994,7 @@
             {
                 // make sure name and status are empty
                 $('#connecting').show();
-                $('#right-location').show();
+
                 document.getElementById('video-left').src = "https://player.vimeo.com/external/369089997.sd.mp4?s=3bcc122e733c56fb24083e84463cd2849484f62e&profile_id=164?autoplay=1";
                 document.getElementById('video-right').src = "https://player.vimeo.com/external/369089951.sd.mp4?s=b13c69637d02feaca1fb01597fefb687a02a55b2&profile_id=164?autoplay=1";
                 $('#video-left').show();
@@ -1056,8 +1032,15 @@
             $('#video-left').get(0).pause();
             $('#video-right').get(0).pause();
 
-//            document.getElementById("videochatwindow-left").removeAttribute("class");
-//            document.getElementById("videochatwindow-right").removeAttribute("class");
+            // Empty all name and status divs
+            $('#left-n').remove();
+            $('#left-s').remove();
+
+            $('#right-n').remove();
+            $('#right-s').remove();
+
+            document.getElementById("videochatwindow-left").removeAttribute("class");
+            document.getElementById("videochatwindow-right").removeAttribute("class");
 
             alert_audio.pause();
             alert_audio.currentTime = 0;
@@ -1096,33 +1079,15 @@
             i++;
 
             // After Event - pause all videos
-//            $('#video-left').get(0).pause();
-//            $('#video-right').get(0).pause();
+            $('#video-left').get(0).pause();
+            $('#video-right').get(0).pause();
 
-            // Hide all name and status divs
-            $('#left-name-ryan').hide();
-            $('#left-status-ryan').hide();
-            $('#right-name-ryan').hide();
-            $('#right-status-ryan').hide();
-            $('#right-name-ryan2').hide();
-            $('#right-status-ryan2').hide();
+            // Empty all name and status divs
+            $('.overlay-left').remove();
+            $('.status-left').remove();
 
-            $('#left-name-yanina').hide();
-            $('#left-status-yanina').hide();
-            $('#right-name-yanina').hide();
-            $('#right-status-yanina').hide();
-            $('#right-name-yanina2').hide();
-            $('#right-status-yanina2').hide();
-            $('#right-name-yanina3').hide();
-            $('#right-status-yanina3').hide();
-
-            $('#left-name-alan').hide();
-            $('#left-status-alan').hide();
-
-            $('#left-name-naomi').hide();
-            $('#left-status-naomi').hide();
-            $('#right-name-naomi').hide();
-            $('#right-status-naomi').hide();
+            $('.overlay-right').remove();
+            $('.status-right').remove();
 
             // After video pause, hide video divs
             // add the slide down animation here I think
