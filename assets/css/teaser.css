@@ -164,7 +164,7 @@ div { outline: 1px solid red !important; } */
   position: fixed;
   top: 30%; 
   left: 30%;
-  background-color: #A8A8A7;
+  background-color: #e74b09;
   text-align: center;
   z-index: 1; /* 1px higher than the overlay layer */
 }

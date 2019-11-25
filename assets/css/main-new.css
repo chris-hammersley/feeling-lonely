@@ -176,6 +176,7 @@ END ELEMENTS NOT IN USE */
   border-color: #808080;
 }
 #videochatwindow-left{
+  padding-top: 50px;
   text-align: center;
   width: 50%;
   height: 100vh;
@@ -184,6 +185,7 @@ END ELEMENTS NOT IN USE */
   display: none;
 }
 #videochatwindow-right{
+  padding-top: 50px;
   text-align: center;
   width: 50%;
   height: 100vh;
@@ -344,21 +346,21 @@ END ELEMENTS NOT IN USE */
   -ms-animation: fadeAlan 1.5s forwards; 
   animation: fadeAlan 1.5s forwards; 
 }
-.video-left{
-  position: relative; /* needs to be absolute for wipe to work? yes or fixed? */
-  margin-top: 50px;
+#video-left{
+  position: relative;
+/*  margin-top: 50px; */
 /*  left: 15%;  // removed this when changing position from fixed to relative */
   width: 320px;
   height: 568px;
   clip: rect(0px 320px 568px 0px);
   border-width: 100%;
 }
-.video-right{
-  position: relative; /* needs to be absolute for wipe to work? */
-/*  margin-top: 50px;*/
+#video-right{
+  position: relative;
+/*  margin-top: 50px; */
 /*  left: 65%; // removed this when changing position from fixed to relative */
-/*  width: 320px;
-  height: 568px;*/
+  width: 320px;
+  height: 568px;
   clip: rect(0px 320px 568px 0px);
   border-width: 100%;
 }
@@ -1126,6 +1128,7 @@ h3{
   display: none;
   z-index: 30;
   margin-top: 124%;
+  padding-top: 0px;
 }
 .name, .overlay-name{
   display:none;

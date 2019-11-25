@@ -35,12 +35,12 @@
         <div id="scroll2play"><h2>(Scroll Down to Play)</h2></div>
         <div id="game" class="round-button button-game">
             <div class="gamebutton round-button-circle buttonWhite">
-                <a href="test.html" class="playgame round-button buttonWhiteText">Play Game</a>
+                <a href="test.html" onmouseenter="game_audio.play();" class="playgame round-button buttonWhiteText">Play Game</a>
             </div>
         </div>
         <div id="about-button" class="round-button button-about">
             <div class="aboutbutton round-button-circle buttonBlack">
-                <a href="#" class="clickabout round-button buttonBlackText">About</a>
+                <a href="#" onclick="playAbout();" class="clickabout round-button buttonBlackText">About</a>
             </div>
         </div>
         <!-- MOBILE BUTTONS -->
@@ -110,7 +110,9 @@
         .build()
         .start();
 */
-
+        // ----------------------------------------------------------------
+        // SHOW/HIDE 'Scroll Down to Play' on SCROLL past 1000
+        // ----------------------------------------------------------------
         window.addEventListener( 'scroll', function() {
             if ($(window).scrollTop() > 1000){
                 $('#scroll2play').hide();
@@ -122,28 +124,58 @@
              });
 
         // --------------------------------------------------------------
+        // Function to Setup Opening Background Audio
+        // --------------------------------------------------------------
+        var opening_audio = new Audio('assets/audio/opening.wav');
+        var game_audio = new Audio('assets/audio/play-game.wav');
+        var about_open_audio = new Audio('assets/audio/about_open.wav');
+        var about_closed_audio = new Audio('assets/audio/about_closed.wav');
+
+        function playOpening() {
+            opening_audio.play();
+        }
+
+        function stopOpening() {
+            opening_audio.pause();
+        }
+
+        var playFirst = true;
+        function playAbout() {
+          if (playFirst) {
+            about_open_audio.play();
+          } else {
+            about_closed_audio.play();
+          }
+          playFirst = !playFirst;
+        }
+
+        playOpening(); // plays the opening sound over the opening title animation
+
+        document.getElementById('teaser').addEventListener('play',stopOpening,false);
+
+        // --------------------------------------------------------------
         // Function to SCALE video on SCROLL
         // --------------------------------------------------------------
-            window.addEventListener( 'load', function() {
-            var box = document.getElementById('teaser-box'),
-            docHeight = document.documentElement.offsetHeight;
-          
-                window.addEventListener( 'scroll', function() {
-                // show box when scroll starts - use with hidden
-                $('#teaser-box').show();
+        window.addEventListener( 'load', function() {
+        var box = document.getElementById('teaser-box'),
+        docHeight = document.documentElement.offsetHeight;
+      
+            window.addEventListener( 'scroll', function() {
+            // show box when scroll starts - use with hidden
+            $('#teaser-box').show();
 
-                // normalize scroll position as percentage
-                var scrolled = window.scrollY / ( docHeight - window.innerHeight ),
-                transformValue = 'scale('+scrolled+')';          
+            // normalize scroll position as percentage
+            var scrolled = window.scrollY / ( docHeight - window.innerHeight ),
+            transformValue = 'scale('+scrolled+')';          
 
-                box.style.WebkitTransform = transformValue;
-                box.style.MozTransform = transformValue;
-                box.style.OTransform = transformValue;
-                box.style.transform = transformValue;
+            box.style.WebkitTransform = transformValue;
+            box.style.MozTransform = transformValue;
+            box.style.OTransform = transformValue;
+            box.style.transform = transformValue;
 
-                }, false);
-              
             }, false);
+          
+        }, false);
 
         // --------------------------------------------------------------
         // WHEN TEASER FINISHES - INTRODUCE COLOR TO BUTTONS
