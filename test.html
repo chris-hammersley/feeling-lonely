@@ -139,7 +139,7 @@
               <!-- BEGIN LEFT VIDEO CHAT WINDOW -->
               <div id="videochatwindow-left" class="col span_1_of_2 chatleft-gray noselect" hidden>
                 <div id="videochat1" hidden>
-                    <video id="video-left" preload="auto" type="video/mp4" hidden>
+                    <video id="video-left" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>
                       video not supported
                     </video>
                     <!--div id="left"></div-->
@@ -160,7 +160,7 @@
               <!-- RIGHT VIDEO CHAT WINDOW -->
               <div id="videochatwindow-right" class="col span_1_of_2 chatright-gray noselect" hidden>
                 <div id="videochat2" class="swing" hidden>
-                    <video id="video-right" preload="auto" type="video/mp4" hidden>
+                    <video id="video-right" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>
                         video not supported
                     </video>
                     <div id="connecting" class="blueglow name noselect" hidden>Connecting...</div>
@@ -173,14 +173,6 @@
                     <div id="right-name-3" class="overlay-name overlay-right name noselect" hidden></div>
                     <div id="right-status-3" class="typewriter status noselect" hidden></div>
                     <div id="right-location-3" class="blueglow status noselect" hidden></div>
-                    <!--div id="right"></div>
-                    <div id="right-location" class="blueglow status noselect" hidden></div>
-                    <div id="right-name-yanina2" class="overlay-name overlay-right name noselect" hidden></div>
-                    <div id="right-status-yanina2" class="typewriter status noselect" hidden></div>
-                    <div id="right-name-yanina3" class="overlay-name overlay-right name noselect" hidden></div>
-                    <div id="right-status-yanina3" class="typewriter status noselect" hidden></div>
-                    <div id="right-name-naomi" class="overlay-name overlay-right name noselect" hidden></div>
-                    <div id="right-status-naomi" class="typewriter status noselect" hidden></div-->
                 </div>         
               </div> <!--CLOSES RIGHT CHAT DIV-->
 
@@ -219,35 +211,6 @@
             playOpening(); // plays the opening sound under the opening title animation
             firstScroll();
         });
-
-        // ------------------------------------------------------
-        // Variables to Dynamically Add Chat Name & Caption Divs
-        // ------------------------------------------------------
-/*        var leftNameDiv = document.createElement('div');
-        leftNameDiv.id = 'left-name';
-        leftNameDiv.className = 'overlay-name overlay-left name noselect';
-
-        var leftStatusDiv = document.createElement('div');
-        leftStatusDiv.id = 'left-status';
-        leftStatusDiv.className = 'typewriter status noselect';
-
-        var rightLocationDiv = document.createElement('div');
-        rightLocationDiv.id = 'right-location';
-        rightLocationDiv.className = 'blueglow status noselect';
-
-        var rightNameDiv = document.createElement('div');
-        rightNameDiv.id = 'right-name';
-        rightNameDiv.className = 'overlay-name overlay-right name noselect';
-
-        var rightStatusDiv = document.createElement('div');
-        rightStatusDiv.id = 'right-status';
-        rightStatusDiv.className = 'typewriter status noselect';
-
-        $('#left-name').detach();
-        $('#left-status').detach();
-        $('#right-name').detach();
-        $('#right-status').detach();
-        $('#right-location').detach(); */
 
         // -------------------------------------------
         // Opening Animation & Scroll to Play Settings
