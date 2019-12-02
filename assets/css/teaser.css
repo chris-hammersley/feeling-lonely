@@ -4,6 +4,8 @@ body {
   min-height: 2000px;
   margin: 0px;
   position: relative;
+  opacity: 0;
+  transition: 10s opacity;
 }
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
@@ -13,6 +15,14 @@ body {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Opera and Firefox */
+}
+body.fade-in {
+    opacity: 1;
+    transition: none;
+}
+body.fade-out {
+    opacity: 0;
+    transition: none;
 }
 .teaser-image-box{
   width: 300px;

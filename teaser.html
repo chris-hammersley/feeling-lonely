@@ -28,11 +28,11 @@
           <span>&nbsp;<p>&nbsp;</p> </span>
         </div>
         <div id="teaser-box" hidden>
-        <video id="teaser" preload="meta" src="https://player.vimeo.com/external/339585823.hd.mp4?s=93ed0e09d922bf43ba9b32effee3e7ff313f0708&profile_id=175" webkit-playsinline playsinline poster="assets/images/poster.jpg" onclick="this.paused ? this.play() : this.pause();">
+        <video id="teaser" preload="meta" src="https://player.vimeo.com/external/339585823.hd.mp4?s=93ed0e09d922bf43ba9b32effee3e7ff313f0708&profile_id=175" webkit-playsinline playsinline poster="assets/images/poster.png" onclick="this.paused ? this.play() : this.pause();">
         video not supported
         </video>
         </div>
-        <div id="scroll2play"><h2>(Scroll Down to Play)</h2></div>
+        <div id="scroll2play"><h2>(Scroll to Watch)</h2></div>
         <div id="game" class="round-button button-game">
             <div class="gamebutton round-button-circle buttonWhite">
                 <a href="test.html" onmouseenter="game_audio.play();" class="playgame round-button buttonWhiteText">Play Game</a>
@@ -67,7 +67,7 @@
         </div>
         <div id="thankyou-window" class="overlay dismiss">
             <div class="thanks-background">
-            <video src="https://player.vimeo.com/external/369221313.sd.mp4?s=6515ee5b566dbcef1b478460e88c7fc9aa672434&profile_id=164?autoplay=1" type="video/mp4" id="thanks" webkit-playsinline playsinline onclick="this.paused ? this.play() : this.pause();">
+            <video id="thanks" src="https://player.vimeo.com/external/369221313.sd.mp4?s=6515ee5b566dbcef1b478460e88c7fc9aa672434&profile_id=164?autoplay=1" type="video/mp4" webkit-playsinline playsinline onclick="this.paused ? this.play() : this.pause();">
               video not supported
             </video>
             <!--button id="ok-close" class="modal-button">&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;</button-->
@@ -77,7 +77,7 @@
             <div class="form-group">
                 <p><form id="mG61Hd" class="form" action="https://docs.google.com/forms/u/4/d/e/1FAIpQLSeumUxbAatX7ilCfBDrBOY9kyxsaZ5TSRz8cWURJzQ4qv63_Q/formResponse" target="hidden_iframe" onsubmit="submitted=!0" method="POST">
                 <sub id="email-symbol" class="bw">@</sub><input name="emailAddress" type="email" id="emailNewsletter" onfocus="this.placeholder=''" onBlur="this.placeholder='ways.of.forgetting@gmail.com'" style="color:grey" placeholder="ways.of.forgetting@gmail.com">
-                <button name="fvv" id="email-submit" value="1" type="submit" class="bw">
+                <button name="fvv" id="email-submit" value="1" type="submit" class="bw" onclick="pauseTeaser();">
                 Submit</button>
                 <!--button onClick="showAlert();">
                 Thank You</button-->
@@ -110,13 +110,18 @@
         .build()
         .start();
 */
+
+        window.addEventListener('load', function(){
+            $('body').addClass('fade-in');
+        });
+
         // ----------------------------------------------------------------
         // SHOW/HIDE 'Scroll Down to Play' on SCROLL past 1000
         // ----------------------------------------------------------------
         window.addEventListener( 'scroll', function() {
             if ($(window).scrollTop() > 1000){
                 $('#scroll2play').hide();
-            //    $('#teaser').play();
+                $('#teaser').get(0).play();
             }
             else {
                 $('#scroll2play').show();
@@ -132,6 +137,7 @@
         var about_closed_audio = new Audio('assets/audio/about_closed.wav');
 
         function playOpening() {
+            opening_audio.loop = true;
             opening_audio.play();
         }
 
@@ -152,6 +158,10 @@
         playOpening(); // plays the opening sound over the opening title animation
 
         document.getElementById('teaser').addEventListener('play',stopOpening,false);
+
+        function pauseTeaser(){
+            $('#teaser').get(0).pause();
+        }
 
         // --------------------------------------------------------------
         // Function to SCALE video on SCROLL
@@ -186,16 +196,16 @@
         function changeColors() {
             event.preventDefault();
             // $('#teaser').get(0).load(); //resets video to start and shows poster image
-            $('#teaser').hide();
-            $('.gamebutton').removeClass('buttonWhite').addClass('buttonPurple');
-            $('.aboutbutton').removeClass('buttonBlack').addClass('buttonRed');
-            $('.playgame').removeClass('buttonWhiteText').addClass('buttonPurpleText');            
-            $('.clickabout').removeClass('buttonBlackText').addClass('buttonRedText');
-            $('#email-submit').removeClass('bw').addClass('email');
-            $('#email-symbol').removeClass('bw').addClass('email');
-            $('#facebook').removeClass('bw').addClass('facebook');
-            $('#instagram').removeClass('bw').addClass('instagram'); 
-            $('#imdb').removeClass('bw').addClass('imdb');
+            $('#teaser').get(0).pause().hide();
+            $('.gamebutton').wait(3000).removeClass('buttonWhite').addClass('buttonPurple');
+            $('.aboutbutton').wait(4000).removeClass('buttonBlack').addClass('buttonRed');
+            $('.playgame').wait(3000).removeClass('buttonWhiteText').addClass('buttonPurpleText');            
+            $('.clickabout').wait(4000).removeClass('buttonBlackText').addClass('buttonRedText');
+            $('#email-submit').wait(5000).removeClass('bw').addClass('email');
+            $('#email-symbol').wait(5000).removeClass('bw').addClass('email');
+            $('#facebook').wait(6000).removeClass('bw').addClass('facebook');
+            $('#instagram').wait(6000).removeClass('bw').addClass('instagram'); 
+            $('#imdb').wait(6000).removeClass('bw').addClass('imdb');
         }
        
         // --------------------------------------------------------------
@@ -212,10 +222,10 @@
                     // Toggle the slide based on its current visibility
                     if (container.is( ":visible" )){
                         // Hide - slide up - 1000 = 1 sec
-                        container.slideUp( 1000 );
+                        container.slideUp( 500 );
                     } else {
                         // Show - slide down
-                        container.slideDown( 1000 );
+                        container.slideDown( 1500 );
                     }
                 }
             );
@@ -262,13 +272,19 @@
                 setTimeout(function() {
                 $("#thanks").get(0).play();
                 }, 2000)               
-                setTimeout(function() {
+            //    setTimeout(function() {
                 // replace the url in quotes below to where you want to the user to be redirected to - will need to change to live page html
                 // replace the 30000 with 1-2 seconds longer than the length of the final thank you video; after this timeout, the email is submitted and page is reloaded
-                window.location = "teaser.html";
-                }, 60000);
-                document.getElementById("mG61Hd").reset();       
+                document.getElementById('thanks').addEventListener('ended',resetPage,false);
+            //    window.location = "teaser.html";
+            //    }, 60000);
+            //    document.getElementById("mG61Hd").reset();       
             }
+
+        function resetPage(){
+            window.location = "teaser.html";
+            document.getElementById("mG61Hd").reset();
+        }
 
         // --------------------------------------------------------------
         // SUBMIT EMAIL TO GOOGLE FORM

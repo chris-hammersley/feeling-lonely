@@ -126,7 +126,7 @@
         <!-- HOME BUTTON -->
         <div id="home" class="round-button button-home rectangular-button" hidden>
             <div class="round-button-circle">
-                <a href="teaser.html" onmouseenter="playHome()" class="round-button rectangular-button">Home</a>
+                <a href="teaser.html" onmouseenter="playHome()" class="round-button rectangular-button" onclick="fadePage();">Home</a>
             </div>
         </div>
 
@@ -258,9 +258,9 @@
         function hideLoader(){
             $('#loading').fadeOut(1500);
             $('#scroll2play').fadeOut(1500);
-            $("#pw2").wait(1500).addClass('triangle-left-animation');
-            $("#pw1").wait(1800).addClass('triangle-up-animation');
-            $("#pw3").wait(2100).addClass('triangle-right-animation');
+            $("#pw2").wait(5000).addClass('triangle-left-animation');
+            $("#pw1").wait(7000).addClass('triangle-up-animation');
+            $("#pw3").wait(9000).addClass('triangle-right-animation');
         }
 
         function firstScroll(){
@@ -270,6 +270,10 @@
                 $(window).scrollTop(675);
                 }
             });
+        }
+
+        function fadePage(){
+            $('body').addClass('fade-out');
         }
 
         // Letter & Word formatting control: SPIN, CHOOSE, WHEEL OF CHANCE CONNECTIONS 
@@ -387,6 +391,7 @@
         var chatwindowtransition_audio = new Audio('assets/audio/videochat-transition-back.wav');
 
         function playOpening() {
+            opening_audio.loop = true;
             opening_audio.play();
         }
 
@@ -805,11 +810,6 @@
                 $('#video-right').show();
                 $('#videochat1').show();
                 $('#videochat2').show();                
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "57.5s");
@@ -839,11 +839,6 @@
                 $('#right-location-1').text('').remove();
                 $('#right-name-1').text('').remove();
                 $('#right-status-1').text('').remove();
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "40.5s");
@@ -874,11 +869,6 @@
                 $('#right-location-2').text('').remove();
                 $('#right-name-2').text('').remove();
                 $('#right-status-2').text('').remove();
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "26s");
@@ -911,11 +901,6 @@
                 $('#video-right').show();
                 $('#videochat1').show();
                 $('#videochat2').show();
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "29.5s");
@@ -945,11 +930,6 @@
                 $('#right-location-1').text('').remove();
                 $('#right-name-1').text('').remove();
                 $('#right-status-1').text('').remove();
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "35s");
@@ -980,11 +960,6 @@
                 $('#right-location-2').text('').remove();
                 $('#right-name-2').text('').remove();
                 $('#right-status-2').text('').remove();
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "32.5s");
@@ -1014,11 +989,6 @@
                 $('#video-right').show(); 
                 $('#videochat1').show();
                 $('#videochat2').show();
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "26s");
@@ -1046,17 +1016,13 @@
                 $('#right-location-1').text('').remove();
                 $('#right-name-1').text('').remove();
                 $('#right-status-1').text('').remove();
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "18s");
                 $('#connecting').show().wait(15000).hide();
                 $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+                $('#videochatwindow-left').addClass("backgroundAnimatedRyan");
+//                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
                 document.getElementById('video-left').classList.add("jitterLeft");
                 $('#left-name-ryan').wait(5000).show().text('Ryan');
                 $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
@@ -1080,11 +1046,6 @@
                 $('#right-location-2').text('').remove();
                 $('#right-name-2').text('').remove();
                 $('#right-status-2').text('').remove();
-/*                document.getElementById('left').appendChild(leftNameDiv);
-                document.getElementById('left').appendChild(leftStatusDiv);
-                document.getElementById('right').appendChild(rightLocationDiv);
-                document.getElementById('right').appendChild(rightNameDiv);
-                document.getElementById('right').appendChild(rightStatusDiv); */
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "40.5s");
