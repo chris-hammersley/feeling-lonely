@@ -196,7 +196,7 @@
         function changeColors() {
             event.preventDefault();
             // $('#teaser').get(0).load(); //resets video to start and shows poster image
-            $('#teaser').get(0).pause().hide();
+            $('#teaser-box').hide();
             $('.gamebutton').wait(3000).removeClass('buttonWhite').addClass('buttonPurple');
             $('.aboutbutton').wait(4000).removeClass('buttonBlack').addClass('buttonRed');
             $('.playgame').wait(3000).removeClass('buttonWhiteText').addClass('buttonPurpleText');            
