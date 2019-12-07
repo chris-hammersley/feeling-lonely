@@ -983,7 +983,8 @@
                 $('#video-right').get(0).play();
                 $('body').get(0).style.setProperty("--jitter", "18s");
                 $('#connecting').show().wait(15000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
+//                $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
+                document.getElementById('videochatwindow-left').classList.remove('backgroundAnimatedNaomi');
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
                 document.getElementById('video-left').classList.add("jitterLeft");
                 $('#left-name-ryan').wait(5000).show().text('Ryan');
