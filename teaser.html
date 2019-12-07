@@ -111,7 +111,7 @@
         .start();
 */
 
-        window.addEventListener('load', function(){
+        window.addEventListener('DOMContentLoaded', function(){
             $('body').addClass('fade-in');
         });
 
@@ -173,7 +173,7 @@
         // --------------------------------------------------------------
         // Function to SCALE video on SCROLL
         // --------------------------------------------------------------
-        window.addEventListener( 'load', function() {
+        window.addEventListener( 'DOMContentLoaded', function() {
         var box = document.getElementById('teaser-box'),
         docHeight = document.documentElement.offsetHeight;
       
@@ -263,6 +263,7 @@
 
             function showAlert() {
                 $("#alert").modal("show");
+                opening_audio.pause();
             }
 
         // --------------------------------------------------------------
@@ -270,6 +271,7 @@
         // --------------------------------------------------------------
 
             function showThankYou() {
+                opening_audio.pause();
                 //GSAP 1.8.0 for Animated Vertical Wipe from Center
                 var box1 = $("#thanks");
                 clipTween1 = TweenLite.from(box1, 1, {clip:"rect(284px 568px 284px 0px)", paused:true});
