@@ -895,7 +895,7 @@
                 $('#right-status-1').text('').remove();
                 $('#video-left').get(0).play();
                 $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "35s");
+                $('body').get(0).style.setProperty("--jitter", "34.5s");
                 $('#connecting').show().wait(32000).hide();
                 $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
@@ -905,8 +905,8 @@
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
                 $('#right-location-2').wait(7000).show().text('Somewhere in Iowa').wait(5500).text('').wait(4000).text('Somewhere Up a Tree').wait(5500).remove();
-                $('#right-name-2').wait(36000).show().text('Yanina');
-                $('#right-status-2').wait(39000).show().text('Guadalajara, Mexico');
+                $('#right-name-2').wait(34500).show().text('Yanina');
+                $('#right-status-2').wait(37000).show().text('Guadalajara, Mexico');
             }
             else if (indicatedSegment.text == "Yanina") // NAKED IN SF
             {
@@ -984,12 +984,11 @@
                 $('body').get(0).style.setProperty("--jitter", "18s");
                 $('#connecting').show().wait(15000).hide();
                 $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
-                $('#videochatwindow-left').addClass("backgroundAnimatedRyan");
-//                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
                 document.getElementById('video-left').classList.add("jitterLeft");
                 $('#left-name-ryan').wait(5000).show().text('Ryan');
                 $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-                $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
+                $('#videochatwindow-right').removeClass("backgroundAnimatedRyan");
                 document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
                 document.getElementById('video-right').classList.add("jitterRight");
                 $('#right-location-2').wait(8000).show().text('Somewhere with Better Music').wait(3500).remove();
@@ -1054,9 +1053,11 @@
 
         document.getElementById('video-left').addEventListener('ended',myHandler,false);
         document.getElementById('video-right').addEventListener('ended',myHandler,false);
-        document.getElementById('escape').addEventListener('click',myHandler,true);
+        document.getElementById('escape').addEventListener('click',myHandler,false);
 
         function myHandler(e) {
+            $('#video-left').get(0).pause();
+            $('#video-right').get(0).pause();
 
             // Remove the Name & Status Divs after video chat round ends
             $('#left-name-ryan').empty().hide();

@@ -833,7 +833,9 @@ END ELEMENTS NOT IN USE */
 }
 /* CIRCLE BUTTONS */
 .round-button {
-  width:5%;
+/*  width:5%; */
+  width: 80px;
+  height: 80px;
 }
 .round-button-circle {
   width: 100%;
@@ -923,18 +925,24 @@ END ELEMENTS NOT IN USE */
 .square-center{
   display: none;
 }
-/* ******************** */ /* ******************** */ /* ******************** */ /* ******************** */
-/* RESPONSIVE */
-/* ******************** */ /* ******************** */ /* ******************** */ /* ******************** */
+/* ******************************************************************************** */
+/*                                    RESPONSIVE                                    */
+/* ******************************************************************************** */
 
-/* FOR TABLETS < 768 */
-@media screen and (max-width: 768px) {
-  #diamond-buttons {
-    margin-left: -90px;
-  }
-  #wheel {
-    width: 10px;
-  }
+/* FOR TABLETS AND LANDSCAPE LESS THAN 1170px WIDE */
+@media screen and (max-width: 1170px) {
+.round-button {
+/*  width:8%; */
+}
+.button-report{
+  top: -150px;
+}
+#diamond-buttons {
+  margin-left: -40px;
+}
+#wheel {
+  width: 10px;
+}
 }
 /* ******************** */
 /* FOR PHONES 480 x 853 : NEEDS TO STAY THIS LARGE TO AFFECT ALL MOBILE DEVICES BELOW THIS - BUT NEED TO ADJUST & CENTER */
@@ -1276,6 +1284,9 @@ h3{
 /* BUTTONS */
 .round-button, .round-button-circle, .round-button-circle a {
   all: revert;
+}
+.round-button {
+/*  width:8%; */
 }
 .rectangular-button {
   width: 100%;

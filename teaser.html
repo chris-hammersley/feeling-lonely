@@ -35,12 +35,12 @@
         <div id="scroll2play"><h2>(Scroll to Watch)</h2></div>
         <div id="game" class="round-button button-game">
             <div class="gamebutton round-button-circle buttonWhite">
-                <a href="test.html" onmouseenter="game_audio.play();" class="playgame round-button buttonWhiteText">Play Game</a>
+                <a onmouseenter="game_audio.play();" class="playgame round-button buttonWhiteText" onclick="fadePage();">Play Game</a>
             </div>
         </div>
         <div id="about-button" class="round-button button-about">
             <div class="aboutbutton round-button-circle buttonBlack">
-                <a href="#" onclick="playAbout();" class="clickabout round-button buttonBlackText">About</a>
+                <a href="#" onclick="playAbout();" class="clickabout round-button buttonBlackText" onmouseenter="about_ding.play();">About</a>
             </div>
         </div>
         <!-- MOBILE BUTTONS -->
@@ -135,6 +135,7 @@
         var game_audio = new Audio('assets/audio/play-game.wav');
         var about_open_audio = new Audio('assets/audio/about_open.wav');
         var about_closed_audio = new Audio('assets/audio/about_closed.wav');
+        var about_ding = new Audio('assets/audio/about-ding.wav');
 
         function playOpening() {
             opening_audio.loop = true;
@@ -161,6 +162,12 @@
 
         function pauseTeaser(){
             $('#teaser').get(0).pause();
+        }
+
+        function fadePage(){
+            $('body').removeClass('fade-in');
+            window.location.href = "test.html";
+            return false;
         }
 
         // --------------------------------------------------------------
