@@ -936,7 +936,10 @@ END ELEMENTS NOT IN USE */
 /*                                    RESPONSIVE                                    */
 /* ******************************************************************************** */
 
+/* ******************************************************************************** */
 /* FOR TABLETS & SMALL LAPTOPS LANDSCAPE LESS THAN 1170px WIDE */
+/* ******************************************************************************** */
+
 @media screen and (max-width: 1170px) {
 .round-button {
 /*  width:8%; */
@@ -945,25 +948,63 @@ END ELEMENTS NOT IN USE */
   top: -150px;
 }
 #diamond-buttons {
-  margin-left: -40px;
+  margin-left: -80px;
+  width: 600px;
 }
 #wheel {
   width: 10px;
 }
+.rotate45 {
+  left:290px;
 }
-/* FOR TABLETS PORTRAIT LESS THAN 768px WIDE */
-@media screen and (max-width: 853px) {
-.round-button {
-/*  width:8%; */
+.square{
+/*  margin-left:33.3%;*/
+  width:200px;
+  height:200px;
 }
-.button-report{
-  top: -250px;
+/* TRIANGLE BUTTON SHAPES */
+.triangle-up p{
+  top:70px;
 }
-#diamond-buttons {
-  margin-left: -40px;
+.triangle-right p{
+  top:70px;
+  height:40px
 }
-#wheel {
-  width: 10px;
+.triangle-left p{
+  top:70px;
+  height:40px
+}
+.triangle-down p{
+  font-size:50px;
+  bottom:4px;
+  left:-41px;
+  width: 100px;
+  height:100px;
+}
+.triangle-left{
+  margin-left: -66.5%;
+/*  margin-top:33.2%; */
+  border-width: 100px 100px 100px 100px;
+}
+.triangle-right{
+  margin-top:5%;
+  margin-left:28.5%; /*171px; */
+  border-width: 100px 100px 100px 100px;
+}
+.triangle-up{
+  margin-left:1px;
+  border-width: 100px 100px 100px 100px;
+}
+.triangle-down{
+  bottom:0;
+  right:28.5%;
+  border-width: 100px 100px 100px 100px;
+  margin-top:-20px;
+}
+.rotateNegative45{
+  top:175px;
+  left:80px;
+  height: 40px;
 }
 }
 /* ******************** */
