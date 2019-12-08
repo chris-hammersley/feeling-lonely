@@ -6,1162 +6,1165 @@
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all
     copies or substantial portions of the Software.
 -->
-    <head>
-        <title>ways of forgetting - a film by meryl murman</title>
-        <meta charset="UTF-8">
-        <meta name="author" content="Chris Hammersley">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>ways of forgetting - a film by meryl murman</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Chris Hammersley">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- CSS -->
-        <link href="assets/css/bootstrap3.1.0/bootstrap.min.css" rel="stylesheet">
-        <link href="assets/css/main-new.css" rel="stylesheet">
+    <!-- CSS -->
+    <link href="assets/css/bootstrap3.1.0/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/main-new.css" rel="stylesheet">
 
-        <!-- JS -->
-        <script src="assets/js/plugins/Winwheel.js"></script>        
-        <script src="assets/js/vendor/TweenMax.min.js"></script>
-        <script src="assets/js/vendor/jquery-2.1.1.min.js"></script>
-        <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="assets/js/plugins/jquery.lettering-0.6.1.min.js"></script>
-        <script src="assets/js/plugins/circletype.min.js"></script>
-        <script src="assets/js/plugins/jquery.wait.js"></script>
-        <script src="assets/js/plugins/animate-headline.js"></script>
-        <script src="assets/js/main.js"></script>
-    </head>
-    <body onscroll="hideLoader();">
-        <div id="loading"><!--ANIMATED INTRO BEGIN-->
-            <div id="scroll2play"><h2>(Scroll Down to Play)</h2></div>
-        </div><!--ANIMATED INTRO END-->
-        <!-- TITLE -->
-        <div id="title" class="title">a feature film by meryl murman
-          <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
-        </div><!-- TITLE END-->
-        <!-- MOBILE TITLE -->
-        <div id="mtitle" class="title" hidden>a wheel of chance connections...
-          <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
-        </div><!-- MOBILE TITLE END-->
-        <div id="spacer"></div><!--this is the div for spacer/scrolling purposes-->
-        <!-- NEW GRID LAYOUT -->
-            <div id="thrill" class="section">
-                <!-- DIV FOR THRILL SELECTOR -->
-                <div id="diamond-buttons" class="col module">
-                    <div id="padding-top" class="section">
+    <!-- JS -->
+    <script src="assets/js/plugins/Winwheel.js"></script>        
+    <script src="assets/js/vendor/TweenMax.min.js"></script>
+    <script src="assets/js/vendor/jquery-2.1.1.min.js"></script>
+    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="assets/js/plugins/jquery.lettering-0.6.1.min.js"></script>
+    <script src="assets/js/plugins/circletype.min.js"></script>
+    <script src="assets/js/plugins/jquery.wait.js"></script>
+    <script src="assets/js/plugins/animate-headline.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/plugins/iphone-inline-video.min.js"></script>
+</head>
+<body onscroll="hideLoader();">
+    <div id="loading"><!--ANIMATED INTRO BEGIN-->
+        <div id="scroll2play"><h2>(Scroll Down to Play)</h2></div>
+    </div><!--ANIMATED INTRO END-->
+    <!-- TITLE -->
+    <div id="title" class="title">a feature film by meryl murman
+      <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
+    </div><!-- TITLE END-->
+    <!-- MOBILE TITLE -->
+    <div id="mtitle" class="title" hidden>a wheel of chance connections...
+      <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
+    </div><!-- MOBILE TITLE END-->
+    <div id="spacer"></div><!--this is the div for spacer/scrolling purposes-->
+    <!-- NEW GRID LAYOUT -->
+        <div id="thrill" class="section">
+            <!-- DIV FOR THRILL SELECTOR -->
+            <div id="diamond-buttons" class="col module">
+                <div id="padding-top" class="section">
+                </div>
+                <div id="diamond-top" class="section">
+                    <div class="col span_1_of_3"><p></p>
+                    <p id="blueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
                     </div>
-                    <div id="diamond-top" class="section">
-                        <div class="col span_1_of_3"><p></p>
-                        <p id="blueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
-                        </div>
-                        <div id="pw1" class="col span_1_of_3 triangle-up noselect" onmouseenter="playTruthDare();" onClick="powerSelected(1);">
-                        <p>Truth/Dare</p>
-                        </div>
+                    <div id="pw1" class="col span_1_of_3 triangle-up noselect" onmouseenter="playTruthDare();" onClick="powerSelected(1);">
+                    <p>Truth/Dare</p>
                     </div>
-                    <div id="diamond-middle" class="section">
-                        <div id="pw2" class="col span_1_of_3 triangle-left noselect" onmouseenter="playMove();" onClick="powerSelected(2);">
+                </div>
+                <div id="diamond-middle" class="section">
+                    <div id="pw2" class="col span_1_of_3 triangle-left noselect" onmouseenter="playMove();" onClick="powerSelected(2);">
+                    <p>Move Me</p>
+                    </div>
+                    <div class="col span_1_of_3 square">
+                    &nbsp;
+                    </div>
+                    <div id="pw3" class="col span_1_of_3 triangle-right noselect" onmouseenter="playWild();" onClick="powerSelected(3);">
+                    <p>Wild Card</p>
+                    </div>
+                </div>
+                <div id="diamond-bottom" class="section">
+                    <div class="col span_1_of_3">
+                    &nbsp;
+                    </div>
+                    <div id="spin_button" class="col span_1_of_3 disabled triangle-down" onClick="calculatePrize();">
+                    <p class="jumble">SPIN</p>
+                    </div>
+                    <div class="col span_1_of_3">
+                    &nbsp;
+                    </div>
+                </div>
+                <div id="padding-top" class="section">
+                    <div class="col span_1_of_3">
+                    &nbsp;
+                    </div>
+                    <div class="col span_1_of_3">
+                    &nbsp;
+                    </div>
+                    <div class="col span_1_of_3">
+                    &nbsp;
+                    </div>
+                </div>
+            </div> <!--CLOSES DIAMOND-BUTTONS col span DIV -->
+            <!-- DIV FOR SPIN WHEEL-->
+            <div id="wheel" class="col span_1_of_2 module" align="center" valign="center">
+                <div id="connections" class="rotate45">
+                    <p id="greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
+                </div>
+                <div id="connections-mobile" class="rotate45" hidden>
+                    <!--p id="mobile-greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p-->
+                </div>
+                <img id="prizePointer" src="assets/images/wheel_arrow.png" alt="V" />
+                <canvas id="canvas" class="img-fluid rounded mb-3 mb-md-0" width="420" height="420">
+                <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try a browser like Chrome or Firefox to play the game.</p>
+                </canvas>
+            </div><!-- END SPIN WHEEL -->
+            <!-- BEGIN MOBILE THRILL SELECTOR-->
+            <div class="square-center">
+                <div class="square-container" hidden>
+                    <div id="mpw2" class="mobile-square move noselect" onClick="powerSelected(2);">
                         <p>Move Me</p>
-                        </div>
-                        <div class="col span_1_of_3 square">
-                        &nbsp;
-                        </div>
-                        <div id="pw3" class="col span_1_of_3 triangle-right noselect" onmouseenter="playWild();" onClick="powerSelected(3);">
+                    </div>
+                    <div id="mpw1" class="mobile-square truth noselect" onClick="powerSelected(1);">
+                        <p>Truth/Dare</p>
+                    </div>
+                    <div style='clear:both'></div>
+                    <div id="mpw3" class="mobile-square wild noselect" onClick="powerSelected(3);">
                         <p>Wild Card</p>
-                        </div>
                     </div>
-                    <div id="diamond-bottom" class="section">
-                        <div class="col span_1_of_3">
-                        &nbsp;
-                        </div>
-                        <div id="spin_button" class="col span_1_of_3 disabled triangle-down" onClick="calculatePrize();">
-                        <p class="jumble">SPIN</p>
-                        </div>
-                        <div class="col span_1_of_3">
-                        &nbsp;
-                        </div>
+                    <div id="mspin_button" class="mobile-square spin noselect" onClick="calculatePrize();">
+                        <p class="awkward">SPIN</p>
                     </div>
-                    <div id="padding-top" class="section">
-                        <div class="col span_1_of_3">
-                        &nbsp;
-                        </div>
-                        <div class="col span_1_of_3">
-                        &nbsp;
-                        </div>
-                        <div class="col span_1_of_3">
-                        &nbsp;
-                        </div>
+                    <div>
+                        <p id="mblueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
                     </div>
-                </div> <!--CLOSES DIAMOND-BUTTONS col span DIV -->
-                <!-- DIV FOR SPIN WHEEL-->
-                <div id="wheel" class="col span_1_of_2 module" align="center" valign="center">
-                    <div id="connections" class="rotate45">
-                        <p id="greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
-                    </div>
-                    <div id="connections-mobile" class="rotate45" hidden>
-                        <!--p id="mobile-greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p-->
-                    </div>
-                    <img id="prizePointer" src="assets/images/wheel_arrow.png" alt="V" />
-                    <canvas id="canvas" class="img-fluid rounded mb-3 mb-md-0" width="420" height="420">
-                    <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try a browser like Chrome or Firefox to play the game.</p>
-                    </canvas>
-                </div><!-- END SPIN WHEEL -->
-                <!-- BEGIN MOBILE THRILL SELECTOR-->
-                <div class="square-center">
-                    <div class="square-container" hidden>
-                        <div id="mpw2" class="mobile-square move noselect" onClick="powerSelected(2);">
-                            <p>Move Me</p>
-                        </div>
-                        <div id="mpw1" class="mobile-square truth noselect" onClick="powerSelected(1);">
-                            <p>Truth/Dare</p>
-                        </div>
-                        <div style='clear:both'></div>
-                        <div id="mpw3" class="mobile-square wild noselect" onClick="powerSelected(3);">
-                            <p>Wild Card</p>
-                        </div>
-                        <div id="mspin_button" class="mobile-square spin noselect" onClick="calculatePrize();">
-                            <p class="awkward">SPIN</p>
-                        </div>
-                        <div>
-                            <p id="mblueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
-                        </div>
-                    </div><!--CLOSES CONTAINER-->
-                </div><!--CLOSES CENTER-->
+                </div><!--CLOSES CONTAINER-->
+            </div><!--CLOSES CENTER-->
 
-        <!-- HOME BUTTON -->
-        <div id="home" class="round-button button-home rectangular-button" hidden>
-            <div class="round-button-circle">
-                <a href="teaser.html" onmouseenter="playHome()" class="round-button rectangular-button" onclick="fadePage();">Home</a>
-            </div>
+    <!-- HOME BUTTON -->
+    <div id="home" class="round-button button-home rectangular-button" hidden>
+        <div class="round-button-circle">
+            <a href="teaser.html" onmouseenter="playHome()" class="round-button rectangular-button" onclick="fadePage();">Home</a>
         </div>
+    </div>
 
-            </div><!--CLOSES THRILL SECTION-->
-        <!-- BLACKSCREEN DIV LEFT-->
-        <!--div id="container-blackscreen" hidden>
-            <div id="blackscreen" class="blackscreen col span_1_of_2"></div>
-        </div-->
-        <!-- NEW GRID LAYOUT -->
-              <!-- BEGIN LEFT VIDEO CHAT WINDOW -->
-              <div id="videochatwindow-left" class="col span_1_of_2 chatleft-gray noselect" hidden>
-                <div id="videochat1" hidden>
-                    <video id="video-left" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>
-                      video not supported
-                    </video>
-                    <!--div id="left"></div-->
-                    <div id="left-name-ryan" class="overlay-name overlay-left name noselect" hidden></div>
-                    <div id="left-status-ryan" class="typewriter status noselect" hidden></div>
-                    <div id="left-name-yanina" class="overlay-name overlay-left name noselect" hidden></div>
-                    <div id="left-status-yanina" class="typewriter status noselect" hidden></div>
-                    <div id="left-name-alan" class="overlay-name overlay-left name noselect" hidden></div>
-                    <div id="left-status-alan" class="typewriter status noselect" hidden></div>
-                    <div id="left-name-naomi" class="overlay-name overlay-left name noselect" hidden></div>
-                    <div id="left-status-naomi" class="typewriter status noselect" hidden></div>
-                </div>
-              </div> <!--CLOSES LEFT CHAT DIV-->
-        <!-- BLACKSCREEN DIV RIGHT-->
-        <!--div id="container-blackscreen" hidden>
-            <div id="blackscreen" class="blackscreen col span_1_of_2"></div>
-        </div-->
-              <!-- RIGHT VIDEO CHAT WINDOW -->
-              <div id="videochatwindow-right" class="col span_1_of_2 chatright-gray noselect" hidden>
-                <div id="videochat2" class="swing" hidden>
-                    <video id="video-right" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>
-                        video not supported
-                    </video>
-                    <div id="connecting" class="blueglow name noselect" hidden>Connecting...</div>
-                    <div id="right-name-1" class="overlay-name overlay-right name noselect" hidden></div>
-                    <div id="right-status-1" class="typewriter status noselect" hidden></div>
-                    <div id="right-location-1" class="blueglow status noselect" hidden></div>
-                    <div id="right-name-2" class="overlay-name overlay-right name noselect" hidden></div>
-                    <div id="right-status-2" class="typewriter status noselect" hidden></div>
-                    <div id="right-location-2" class="blueglow status noselect" hidden></div>
-                    <div id="right-name-3" class="overlay-name overlay-right name noselect" hidden></div>
-                    <div id="right-status-3" class="typewriter status noselect" hidden></div>
-                    <div id="right-location-3" class="blueglow status noselect" hidden></div>
-                </div>         
-              </div> <!--CLOSES RIGHT CHAT DIV-->
-
-        <!-- REPORT USER BUTTON -->
-                <div id="report" class="round-button button-report rectangular-button noselect" hidden>
-                    <div class="round-button-circle">
-                    <a href="#" id="escape" class="round-button rectangular-button" onmouseenter="playEscape();">Escape</a>
-                    </div>
-                </div>
-
-        <!--MODAL-->
-        <div id="alert" class="modal" tabindex="-1" role="dialog" aria-labelledby="alert" aria-hidden="true">
-            <div id="modal-body" class="modal-body">
-                <p>&nbsp;</p>
+        </div><!--CLOSES THRILL SECTION-->
+    <!-- BLACKSCREEN DIV LEFT-->
+    <!--div id="container-blackscreen" hidden>
+        <div id="blackscreen" class="blackscreen col span_1_of_2"></div>
+    </div-->
+    <!-- NEW GRID LAYOUT -->
+          <!-- BEGIN LEFT VIDEO CHAT WINDOW -->
+          <div id="videochatwindow-left" class="col span_1_of_2 chatleft-gray noselect" hidden>
+            <div id="videochat1" hidden>
+                <video id="video-left" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>
+                  video not supported
+                </video>
+                <!--div id="left"></div-->
+                <div id="left-name-ryan" class="overlay-name overlay-left name noselect" hidden></div>
+                <div id="left-status-ryan" class="typewriter status noselect" hidden></div>
+                <div id="left-name-yanina" class="overlay-name overlay-left name noselect" hidden></div>
+                <div id="left-status-yanina" class="typewriter status noselect" hidden></div>
+                <div id="left-name-alan" class="overlay-name overlay-left name noselect" hidden></div>
+                <div id="left-status-alan" class="typewriter status noselect" hidden></div>
+                <div id="left-name-naomi" class="overlay-name overlay-left name noselect" hidden></div>
+                <div id="left-status-naomi" class="typewriter status noselect" hidden></div>
             </div>
-                <button type="button" class="modal-button btn" data-dismiss="modal" data-target="#alert">OK</button>
-        </div>    
+          </div> <!--CLOSES LEFT CHAT DIV-->
+    <!-- BLACKSCREEN DIV RIGHT-->
+    <!--div id="container-blackscreen" hidden>
+        <div id="blackscreen" class="blackscreen col span_1_of_2"></div>
+    </div-->
+          <!-- RIGHT VIDEO CHAT WINDOW -->
+          <div id="videochatwindow-right" class="col span_1_of_2 chatright-gray noselect" hidden>
+            <div id="videochat2" class="swing" hidden>
+                <video id="video-right" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>
+                    video not supported
+                </video>
+                <div id="connecting" class="blueglow name noselect" hidden>Connecting...</div>
+                <div id="right-name-1" class="overlay-name overlay-right name noselect" hidden></div>
+                <div id="right-status-1" class="typewriter status noselect" hidden></div>
+                <div id="right-location-1" class="blueglow status noselect" hidden></div>
+                <div id="right-name-2" class="overlay-name overlay-right name noselect" hidden></div>
+                <div id="right-status-2" class="typewriter status noselect" hidden></div>
+                <div id="right-location-2" class="blueglow status noselect" hidden></div>
+                <div id="right-name-3" class="overlay-name overlay-right name noselect" hidden></div>
+                <div id="right-status-3" class="typewriter status noselect" hidden></div>
+                <div id="right-location-3" class="blueglow status noselect" hidden></div>
+            </div>         
+          </div> <!--CLOSES RIGHT CHAT DIV-->
 
-        <!-- HIDDEN COUNTER -->
-        <div hidden>
-            <a id="counter" href="#"></a>
+    <!-- REPORT USER BUTTON -->
+            <div id="report" class="round-button button-report rectangular-button noselect" hidden>
+                <div class="round-button-circle">
+                <a href="#" id="escape" class="round-button rectangular-button" onmouseenter="playEscape();">Escape</a>
+                </div>
+            </div>
+
+    <!--MODAL-->
+    <div id="alert" class="modal" tabindex="-1" role="dialog" aria-labelledby="alert" aria-hidden="true">
+        <div id="modal-body" class="modal-body">
+            <p>&nbsp;</p>
         </div>
+            <button type="button" class="modal-button btn" data-dismiss="modal" data-target="#alert">OK</button>
+    </div>    
 
-        <script>
+    <!-- HIDDEN COUNTER -->
+    <div hidden>
+        <a id="counter" href="#"></a>
+    </div>
+
+    <script>
 
 //        setTimeout(function() { window.scrollTo(0, 1) }, 100);  // supposed to remove the url bar on mobile but caused a page error
 
-        // -------------------------------------
-        // Start Animated GIF then Fade to Page
-        // -------------------------------------
+    // -------------------------------------
+    // Start Animated GIF then Fade to Page
+    // -------------------------------------
 
-        // currently set to fade after 5 sec - change here to fade on scroll after adding 'scroll to play' text
-        $(window).ready(function(){
-            setTimeout(showScroll2Play, 5000);
-            $(this).scrollTop(0);
-            playOpening(); // plays the opening sound under the opening title animation
-            firstScroll();
-        });
+    // currently set to fade after 5 sec - change here to fade on scroll after adding 'scroll to play' text
+    $(window).ready(function(){
+        setTimeout(showScroll2Play, 5000);
+        $(this).scrollTop(0);
+        playOpening(); // plays the opening sound under the opening title animation
+        firstScroll();
+    });
 
-        // -------------------------------------------
-        // Opening Animation & Scroll to Play Settings
-        // -------------------------------------------
-        function showScroll2Play(){
-            $('#scroll2play').fadeIn(1000);
-        }
-        function hideLoader(){
-            $('#loading').fadeOut(1500);
-            $('#scroll2play').fadeOut(1500);
-            $("#pw2").wait(5000).addClass('triangle-left-animation');
-            $("#pw1").wait(7000).addClass('triangle-up-animation');
-            $("#pw3").wait(9000).addClass('triangle-right-animation');
-        }
+    // -------------------------------------------
+    // Opening Animation & Scroll to Play Settings
+    // -------------------------------------------
+    function showScroll2Play(){
+        $('#scroll2play').fadeIn(1000);
+    }
+    function hideLoader(){
+        $('#loading').fadeOut(1500);
+        $('#scroll2play').fadeOut(1500);
+        $("#pw2").wait(5000).addClass('triangle-left-animation');
+        $("#pw1").wait(7000).addClass('triangle-up-animation');
+        $("#pw3").wait(9000).addClass('triangle-right-animation');
+    }
 
-        function firstScroll(){
-        // Set Diamond & Wheel Modules to fixed position after scrolling
-        $(window).scroll(function(e) {   
-            if($(window).scrollTop() >=675) {
-                $(window).scrollTop(675);
-                }
-            });
-        }
-
-        function fadePage(){
-            $('body').addClass('fade-out');
-        }
-
-        // Letter & Word formatting control: SPIN, CHOOSE, WHEEL OF CHANCE CONNECTIONS 
-        $(document).ready(function() {
-            $(".jumble").lettering();
-            $(".awkward").lettering();
-            $(".blueglow").lettering('words');
-            $(".mblueglow").lettering('words');
-            $("#greenglow").lettering('words');
-            $(".mobile-greenglow").lettering('words');
-            $("#greenglow").lettering('words').children('span').lettering();
-        });
-        
-        // wheel of chance connections desktop
-        const wheelConnection = new CircleType(document.getElementById('connections'));
-        wheelConnection.radius(230); /* original is 225 */
-
-        // wheel of chance connections mobile
-        const wheelConnectionMobile = new CircleType(document.getElementById('connections-mobile'));
-        wheelConnectionMobile.radius(150); //originally 170
-
-        // --------------------------------------------------------------------
-        // Create new wheel object specifying the parameters at creation time
-        // --------------------------------------------------------------------
-        var theWheel = new Winwheel({
-            'numSegments'       : 7,                 // Specify number of segments.
-            'pointerAngle'      : 0,                 // Sets the prize location selector
-            'outerRadius'       : 200,               // Set outer radius so wheel fits inside the background. original is 200
-            'drawText'          : true,              // Code drawn text can be used with segment images.
-            'textFontSize'      : 18,
-            'responsive'        : true,                   // This wheel is responsive
-            'textOrientation'   : 'horizontal',
-            'textAlignment'     : 'outer',
-            'textDirection'     : 'reversed',        // Set direction. normal (default) or reversed.
-            'textMargin'        : 15,
-            'textFontFamily'    : 'Helvetica',
-            'textLineWidth'     : 1,
-            'strokeStyle'       : 'gray',           // Segment line color. Again segment lines only drawn if this is specified.
-            'lineWidth'         : 1,                // Width of lines around segments.
-           'imageOverlay'       : false,             // If True then outline of segments displayed over the image. Does nothing in code drawMode.
-            'segments'          :                    // Define segments including image and text below.
-            [
-              {'fillStyle' : '#A8A8A7', 'text' : 'Ryan'},
-              {'fillStyle' : '#BDBCBC', 'text' : 'Yanina'},
-              {'fillStyle' : '#D0D0D0', 'text' : 'Alan'},
-              {'fillStyle' : '#F6F6F6', 'text' : 'Jake', 'url' : 'teaser.html'},
-              {'fillStyle' : '#7C7C7B', 'text' : 'Liv', 'url' : 'teaser.html'},
-              {'fillStyle' : '#E3E3E3', 'text' : 'Naomi'},
-              {'fillStyle' : '#929292', 'text' : 'Julian', 'url' : 'teaser.html'}
-            ],
-            'prizeAngle'        :   // Define segments for each person's image angle
-            [
-                {'stopAtRyan' : (1 + Math.floor((Math.random() * 43)))},
-                {'stopAtYanina' : (50 + Math.floor((Math.random() * 43)))},
-                {'stopAtAlan' : (101 + Math.floor((Math.random() * 43)))},
-                {'stopAtJake' : (153 + Math.floor((Math.random() * 43)))},
-                {'stopAtLiv' : (204 + Math.floor((Math.random() * 43)))},
-                {'stopAtNaomi' : (256 + Math.floor((Math.random() * 43)))},
-                {'stopAtJulian' : (307 + Math.floor((Math.random() * 43)))}
-            ],
-            'animation' :           // Specify the animation to use
-            {
-                'type'     : 'spinToStop',
-                'duration' : 5,     // Duration in seconds
-                'spins'    : 7,     // Number of complete spins
-                'callbackSound' : playSound,
-                'callbackFinished' : alertPrize,
-            },
-            'pointerGuide' : 
-            {
-                'display' : false,
-                'strokeStyle' : 'orange',
-                'lineWidth' : 4
-            },
-        });
-
-        // -----------------------------------------------------------
-        // Function to handle the random callbackSound ticking sounds
-        // -----------------------------------------------------------
-
-        // create audio array of tick sound files
-        var audiosource = [
-          "assets/audio/WOF Website Sounds__Tick 1.wav",
-          "assets/audio/WOF Website Sounds__Tick 2.wav",
-          "assets/audio/WOF Website Sounds__Tick 3.wav",
-          "assets/audio/WOF Website Sounds__Tick 4.wav",
-          "assets/audio/WOF Website Sounds__Tick 5.wav",
-          "assets/audio/WOF Website Sounds__Tick 6.wav"
-        ];
-
-        function playSound() {
-            // assign random tick number, create audio object & load random tick sound
-            var rand = Math.floor((Math.random() * 6) + 1);
-            var audio = new Audio(audiosource[rand]);
-            // Stop and rewind the sound (stops it if already playing)
-            audio.pause();
-            audio.currentTime = 0;
-            audio.play();
-        }
-
-        // -------------------------------------------------------
-        // Mouseover & Click Audio Objects
-        // -------------------------------------------------------
-
-        var truthdare_audio = new Audio('assets/audio/btn_truth.wav');
-        var move_audio = new Audio('assets/audio/btn_move.wav');
-        var wild_audio = new Audio('assets/audio/btn_wild.wav');
-        var spin_audio = new Audio('assets/audio/btn_spin.wav');
-        var alert_audio = new Audio('assets/audio/new_alert_msg.wav');
-        var escape_audio = new Audio('assets/audio/btn_escape.wav');
-        var buttonclick_audio = new Audio('assets/audio/btn_click.wav');
-        var home_audio = new Audio('assets/audio/btn_home.wav');
-        var opening_audio = new Audio('assets/audio/opening.wav');
-        var chatwindow_audio = new Audio('assets/audio/chatwindow-open.wav');
-        var chatwindowtransition_audio = new Audio('assets/audio/videochat-transition-back.wav');
-
-        function playOpening() {
-            opening_audio.loop = true;
-            opening_audio.play();
-        }
-
-        function playTruthDare() {
-            // Stop and rewind the sound (stops it if already playing)
-            truthdare_audio.pause();
-            truthdare_audio.currentTime = 0;
-            truthdare_audio.play();
-        }
-
-        function playMove() {
-            // Stop and rewind the sound (stops it if already playing)
-            move_audio.pause();
-            move_audio.currentTime = 0;
-            move_audio.play();
-        }
-
-        function playWild() {
-            // Stop and rewind the sound (stops it if already playing)
-            wild_audio.pause();
-            wild_audio.currentTime = 0;
-            wild_audio.play();
-        }
-
-        function playAlert() {
-            // Stop and rewind the sound (stops it if already playing)
-            alert_audio.pause();
-            alert_audio.currentTime = 0;
-            alert_audio.play();
-        }
-
-        function playEscape() {
-            // Stop and rewind the sound (stops it if already playing)
-            escape_audio.pause();
-            escape_audio.currentTime = 0;
-            escape_audio.play();
-        }
-
-        function playClick() {
-            // Stop and rewind the sound (stops it if already playing)
-            buttonclick_audio.pause();
-            buttonclick_audio.currentTime = 0;
-            buttonclick_audio.play();
-        }
-
-        function playHome() {
-            // Stop and rewind the sound (stops it if already playing)
-            home_audio.pause();
-            home_audio.currentTime = 0;
-            home_audio.play();
-        }
-
-        function playChatWindow() {
-            // Stop and rewind the sound (stops it if already playing)
-            chatwindow_audio.pause();
-            chatwindow_audio.currentTime = 0;
-            chatwindow_audio.play();
-        }
-
-        function playChatTransition() {
-            // Stop and rewind the sound (stops it if already playing)
-            chatwindowtransition_audio.pause();
-            chatwindowtransition_audio.currentTime = 0;
-            chatwindowtransition_audio.play();
-        }
-
-        // -------------------------------------------------------
-        // LOCAL STORAGE OF PAGE COUNTER 
-        // -------------------------------------------------------         
-
-            var n = localStorage.getItem('on_load_counter');
-            if (n === null) {
-                n = 0;
+    function firstScroll(){
+    // Set Diamond & Wheel Modules to fixed position after scrolling
+    $(window).scroll(function(e) {   
+        if($(window).scrollTop() >=675) {
+            $(window).scrollTop(675);
             }
-            else if (n >= 3) {
-                n = 0;
-            }
-            n++;
+        });
+    }
 
-            localStorage.setItem("on_load_counter", n);
-            document.getElementById('counter').innerHTML = n;
+    function fadePage(){
+        $('body').addClass('fade-out');
+    }
 
-      /*      if (n >= 4) {
-            //    localStorage.removeItem('on_load_counter');
-                localStorage.setItem('on_load_counter', 1);    
-            }  */
+    // Letter & Word formatting control: SPIN, CHOOSE, WHEEL OF CHANCE CONNECTIONS 
+    $(document).ready(function() {
+        $(".jumble").lettering();
+        $(".awkward").lettering();
+        $(".blueglow").lettering('words');
+        $(".mblueglow").lettering('words');
+        $("#greenglow").lettering('words');
+        $(".mobile-greenglow").lettering('words');
+        $("#greenglow").lettering('words').children('span').lettering();
+    });
+    
+    // wheel of chance connections desktop
+    const wheelConnection = new CircleType(document.getElementById('connections'));
+    wheelConnection.radius(230); /* original is 225 */
 
-        // -------------------------------------------------------
-        // SPIN COUNTER - used to pick who the wheel lands on
-        // -------------------------------------------------------             
+    // wheel of chance connections mobile
+    const wheelConnectionMobile = new CircleType(document.getElementById('connections-mobile'));
+    wheelConnectionMobile.radius(150); //originally 170
 
-            var i = 1;
-
-        // -------------------------------------------------------------------------------------
-        // STEP 1: Calculate stopAngle before spinning animation. Called from SPIN Click button
-        // -------------------------------------------------------------------------------------
-
-        function calculatePrize() {
-
-            // Pause the background audio from opening titles
-            opening_audio.pause();
-
-            // Disable Spin Button so it can't click again while wheel is spinning
-            document.getElementById('spin_button').classList.add('disabled');
-            document.getElementById('mspin_button').classList.add('disabled');
-
-            // Disable Thrill Level buttons so they can't be clicked while wheel is spinning
-            document.getElementById('pw1').classList.add('disabled');
-            document.getElementById('pw2').classList.add('disabled');
-            document.getElementById('pw3').classList.add('disabled');
-
-            // Mobile Version - disable thrill buttons
-            document.getElementById('mpw1').classList.add('disabled');
-            document.getElementById('mpw2').classList.add('disabled');
-            document.getElementById('mpw3').classList.add('disabled');
-
-            // Reset then Play the Spin Audio Sound
-            spin_audio.pause();
-            spin_audio.currentTime = 0;
-            spin_audio.play();
-
-            // CHECK THE PAGE VISIT COUNTER
-            if (n == 1) {
-                // CHECK THE SPIN COUNTER
-                if (i == 1) {
-                    stopAt = (3 + Math.floor((Math.random() * 43))); // Ryan
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                }
-                if (i == 2) {
-                    stopAt = (103 + Math.floor((Math.random() * 43))); // Alan
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                } 
-                if (i == 3) {
-                    stopAt = (258 + Math.floor((Math.random() * 43))); // Naomi
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                } 
-                if (i == 4) {
-                    stopAt = (206 + Math.floor((Math.random() * 43))); // Liv
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                }             
-            } // CLOSES N1
-
-            if (n == 2) {
-                if (i == 1) {
-                    stopAt = (3 + Math.floor((Math.random() * 43))); // Ryan
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                }
-                if (i == 2) {
-                    stopAt = (258 + Math.floor((Math.random() * 43))); // Naomi
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                } 
-                if (i == 3) {
-                    stopAt = (52 + Math.floor((Math.random() * 43))); // Yanina
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                } 
-                if (i == 4) {
-                    stopAt = (309 + Math.floor((Math.random() * 43))); // Julian
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();                   
-                }          
-            } // CLOSES N2
-
-            if (n == 3) {
-                if (i == 1) {
-                    stopAt = (258 + Math.floor((Math.random() * 43))); // Naomi
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                }
-                if (i == 2) {
-                     stopAt = (3 + Math.floor((Math.random() * 43))); // Ryan
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                } 
-                if (i == 3) {
-                    stopAt = (103 + Math.floor((Math.random() * 43))); // Alan
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();
-                } 
-                if (i == 4) {
-                    stopAt = (155 + Math.floor((Math.random() * 43))); // Jake
-                    theWheel.animation.stopAngle = stopAt; 
-                    theWheel.startAnimation();                    
-                }         
-            } //  CLOSES N3
-        } // END CALCULATE PRIZE FUNCTION
-
-        // -------------------------------------------------------
-        // Function to handle the onClick on the power buttons.
-        // -------------------------------------------------------
- 
-        // Variables used by code in page to activate level controls
-        var wheelPower    = 0;
-        var wheelSpinning = false;
-
-        function powerSelected(powerLevel) {
-            // Ensure that power can't be changed while wheel is spinning
-            if (wheelSpinning == false)
-            {
-                // Reset all to grey in case this is not the first time the user has selected level
-                document.getElementById('pw1').classList.remove("pw1");
-                document.getElementById('pw2').classList.remove("pw2");
-                document.getElementById('pw3').classList.remove("pw3");
-
-                // Mobile Version wheel color reset
-                document.getElementById('mpw1').classList.remove("mpw1");
-                document.getElementById('mpw2').classList.remove("mpw2");
-                document.getElementById('mpw3').classList.remove("mpw3");
-
-                // Now light up the selected cell by changing the class and playing sound
-                if (powerLevel == 1)
-                {
-                    truthdare_audio.pause();
-                    truthdare_audio.currentTime = 0;
-                    truthdare_audio.play();
-                    document.getElementById('pw1').classList.add("pw1");
-                    document.getElementById('mpw1').classList.add("mpw1");
-                }
-
-                if (powerLevel == 2)
-                {
-                    move_audio.pause();
-                    move_audio.currentTime = 0;
-                    move_audio.play();
-                    document.getElementById('pw2').classList.add("pw2");
-                    document.getElementById('mpw2').classList.add("mpw2");
-                }
-
-                if (powerLevel == 3)
-                {
-                    wild_audio.pause();
-                    wild_audio.currentTime = 0;
-                    wild_audio.play();
-                    document.getElementById('pw3').classList.add("pw3");
-                    document.getElementById('mpw3').classList.add("mpw3");
-                }
-
-                // Remove blueglow fader from Choose a Thrill Level text
-                document.getElementById('blueglow').classList.remove('blueglow');
-                document.getElementById('mblueglow').classList.remove('blueglow');
-
-                // Set wheelPower variable used when spin button is clicked
-                wheelPower = powerLevel;
-
-                // Light up the spin button by removing disabled and adding clickable; add spin_button class to light it up
-                document.getElementById('spin_button').classList.add("clickable", "spin_button");
-                document.getElementById('spin_button').classList.remove("disabled");
-
-                // Mobile Version activate spin button to be clicked
-                document.getElementById('mspin_button').classList.add("clickable", "mspin_button");
-                document.getElementById('mspin_button').classList.remove("disabled");
-            } // CLOSES MAIN IF
-        } // CLOSES POWER SELECTED FUNCTION
-
-        // -------------------------------------------------------
-        // Function to Start Spinning after Spin Button Click
-        // -------------------------------------------------------
-        function startSpin()
+    // --------------------------------------------------------------------
+    // Create new wheel object specifying the parameters at creation time
+    // --------------------------------------------------------------------
+    var theWheel = new Winwheel({
+        'numSegments'       : 7,                 // Specify number of segments.
+        'pointerAngle'      : 0,                 // Sets the prize location selector
+        'outerRadius'       : 200,               // Set outer radius so wheel fits inside the background. original is 200
+        'drawText'          : true,              // Code drawn text can be used with segment images.
+        'textFontSize'      : 18,
+        'responsive'        : true,                   // This wheel is responsive
+        'textOrientation'   : 'horizontal',
+        'textAlignment'     : 'outer',
+        'textDirection'     : 'reversed',        // Set direction. normal (default) or reversed.
+        'textMargin'        : 15,
+        'textFontFamily'    : 'Helvetica',
+        'textLineWidth'     : 1,
+        'strokeStyle'       : 'gray',           // Segment line color. Again segment lines only drawn if this is specified.
+        'lineWidth'         : 1,                // Width of lines around segments.
+       'imageOverlay'       : false,             // If True then outline of segments displayed over the image. Does nothing in code drawMode.
+        'segments'          :                    // Define segments including image and text below.
+        [
+          {'fillStyle' : '#A8A8A7', 'text' : 'Ryan'},
+          {'fillStyle' : '#BDBCBC', 'text' : 'Yanina'},
+          {'fillStyle' : '#D0D0D0', 'text' : 'Alan'},
+          {'fillStyle' : '#F6F6F6', 'text' : 'Jake', 'url' : 'teaser.html'},
+          {'fillStyle' : '#7C7C7B', 'text' : 'Liv', 'url' : 'teaser.html'},
+          {'fillStyle' : '#E3E3E3', 'text' : 'Naomi'},
+          {'fillStyle' : '#929292', 'text' : 'Julian', 'url' : 'teaser.html'}
+        ],
+        'prizeAngle'        :   // Define segments for each person's image angle
+        [
+            {'stopAtRyan' : (1 + Math.floor((Math.random() * 43)))},
+            {'stopAtYanina' : (50 + Math.floor((Math.random() * 43)))},
+            {'stopAtAlan' : (101 + Math.floor((Math.random() * 43)))},
+            {'stopAtJake' : (153 + Math.floor((Math.random() * 43)))},
+            {'stopAtLiv' : (204 + Math.floor((Math.random() * 43)))},
+            {'stopAtNaomi' : (256 + Math.floor((Math.random() * 43)))},
+            {'stopAtJulian' : (307 + Math.floor((Math.random() * 43)))}
+        ],
+        'animation' :           // Specify the animation to use
         {
-            // Set the stopAngle of the animation before starting the spin
-            theWheel.animation.stopAngle = stopAt;
+            'type'     : 'spinToStop',
+            'duration' : 5,     // Duration in seconds
+            'spins'    : 7,     // Number of complete spins
+            'callbackSound' : playSound,
+            'callbackFinished' : alertPrize,
+        },
+        'pointerGuide' : 
+        {
+            'display' : false,
+            'strokeStyle' : 'orange',
+            'lineWidth' : 4
+        },
+    });
 
-            // Ensure that spinning can't be clicked again while already running
-            if (wheelSpinning == false)
-            {
-                // Power level adjusts the number of spins for the wheel
-                if (wheelPower == 1)
-                {
-                    theWheel.animation.spins = 3;
-                }
-                else if (wheelPower == 2)
-                {
-                    theWheel.animation.spins = 8;
-                }
-                else if (wheelPower == 3)
-                {
-                    theWheel.animation.spins = 15;
-                }
+    // -----------------------------------------------------------
+    // Function to handle the random callbackSound ticking sounds
+    // -----------------------------------------------------------
 
-                // Begin the spin animation by calling startAnimation on the wheel object
+    // create audio array of tick sound files
+    var audiosource = [
+      "assets/audio/WOF Website Sounds__Tick 1.wav",
+      "assets/audio/WOF Website Sounds__Tick 2.wav",
+      "assets/audio/WOF Website Sounds__Tick 3.wav",
+      "assets/audio/WOF Website Sounds__Tick 4.wav",
+      "assets/audio/WOF Website Sounds__Tick 5.wav",
+      "assets/audio/WOF Website Sounds__Tick 6.wav"
+    ];
+
+    function playSound() {
+        // assign random tick number, create audio object & load random tick sound
+        var rand = Math.floor((Math.random() * 6) + 1);
+        var audio = new Audio(audiosource[rand]);
+        // Stop and rewind the sound (stops it if already playing)
+        audio.pause();
+        audio.currentTime = 0;
+        audio.play();
+    }
+
+    // -------------------------------------------------------
+    // Mouseover & Click Audio Objects
+    // -------------------------------------------------------
+
+    var truthdare_audio = new Audio('assets/audio/btn_truth.wav');
+    var move_audio = new Audio('assets/audio/btn_move.wav');
+    var wild_audio = new Audio('assets/audio/btn_wild.wav');
+    var spin_audio = new Audio('assets/audio/btn_spin.wav');
+    var alert_audio = new Audio('assets/audio/new_alert_msg.wav');
+    var escape_audio = new Audio('assets/audio/btn_escape.wav');
+    var buttonclick_audio = new Audio('assets/audio/btn_click.wav');
+    var home_audio = new Audio('assets/audio/btn_home.wav');
+    var opening_audio = new Audio('assets/audio/opening.wav');
+    var chatwindow_audio = new Audio('assets/audio/chatwindow-open.wav');
+    var chatwindowtransition_audio = new Audio('assets/audio/videochat-transition-back.wav');
+
+    function playOpening() {
+        opening_audio.loop = true;
+        opening_audio.play();
+    }
+
+    function playTruthDare() {
+        // Stop and rewind the sound (stops it if already playing)
+        truthdare_audio.pause();
+        truthdare_audio.currentTime = 0;
+        truthdare_audio.play();
+    }
+
+    function playMove() {
+        // Stop and rewind the sound (stops it if already playing)
+        move_audio.pause();
+        move_audio.currentTime = 0;
+        move_audio.play();
+    }
+
+    function playWild() {
+        // Stop and rewind the sound (stops it if already playing)
+        wild_audio.pause();
+        wild_audio.currentTime = 0;
+        wild_audio.play();
+    }
+
+    function playAlert() {
+        // Stop and rewind the sound (stops it if already playing)
+        alert_audio.pause();
+        alert_audio.currentTime = 0;
+        alert_audio.play();
+    }
+
+    function playEscape() {
+        // Stop and rewind the sound (stops it if already playing)
+        escape_audio.pause();
+        escape_audio.currentTime = 0;
+        escape_audio.play();
+    }
+
+    function playClick() {
+        // Stop and rewind the sound (stops it if already playing)
+        buttonclick_audio.pause();
+        buttonclick_audio.currentTime = 0;
+        buttonclick_audio.play();
+    }
+
+    function playHome() {
+        // Stop and rewind the sound (stops it if already playing)
+        home_audio.pause();
+        home_audio.currentTime = 0;
+        home_audio.play();
+    }
+
+    function playChatWindow() {
+        // Stop and rewind the sound (stops it if already playing)
+        chatwindow_audio.pause();
+        chatwindow_audio.currentTime = 0;
+        chatwindow_audio.play();
+    }
+
+    function playChatTransition() {
+        // Stop and rewind the sound (stops it if already playing)
+        chatwindowtransition_audio.pause();
+        chatwindowtransition_audio.currentTime = 0;
+        chatwindowtransition_audio.play();
+    }
+
+    // -------------------------------------------------------
+    // LOCAL STORAGE OF PAGE COUNTER 
+    // -------------------------------------------------------         
+
+        var n = localStorage.getItem('on_load_counter');
+        if (n === null) {
+            n = 0;
+        }
+        else if (n >= 3) {
+            n = 0;
+        }
+        n++;
+
+        localStorage.setItem("on_load_counter", n);
+        document.getElementById('counter').innerHTML = n;
+
+  /*      if (n >= 4) {
+        //    localStorage.removeItem('on_load_counter');
+            localStorage.setItem('on_load_counter', 1);    
+        }  */
+
+    // -------------------------------------------------------
+    // SPIN COUNTER - used to pick who the wheel lands on
+    // -------------------------------------------------------             
+
+        var i = 1;
+
+    // -------------------------------------------------------------------------------------
+    // STEP 1: Calculate stopAngle before spinning animation. Called from SPIN Click button
+    // -------------------------------------------------------------------------------------
+
+    function calculatePrize() {
+
+        // Pause the background audio from opening titles
+        opening_audio.pause();
+
+        // Disable Spin Button so it can't click again while wheel is spinning
+        document.getElementById('spin_button').classList.add('disabled');
+        document.getElementById('mspin_button').classList.add('disabled');
+
+        // Disable Thrill Level buttons so they can't be clicked while wheel is spinning
+        document.getElementById('pw1').classList.add('disabled');
+        document.getElementById('pw2').classList.add('disabled');
+        document.getElementById('pw3').classList.add('disabled');
+
+        // Mobile Version - disable thrill buttons
+        document.getElementById('mpw1').classList.add('disabled');
+        document.getElementById('mpw2').classList.add('disabled');
+        document.getElementById('mpw3').classList.add('disabled');
+
+        // Reset then Play the Spin Audio Sound
+        spin_audio.pause();
+        spin_audio.currentTime = 0;
+        spin_audio.play();
+
+        // CHECK THE PAGE VISIT COUNTER
+        if (n == 1) {
+            // CHECK THE SPIN COUNTER
+            if (i == 1) {
+                stopAt = (3 + Math.floor((Math.random() * 43))); // Ryan
+                theWheel.animation.stopAngle = stopAt; 
                 theWheel.startAnimation();
+            }
+            if (i == 2) {
+                stopAt = (103 + Math.floor((Math.random() * 43))); // Alan
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            } 
+            if (i == 3) {
+                stopAt = (258 + Math.floor((Math.random() * 43))); // Naomi
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            } 
+            if (i == 4) {
+                stopAt = (206 + Math.floor((Math.random() * 43))); // Liv
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            }             
+        } // CLOSES N1
 
-                // Set to true so that power can't be changed and spin button re-enabled
-                wheelSpinning = true;
-            } // CLOSES MAIN IF
-        } // CLOSES FUNCTION
+        if (n == 2) {
+            if (i == 1) {
+                stopAt = (3 + Math.floor((Math.random() * 43))); // Ryan
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            }
+            if (i == 2) {
+                stopAt = (258 + Math.floor((Math.random() * 43))); // Naomi
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            } 
+            if (i == 3) {
+                stopAt = (52 + Math.floor((Math.random() * 43))); // Yanina
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            } 
+            if (i == 4) {
+                stopAt = (309 + Math.floor((Math.random() * 43))); // Julian
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();                   
+            }          
+        } // CLOSES N2
 
-        // ---------------------------------------------------------------------------------------------------------------------------------
-        // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
-        // Indicated segment is passed as parameter.
-        // ---------------------------------------------------------------------------------------------------------------------------------
-        function alertPrize(indicatedSegment)
+        if (n == 3) {
+            if (i == 1) {
+                stopAt = (258 + Math.floor((Math.random() * 43))); // Naomi
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            }
+            if (i == 2) {
+                 stopAt = (3 + Math.floor((Math.random() * 43))); // Ryan
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            } 
+            if (i == 3) {
+                stopAt = (103 + Math.floor((Math.random() * 43))); // Alan
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();
+            } 
+            if (i == 4) {
+                stopAt = (155 + Math.floor((Math.random() * 43))); // Jake
+                theWheel.animation.stopAngle = stopAt; 
+                theWheel.startAnimation();                    
+            }         
+        } //  CLOSES N3
+    } // END CALCULATE PRIZE FUNCTION
+
+    // -------------------------------------------------------
+    // Function to handle the onClick on the power buttons.
+    // -------------------------------------------------------
+
+    // Variables used by code in page to activate level controls
+    var wheelPower    = 0;
+    var wheelSpinning = false;
+
+    function powerSelected(powerLevel) {
+        // Ensure that power can't be changed while wheel is spinning
+        if (wheelSpinning == false)
         {
-            // Get the number of the winning segment.
-            var winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
+            // Reset all to grey in case this is not the first time the user has selected level
+            document.getElementById('pw1').classList.remove("pw1");
+            document.getElementById('pw2').classList.remove("pw2");
+            document.getElementById('pw3').classList.remove("pw3");
 
-            if (indicatedSegment.text === "Ryan")
+            // Mobile Version wheel color reset
+            document.getElementById('mpw1').classList.remove("mpw1");
+            document.getElementById('mpw2').classList.remove("mpw2");
+            document.getElementById('mpw3').classList.remove("mpw3");
+
+            // Now light up the selected cell by changing the class and playing sound
+            if (powerLevel == 1)
             {
-            theWheel.segments[winningSegmentNumber].fillStyle = '#e74b09'; // ryan
-            $('#alert').css('background-color', '#e74b09');
-            }
-            if (indicatedSegment.text === "Alan")
-            {
-            theWheel.segments[winningSegmentNumber].fillStyle = '#15a6f8'; // alan
-            $('#alert').css('background', '#15a6f8');
-            } 
-            if (indicatedSegment.text === "Naomi")
-            {
-            theWheel.segments[winningSegmentNumber].fillStyle = '#ead600'; // naomi  
-            $('#alert').css('background', '#ead600');
-            } 
-            if (indicatedSegment.text === "Yanina")
-            {
-            theWheel.segments[winningSegmentNumber].fillStyle = '#b74ef9'; // yanina
-            $('#alert').css('background', '#b74ef9');
-            } 
-            if (indicatedSegment.text === "Julian")
-            {
-            theWheel.segments[winningSegmentNumber].fillStyle = '#5bbe84'; // julian
-            $('#alert').css('background', '#5bbe84');
-            }
-            if (indicatedSegment.text === "Jake")
-            {
-            theWheel.segments[winningSegmentNumber].fillStyle = '#a7a7a7'; // jake
-            $('#alert').css('background', '#a7a7a7');
-            }
-            if (indicatedSegment.text === "Liv")
-            {
-            theWheel.segments[winningSegmentNumber].fillStyle = '#de1b2e'; // liv
-            $('#alert').css('background', '#de1b2e');
+                truthdare_audio.pause();
+                truthdare_audio.currentTime = 0;
+                truthdare_audio.play();
+                document.getElementById('pw1').classList.add("pw1");
+                document.getElementById('mpw1').classList.add("mpw1");
             }
 
-            // Redraw the SPIN Wheel
-            theWheel.draw();
-
-            // --------------------------------------------------------------
-            // SHOW MODAL ALERT
-            // --------------------------------------------------------------
-
-            // Make sure the modal dialog is empty
-            $('#modal-body').html("");
-
-            if (indicatedSegment.text === "Julian" || 
-                indicatedSegment.text === "Jake" || 
-                indicatedSegment.text === "Liv")
+            if (powerLevel == 2)
             {
-                $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to watch the teaser?');
+                move_audio.pause();
+                move_audio.currentTime = 0;
+                move_audio.play();
+                document.getElementById('pw2').classList.add("pw2");
+                document.getElementById('mpw2').classList.add("mpw2");
             }
-            else {
-                $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to video chat?');
-            }
 
-            $("#alert").modal("show");
-
-            // Play alert sound
-            alert_audio.pause();
-            alert_audio.currentTime = 0;
-            alert_audio.play();
-
-            // --------------------------------------------------------------
-            // WAIT FOR MODAL CLOSE TO OPEN VIDEO CHAT WINDOWS
-            // --------------------------------------------------------------
-
-            $('#alert').click('dialogclose', function() {
-
-            if (indicatedSegment.text === "Julian" || 
-                indicatedSegment.text === "Jake" || 
-                indicatedSegment.text === "Liv")
+            if (powerLevel == 3)
             {
-                window.location = indicatedSegment.url;                
+                wild_audio.pause();
+                wild_audio.currentTime = 0;
+                wild_audio.play();
+                document.getElementById('pw3').classList.add("pw3");
+                document.getElementById('mpw3').classList.add("mpw3");
             }
-            else {
 
-            // WIPE UP BLACK SCREEN AFTER ALERT IS DISMISSED
+            // Remove blueglow fader from Choose a Thrill Level text
+            document.getElementById('blueglow').classList.remove('blueglow');
+            document.getElementById('mblueglow').classList.remove('blueglow');
+
+            // Set wheelPower variable used when spin button is clicked
+            wheelPower = powerLevel;
+
+            // Light up the spin button by removing disabled and adding clickable; add spin_button class to light it up
+            document.getElementById('spin_button').classList.add("clickable", "spin_button");
+            document.getElementById('spin_button').classList.remove("disabled");
+
+            // Mobile Version activate spin button to be clicked
+            document.getElementById('mspin_button').classList.add("clickable", "mspin_button");
+            document.getElementById('mspin_button').classList.remove("disabled");
+        } // CLOSES MAIN IF
+    } // CLOSES POWER SELECTED FUNCTION
+
+    // -------------------------------------------------------
+    // Function to Start Spinning after Spin Button Click
+    // -------------------------------------------------------
+    function startSpin()
+    {
+        // Set the stopAngle of the animation before starting the spin
+        theWheel.animation.stopAngle = stopAt;
+
+        // Ensure that spinning can't be clicked again while already running
+        if (wheelSpinning == false)
+        {
+            // Power level adjusts the number of spins for the wheel
+            if (wheelPower == 1)
+            {
+                theWheel.animation.spins = 3;
+            }
+            else if (wheelPower == 2)
+            {
+                theWheel.animation.spins = 8;
+            }
+            else if (wheelPower == 3)
+            {
+                theWheel.animation.spins = 15;
+            }
+
+            // Begin the spin animation by calling startAnimation on the wheel object
+            theWheel.startAnimation();
+
+            // Set to true so that power can't be changed and spin button re-enabled
+            wheelSpinning = true;
+        } // CLOSES MAIN IF
+    } // CLOSES FUNCTION
+
+    // ---------------------------------------------------------------------------------------------------------------------------------
+    // Called when the spin animation has finished by the callback feature of the wheel because I specified callback in the parameters.
+    // Indicated segment is passed as parameter.
+    // ---------------------------------------------------------------------------------------------------------------------------------
+    function alertPrize(indicatedSegment)
+    {
+        // Get the number of the winning segment.
+        var winningSegmentNumber = theWheel.getIndicatedSegmentNumber();
+
+        if (indicatedSegment.text === "Ryan")
+        {
+        theWheel.segments[winningSegmentNumber].fillStyle = '#e74b09'; // ryan
+        $('#alert').css('background-color', '#e74b09');
+        }
+        if (indicatedSegment.text === "Alan")
+        {
+        theWheel.segments[winningSegmentNumber].fillStyle = '#15a6f8'; // alan
+        $('#alert').css('background', '#15a6f8');
+        } 
+        if (indicatedSegment.text === "Naomi")
+        {
+        theWheel.segments[winningSegmentNumber].fillStyle = '#ead600'; // naomi  
+        $('#alert').css('background', '#ead600');
+        } 
+        if (indicatedSegment.text === "Yanina")
+        {
+        theWheel.segments[winningSegmentNumber].fillStyle = '#b74ef9'; // yanina
+        $('#alert').css('background', '#b74ef9');
+        } 
+        if (indicatedSegment.text === "Julian")
+        {
+        theWheel.segments[winningSegmentNumber].fillStyle = '#5bbe84'; // julian
+        $('#alert').css('background', '#5bbe84');
+        }
+        if (indicatedSegment.text === "Jake")
+        {
+        theWheel.segments[winningSegmentNumber].fillStyle = '#a7a7a7'; // jake
+        $('#alert').css('background', '#a7a7a7');
+        }
+        if (indicatedSegment.text === "Liv")
+        {
+        theWheel.segments[winningSegmentNumber].fillStyle = '#de1b2e'; // liv
+        $('#alert').css('background', '#de1b2e');
+        }
+
+        // Redraw the SPIN Wheel
+        theWheel.draw();
+
+        // --------------------------------------------------------------
+        // SHOW MODAL ALERT
+        // --------------------------------------------------------------
+
+        // Make sure the modal dialog is empty
+        $('#modal-body').html("");
+
+        if (indicatedSegment.text === "Julian" || 
+            indicatedSegment.text === "Jake" || 
+            indicatedSegment.text === "Liv")
+        {
+            $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to watch the teaser?');
+        }
+        else {
+            $("#modal-body").append(indicatedSegment.text + ' says Hi!' + '<br/>' + 'Are you ready to video chat?');
+        }
+
+        $("#alert").modal("show");
+
+        // Play alert sound
+        alert_audio.pause();
+        alert_audio.currentTime = 0;
+        alert_audio.play();
+
+        // --------------------------------------------------------------
+        // WAIT FOR MODAL CLOSE TO OPEN VIDEO CHAT WINDOWS
+        // --------------------------------------------------------------
+
+        $('#alert').click('dialogclose', function() {
+
+        if (indicatedSegment.text === "Julian" || 
+            indicatedSegment.text === "Jake" || 
+            indicatedSegment.text === "Liv")
+        {
+            window.location = indicatedSegment.url;                
+        }
+        else {
+
+        // WIPE UP BLACK SCREEN AFTER ALERT IS DISMISSED
 //            $("#blackscreen").slideUp(2000);
 
-            // HIDE the Main Container, Spin Wheel & Thrill Level Selection Panel
-            $("#wheel").hide();
-            $("#title").hide();
-            $("#home").hide();
-            $("#thrill").slideUp(1500); // slide up the main container
+        // HIDE the Main Container, Spin Wheel & Thrill Level Selection Panel
+        $("#wheel").hide();
+        $("#title").hide();
+        $("#home").hide();
+        $("#thrill").slideUp(1500); // slide up the main container
 
-            playChatWindow(); // play slide up sound
+        playChatWindow(); // play slide up sound
 
-            // SHOW the Video Chat Windows
-            $("#videochat").show(); // this is the main video chat container
-            $("#videochatwindow-left").show();
-            $("#videochatwindow-right").show();
-            $("#report").wait(15000).show();
+        // SHOW the Video Chat Windows
+        $("#videochat").show(); // this is the main video chat container
+        $("#videochatwindow-left").show();
+        $("#videochatwindow-right").show();
+        $("#report").wait(15000).show();
 
-            $("#thrill").wait(2000).hide(); // hide the main container
+        $("#thrill").wait(2000).hide(); // hide the main container
 
-            // SLIDE UP the Video Chat Windows
+        // SLIDE UP the Video Chat Windows
 /*            $("#videochat").slideUp(); // this is the main video chat container
-            $("#videochatwindow-left").slideUp();
-            $("#videochatwindow-right").slideUp();
-            $("#report").slideUp(); */
+        $("#videochatwindow-left").slideUp();
+        $("#videochatwindow-right").slideUp();
+        $("#report").slideUp(); */
 
-        // BEGIN TRACK 1 BY COUNTER (Check Counter to see Which Track to Play)
-        if (n == 1) {
+    // BEGIN TRACK 1 BY COUNTER (Check Counter to see Which Track to Play)
+    if (n == 1) {
 
-            // Show Different Videos in DIV based on indicatedSegment
-            if (indicatedSegment.text == "Ryan") // TANGO
-            { 
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369089895.sd.mp4?s=63a7dfb00badc009903eea927e4ecac73317a6b2&profile_id=165";
-                document.getElementById('video-left').controls = false;                
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369089830.sd.mp4?s=cf331c9bf49e1d1484b2226afc03cf53fdf2ac38&profile_id=165";
-                document.getElementById('video-right').controls = false;   
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#videochat1').show();
-                $('#videochat2').show();                
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "57.5s");
-                $('#connecting').show().wait(54000).hide();
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-left').classList.add("jitterLeft");
-                $('#left-name-ryan').wait(5000).show().text('Ryan');
-                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-                $('#right-location-1').wait(8000).show().text('Guadalajara, Mexico').wait(4000).text('').wait(3000).text('New Orleans, LA').wait(5500).text('').wait(2000).text('Tijuana, Mexico').wait(2500).text('').wait(4000).text('Mexico City, Mexico').wait(7500).text('').wait(1500).text('Guadalajara, Mexico').wait(3500).text('').wait(1000).text('New Orleans, LA').wait(2500).text('').wait(1000).text('Thessaloniki, Greece').wait(4000).remove();
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-1').wait(57500).show().text('Yanina');
-                $('#right-status-1').wait(62000).show().text('Guadalajara, Mexico');
-            }
-            else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
-            {
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165";
-                document.getElementById('video-left').controls = false;                
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165";
-                document.getElementById('video-right').controls = false;  
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#videochat1').show();
-                $('#videochat2').show();
-                $('#left-name-ryan').text('').remove();
-                $('#left-status-ryan').text('').remove();
-                $('#right-location-1').text('').remove();
-                $('#right-name-1').text('').remove();
-                $('#right-status-1').text('').remove();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "40.5s");
-                $('#connecting').show().wait(35000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
-                document.getElementById('video-left').classList.add("jitterLeft");   
-                $('#left-name-alan').wait(7000).show().text('Alan');
-                $('#left-status-alan').wait(10000).show().text('Tijuana, Mexico');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-2').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
-                $('#right-name-2').wait(41000).show().text('Yanina');
-                $('#right-status-2').wait(44000).show().text('Guadalajara, Mexico');
-            }
-            else if (indicatedSegment.text == "Naomi") // POEM
-            {
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165";
-                document.getElementById('video-left').controls = false;  
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165";
-                document.getElementById('video-right').controls = false; 
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#videochat1').show();
-                $('#videochat2').show();
-                $('#left-name-alan').text('').remove();
-                $('#left-status-alan').text('').remove();
-                $('#right-location-2').text('').remove();
-                $('#right-name-2').text('').remove();
-                $('#right-status-2').text('').remove();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "26s");
-                $('#connecting').show().wait(23000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedAlan");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-naomi').wait(4000).show().text('Naomi');
-                $('#left-status-naomi').wait(7000).show().text('Paris, France');
-                $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-3').wait(3000).show().text('Leeds, UK').wait(7000).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
-                $('#right-name-3').wait(26000).show().text('Ryan');
-                $('#right-status-3').wait(28000).show().text('Los Angeles, CA');
-            }
-        } // END TRACK 1 BY COUNTER
-
-        // BEGIN TRACK 2 BY COUNTER
-        if (n == 2) {
-
-            // Show Different Videos in DIV based on indicatedSegment
-            if (indicatedSegment.text == "Ryan") // DRILL
-            { 
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369177617.sd.mp4?s=e729c7a1e59fb1e7489174d71d62d1c8b8275ec2&profile_id=165";
-                document.getElementById('video-left').controls = false; 
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369177468.sd.mp4?s=f9925b27525b46000f7cfad150349788fbbee2c8&profile_id=165";
-                document.getElementById('video-right').controls = false; 
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#videochat1').show();
-                $('#videochat2').show();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "29.5s");
-                $('#connecting').show().wait(26000).hide();
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-ryan').wait(5000).show().text('Ryan');
-                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-1').wait(7000).show().text('Thessaloniki, Greece').wait(4500).text('').wait(1500).text('Paris, France').wait(6000).remove();
-                $('#right-name-1').wait(29500).show().text('Yanina');
-                $('#right-status-1').wait(32000).show().text('Guadalajara, Mexico');
-            }
-            else if (indicatedSegment.text == "Naomi") // HARP
-            {
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369176601.sd.mp4?s=ba330522843dbe23a8f8326208d6fab244f9fc61&profile_id=164";
-                document.getElementById('video-left').controls = false; 
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369175753.sd.mp4?s=4c6f3ad2f38124a17c213f30706a3e9b4c95d14d&profile_id=165";
-                document.getElementById('video-right').controls = false; 
-                $('#video-left').show();
-                $('#video-right').show(); 
-                $('#videochat1').show();
-                $('#videochat2').show();
-                $('#left-name-ryan').text('').remove();
-                $('#left-status-ryan').text('').remove();
-                $('#right-location-1').text('').remove();
-                $('#right-name-1').text('').remove();
-                $('#right-status-1').text('').remove();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "34.5s");
-                $('#connecting').show().wait(32000).hide();
-                $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-naomi').wait(4000).show().text('Naomi');
-                $('#left-status-naomi').wait(6000).show().text('Paris, France');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-2').wait(7000).show().text('Somewhere in Iowa').wait(5500).text('').wait(4000).text('Somewhere Up a Tree').wait(5500).remove();
-                $('#right-name-2').wait(34500).show().text('Yanina');
-                $('#right-status-2').wait(37000).show().text('Guadalajara, Mexico');
-            }
-            else if (indicatedSegment.text == "Yanina") // NAKED IN SF
-            {
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369089997.sd.mp4?s=3bcc122e733c56fb24083e84463cd2849484f62e&profile_id=164";
-                document.getElementById('video-left').controls = false; 
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369089951.sd.mp4?s=b13c69637d02feaca1fb01597fefb687a02a55b2&profile_id=164";
-                document.getElementById('video-right').controls = false; 
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#videochat1').show();
-                $('#videochat2').show();
-                $('#left-name-naomi').text('').remove();
-                $('#left-status-naomi').text('').remove();
-                $('#right-location-2').text('').remove();
-                $('#right-name-2').text('').remove();
-                $('#right-status-2').text('').remove();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "32.5s");
-                $('#connecting').show().wait(29000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-yanina').wait(5000).show().text('Yanina');
-                $('#left-status-yanina').wait(9000).show().text('Guadalajara, Mexico');
-                $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-3').wait(7000).show().text('Somewhere North of Stonehenge').wait(15000).remove();
-                $('#right-name-3').wait(34000).show().text('Ryan');
-                $('#right-status-3').wait(37000).show().text('Los Angeles, CA');
-            }
-        } // END TRACK 2 BY COUNTER
-
-        // BEGIN TRACK 3 BY COUNTER
-        if (n == 3) {
-
-            if (indicatedSegment.text == "Naomi") // POEM
-            {
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165";
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165";
-                $('#video-left').show();
-                $('#video-right').show(); 
-                $('#videochat1').show();
-                $('#videochat2').show();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "26s");
-                $('#connecting').show().wait(24000).hide();
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-naomi').wait(5000).show().text('Naomi');
-                $('#left-status-naomi').wait(8000).show().text('Paris, France');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-1').wait(3500).show().text('Leeds, UK').wait(6500).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
-                $('#right-name-1').wait(27000).show().text('Ryan');
-                $('#right-status-1').wait(28000).show().text('Los Angeles, CA');
-            }
-            else if (indicatedSegment.text == "Ryan") // EYEBALL
-            { 
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369179252.sd.mp4?s=ea4b2e9c7187a10101aa7e8a1672a3d6aeb7ba09&profile_id=165";
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369179202.sd.mp4?s=2ae3bf5299b9824adfe8bdb795376d07fcaa503a&profile_id=165";
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#videochat1').show();
-                $('#videochat2').show();
-                $('#left-name-naomi').text('').remove();
-                $('#left-status-naomi').text('').remove();
-                $('#right-location-1').text('').remove();
-                $('#right-name-1').text('').remove();
-                $('#right-status-1').text('').remove();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "18s");
-                $('#connecting').show().wait(15000).hide();
-//                $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
-                document.getElementById('videochatwindow-left').classList.remove('backgroundAnimatedNaomi');
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-left').classList.add("jitterLeft");
-                $('#left-name-ryan').wait(5000).show().text('Ryan');
-                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-                $('#videochatwindow-right').removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-2').wait(8000).show().text('Somewhere with Better Music').wait(3500).remove();
-                $('#right-name-2').wait(18000).show().text('Yanina');
-                $('#right-status-2').wait(21000).show().text('Guadalajara, Mexico');
-            }
-            else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
-            {
-                document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165";
-                document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165";
-                $('#video-left').show();
-                $('#video-right').show();
-                $('#videochat1').show();
-                $('#videochat2').show();
-                $('#left-name-ryan').text('').remove();
-                $('#left-status-ryan').text('').remove();
-                $('#right-location-2').text('').remove();
-                $('#right-name-2').text('').remove();
-                $('#right-status-2').text('').remove();
-                $('#video-left').get(0).play();
-                $('#video-right').get(0).play();
-                $('body').get(0).style.setProperty("--jitter", "40.5s");
-                $('#connecting').show().wait(35000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
-                document.getElementById('video-left').classList.add("jitterLeft");   
-                $('#left-name-alan').wait(5000).show().text('Alan');
-                $('#left-status-alan').wait(8000).show().text('Tijuana, Mexico');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-3').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
-                $('#right-name-3').wait(41000).show().text('Yanina');
-                $('#right-status-3').wait(48000).show().text('Guadalajara, Mexico');
-            }
-        } // END TRACK 3 BY COUNTER
-    } // CLOSE ELSE
-        }); // CLOSE ALERT DIALOG FUNCTION
-    } // CLOSE ALERT PRIZE FUNCTION
-
-        // ------------------------------------
-        // Report User Alert Button on Videos
-        // ------------------------------------
-
-        function reportUser(indicatedSegment) { // removed indicatedSegment from inside () because it isn't being used to populate a modal anymore
-            $('#video-left').get(0).pause();
-            $('#video-right').get(0).pause();
-
-            // Remove the class from video chat windows
-            document.getElementById("videochatwindow-left").removeAttribute("class");
-            document.getElementById("videochatwindow-right").removeAttribute("class");
-
-            alert_audio.pause();
-            alert_audio.currentTime = 0;
-            alert_audio.play();
-
-            myHandler();
+        // Show Different Videos in DIV based on indicatedSegment
+        if (indicatedSegment.text == "Ryan") // TANGO
+        { 
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369089895.sd.mp4?s=63a7dfb00badc009903eea927e4ecac73317a6b2&profile_id=165";
+            document.getElementById('video-left').controls = false;                
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369089830.sd.mp4?s=cf331c9bf49e1d1484b2226afc03cf53fdf2ac38&profile_id=165";
+            document.getElementById('video-right').controls = false;   
+            $('#video-left').show();
+            $('#video-right').show();
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#video-left').get(0);enableInlineVideo('video-left');
+            $('#video-right').get(0);enableInlineVideo('video-right');
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "57.5s");
+            $('#connecting').show().wait(54000).hide();
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-left').classList.add("jitterLeft");
+            $('#left-name-ryan').wait(5000).show().text('Ryan');
+            $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
+            $('#right-location-1').wait(8000).show().text('Guadalajara, Mexico').wait(4000).text('').wait(3000).text('New Orleans, LA').wait(5500).text('').wait(2000).text('Tijuana, Mexico').wait(2500).text('').wait(4000).text('Mexico City, Mexico').wait(7500).text('').wait(1500).text('Guadalajara, Mexico').wait(3500).text('').wait(1000).text('New Orleans, LA').wait(2500).text('').wait(1000).text('Thessaloniki, Greece').wait(4000).remove();
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-name-1').wait(57500).show().text('Yanina');
+            $('#right-status-1').wait(62000).show().text('Guadalajara, Mexico');
         }
+        else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
+        {
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165";
+            document.getElementById('video-left').controls = false;                
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165";
+            document.getElementById('video-right').controls = false;  
+            $('#video-left').show();
+            $('#video-right').show();
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#left-name-ryan').text('').remove();
+            $('#left-status-ryan').text('').remove();
+            $('#right-location-1').text('').remove();
+            $('#right-name-1').text('').remove();
+            $('#right-status-1').text('').remove();
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "40.5s");
+            $('#connecting').show().wait(35000).hide();
+            $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+            document.getElementById('video-left').classList.add("jitterLeft");   
+            $('#left-name-alan').wait(7000).show().text('Alan');
+            $('#left-status-alan').wait(10000).show().text('Tijuana, Mexico');
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-location-2').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
+            $('#right-name-2').wait(41000).show().text('Yanina');
+            $('#right-status-2').wait(44000).show().text('Guadalajara, Mexico');
+        }
+        else if (indicatedSegment.text == "Naomi") // POEM
+        {
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165";
+            document.getElementById('video-left').controls = false;  
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165";
+            document.getElementById('video-right').controls = false; 
+            $('#video-left').show();
+            $('#video-right').show();
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#left-name-alan').text('').remove();
+            $('#left-status-alan').text('').remove();
+            $('#right-location-2').text('').remove();
+            $('#right-name-2').text('').remove();
+            $('#right-status-2').text('').remove();
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "26s");
+            $('#connecting').show().wait(23000).hide();
+            $('#videochatwindow-left').removeClass("backgroundAnimatedAlan");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+            document.getElementById('video-left').classList.add("jitterLeft");                    
+            $('#left-name-naomi').wait(4000).show().text('Naomi');
+            $('#left-status-naomi').wait(7000).show().text('Paris, France');
+            $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-location-3').wait(3000).show().text('Leeds, UK').wait(7000).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
+            $('#right-name-3').wait(26000).show().text('Ryan');
+            $('#right-status-3').wait(28000).show().text('Los Angeles, CA');
+        }
+    } // END TRACK 1 BY COUNTER
 
-        // ----------------------------------------------------------------------------
-        // Function to reset SPIN button/wheel after videos end or after report button
-        // ----------------------------------------------------------------------------
+    // BEGIN TRACK 2 BY COUNTER
+    if (n == 2) {
 
-        document.getElementById('video-left').addEventListener('ended',myHandler,false);
-        document.getElementById('video-right').addEventListener('ended',myHandler,false);
-        document.getElementById('escape').addEventListener('click',myHandler,false);
+        // Show Different Videos in DIV based on indicatedSegment
+        if (indicatedSegment.text == "Ryan") // DRILL
+        { 
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369177617.sd.mp4?s=e729c7a1e59fb1e7489174d71d62d1c8b8275ec2&profile_id=165";
+            document.getElementById('video-left').controls = false; 
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369177468.sd.mp4?s=f9925b27525b46000f7cfad150349788fbbee2c8&profile_id=165";
+            document.getElementById('video-right').controls = false; 
+            $('#video-left').show();
+            $('#video-right').show();
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "29.5s");
+            $('#connecting').show().wait(26000).hide();
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-left').classList.add("jitterLeft");                    
+            $('#left-name-ryan').wait(5000).show().text('Ryan');
+            $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-location-1').wait(7000).show().text('Thessaloniki, Greece').wait(4500).text('').wait(1500).text('Paris, France').wait(6000).remove();
+            $('#right-name-1').wait(29500).show().text('Yanina');
+            $('#right-status-1').wait(32000).show().text('Guadalajara, Mexico');
+        }
+        else if (indicatedSegment.text == "Naomi") // HARP
+        {
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369176601.sd.mp4?s=ba330522843dbe23a8f8326208d6fab244f9fc61&profile_id=164";
+            document.getElementById('video-left').controls = false; 
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369175753.sd.mp4?s=4c6f3ad2f38124a17c213f30706a3e9b4c95d14d&profile_id=165";
+            document.getElementById('video-right').controls = false; 
+            $('#video-left').show();
+            $('#video-right').show(); 
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#left-name-ryan').text('').remove();
+            $('#left-status-ryan').text('').remove();
+            $('#right-location-1').text('').remove();
+            $('#right-name-1').text('').remove();
+            $('#right-status-1').text('').remove();
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "34.5s");
+            $('#connecting').show().wait(32000).hide();
+            $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+            document.getElementById('video-left').classList.add("jitterLeft");                    
+            $('#left-name-naomi').wait(4000).show().text('Naomi');
+            $('#left-status-naomi').wait(6000).show().text('Paris, France');
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-location-2').wait(7000).show().text('Somewhere in Iowa').wait(5500).text('').wait(4000).text('Somewhere Up a Tree').wait(5500).remove();
+            $('#right-name-2').wait(34500).show().text('Yanina');
+            $('#right-status-2').wait(37000).show().text('Guadalajara, Mexico');
+        }
+        else if (indicatedSegment.text == "Yanina") // NAKED IN SF
+        {
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369089997.sd.mp4?s=3bcc122e733c56fb24083e84463cd2849484f62e&profile_id=164";
+            document.getElementById('video-left').controls = false; 
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369089951.sd.mp4?s=b13c69637d02feaca1fb01597fefb687a02a55b2&profile_id=164";
+            document.getElementById('video-right').controls = false; 
+            $('#video-left').show();
+            $('#video-right').show();
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#left-name-naomi').text('').remove();
+            $('#left-status-naomi').text('').remove();
+            $('#right-location-2').text('').remove();
+            $('#right-name-2').text('').remove();
+            $('#right-status-2').text('').remove();
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "32.5s");
+            $('#connecting').show().wait(29000).hide();
+            $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
+            document.getElementById('video-left').classList.add("jitterLeft");                    
+            $('#left-name-yanina').wait(5000).show().text('Yanina');
+            $('#left-status-yanina').wait(9000).show().text('Guadalajara, Mexico');
+            $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-location-3').wait(7000).show().text('Somewhere North of Stonehenge').wait(15000).remove();
+            $('#right-name-3').wait(34000).show().text('Ryan');
+            $('#right-status-3').wait(37000).show().text('Los Angeles, CA');
+        }
+    } // END TRACK 2 BY COUNTER
 
-        function myHandler(e) {
-            $('#video-left').get(0).pause();
-            $('#video-right').get(0).pause();
+    // BEGIN TRACK 3 BY COUNTER
+    if (n == 3) {
 
-            // Remove the Name & Status Divs after video chat round ends
-            $('#left-name-ryan').empty().hide();
-            $('#left-name-naomi').empty().hide();
-            $('#left-name-yanina').empty().hide();
-            $('#left-name-alan').empty().hide();   
-            $('#right-name-1').empty().hide();
-            $('#right-name-2').empty().hide();
-            $('#right-name-3').empty().hide();
-            $('#right-status-1').empty().hide();
-            $('#right-status-2').empty().hide();
-            $('#right-status-3').empty().hide();
-            $('#right-location-1').empty().hide();
-            $('#right-location-2').empty().hide();
-            $('#right-location-3').empty().hide();
+        if (indicatedSegment.text == "Naomi") // POEM
+        {
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165";
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165";
+            $('#video-left').show();
+            $('#video-right').show(); 
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "26s");
+            $('#connecting').show().wait(24000).hide();
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+            document.getElementById('video-left').classList.add("jitterLeft");                    
+            $('#left-name-naomi').wait(5000).show().text('Naomi');
+            $('#left-status-naomi').wait(8000).show().text('Paris, France');
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-location-1').wait(3500).show().text('Leeds, UK').wait(6500).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
+            $('#right-name-1').wait(27000).show().text('Ryan');
+            $('#right-status-1').wait(28000).show().text('Los Angeles, CA');
+        }
+        else if (indicatedSegment.text == "Ryan") // EYEBALL
+        { 
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369179252.sd.mp4?s=ea4b2e9c7187a10101aa7e8a1672a3d6aeb7ba09&profile_id=165";
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369179202.sd.mp4?s=2ae3bf5299b9824adfe8bdb795376d07fcaa503a&profile_id=165";
+            $('#video-left').show();
+            $('#video-right').show();
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#left-name-naomi').text('').remove();
+            $('#left-status-naomi').text('').remove();
+            $('#right-location-1').text('').remove();
+            $('#right-name-1').text('').remove();
+            $('#right-status-1').text('').remove();
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "18s");
+            $('#connecting').show().wait(15000).hide();
+//                $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
+            document.getElementById('videochatwindow-left').classList.remove('backgroundAnimatedNaomi');
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-left').classList.add("jitterLeft");
+            $('#left-name-ryan').wait(5000).show().text('Ryan');
+            $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
+            $('#videochatwindow-right').removeClass("backgroundAnimatedRyan");
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-location-2').wait(8000).show().text('Somewhere with Better Music').wait(3500).remove();
+            $('#right-name-2').wait(18000).show().text('Yanina');
+            $('#right-status-2').wait(21000).show().text('Guadalajara, Mexico');
+        }
+        else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
+        {
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165";
+            document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165";
+            $('#video-left').show();
+            $('#video-right').show();
+            $('#videochat1').show();
+            $('#videochat2').show();
+            $('#left-name-ryan').text('').remove();
+            $('#left-status-ryan').text('').remove();
+            $('#right-location-2').text('').remove();
+            $('#right-name-2').text('').remove();
+            $('#right-status-2').text('').remove();
+            $('#video-left').get(0).play();
+            $('#video-right').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "40.5s");
+            $('#connecting').show().wait(35000).hide();
+            $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+            document.getElementById('video-left').classList.add("jitterLeft");   
+            $('#left-name-alan').wait(5000).show().text('Alan');
+            $('#left-status-alan').wait(8000).show().text('Tijuana, Mexico');
+            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+            document.getElementById('video-right').classList.add("jitterRight");
+            $('#right-location-3').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
+            $('#right-name-3').wait(41000).show().text('Yanina');
+            $('#right-status-3').wait(48000).show().text('Guadalajara, Mexico');
+        }
+    } // END TRACK 3 BY COUNTER
+} // CLOSE ELSE
+    }); // CLOSE ALERT DIALOG FUNCTION
+} // CLOSE ALERT PRIZE FUNCTION
 
-            // Remove the class from video chat windows
-            document.getElementById("videochatwindow-left").removeAttribute("class");
-            document.getElementById("videochatwindow-right").removeAttribute("class");
+    // ------------------------------------
+    // Report User Alert Button on Videos
+    // ------------------------------------
 
-            // Enable Spin Button so it can click again while wheel is spinning
-            document.getElementById('spin_button').classList.remove('disabled');
-            document.getElementById('mspin_button').classList.remove('disabled');
+    function reportUser(indicatedSegment) { // removed indicatedSegment from inside () because it isn't being used to populate a modal anymore
+        $('#video-left').get(0).pause();
+        $('#video-right').get(0).pause();
 
-            // Disable Thrill Level buttons so they can't be clicked while wheel is spinning
-            document.getElementById('pw1').classList.remove('disabled');
-            document.getElementById('pw2').classList.remove('disabled');
-            document.getElementById('pw3').classList.remove('disabled');
+        // Remove the class from video chat windows
+        document.getElementById("videochatwindow-left").removeAttribute("class");
+        document.getElementById("videochatwindow-right").removeAttribute("class");
 
-            // Mobile Version
-            document.getElementById('mpw1').classList.remove('disabled');
-            document.getElementById('mpw2').classList.remove('disabled');
-            document.getElementById('mpw3').classList.remove('disabled');
+        alert_audio.pause();
+        alert_audio.currentTime = 0;
+        alert_audio.play();
 
-            // SPIN COUNTER CHECK
-            if (i == 4) {
-                i = 1;
-            }
-            i++;
+        myHandler();
+    }
 
-            // After Event - pause all videos
+    // ----------------------------------------------------------------------------
+    // Function to reset SPIN button/wheel after videos end or after report button
+    // ----------------------------------------------------------------------------
+
+    document.getElementById('video-left').addEventListener('ended',myHandler,false);
+    document.getElementById('video-right').addEventListener('ended',myHandler,false);
+    document.getElementById('escape').addEventListener('click',myHandler,false);
+
+    function myHandler(e) {
+        $('#video-left').get(0).pause();
+        $('#video-right').get(0).pause();
+
+        // Remove the Name & Status Divs after video chat round ends
+        $('#left-name-ryan').empty().hide();
+        $('#left-name-naomi').empty().hide();
+        $('#left-name-yanina').empty().hide();
+        $('#left-name-alan').empty().hide();   
+        $('#right-name-1').empty().hide();
+        $('#right-name-2').empty().hide();
+        $('#right-name-3').empty().hide();
+        $('#right-status-1').empty().hide();
+        $('#right-status-2').empty().hide();
+        $('#right-status-3').empty().hide();
+        $('#right-location-1').empty().hide();
+        $('#right-location-2').empty().hide();
+        $('#right-location-3').empty().hide();
+
+        // Remove the class from video chat windows
+        document.getElementById("videochatwindow-left").removeAttribute("class");
+        document.getElementById("videochatwindow-right").removeAttribute("class");
+
+        // Enable Spin Button so it can click again while wheel is spinning
+        document.getElementById('spin_button').classList.remove('disabled');
+        document.getElementById('mspin_button').classList.remove('disabled');
+
+        // Disable Thrill Level buttons so they can't be clicked while wheel is spinning
+        document.getElementById('pw1').classList.remove('disabled');
+        document.getElementById('pw2').classList.remove('disabled');
+        document.getElementById('pw3').classList.remove('disabled');
+
+        // Mobile Version
+        document.getElementById('mpw1').classList.remove('disabled');
+        document.getElementById('mpw2').classList.remove('disabled');
+        document.getElementById('mpw3').classList.remove('disabled');
+
+        // SPIN COUNTER CHECK
+        if (i == 4) {
+            i = 1;
+        }
+        i++;
+
+        // After Event - pause all videos
 //            $('#video-left').get(0).pause();
 //            $('#video-right').get(0).pause();
 
-            // Hide Videos After Pause
-            $("#videochat").hide();
+        // Hide Videos After Pause
+        $("#videochat").hide();
 //            $('#videochat').slideDown(1500);           
 
-            $("#videochatwindow-left").hide();
-            $("#videochatwindow-right").hide();            
-            $("#videochat1").hide();
-            $("#videochat2").hide();
-            $("#report").hide();
+        $("#videochatwindow-left").hide();
+        $("#videochatwindow-right").hide();            
+        $("#videochat1").hide();
+        $("#videochat2").hide();
+        $("#report").hide();
 
-            // Now show the Main Container, Spin Wheel & Thrill Level Selection Panel
-            $("#thrill").show(); // this is now the main thrill wheel container
-            $("#wheel").show();
-            $("#title").show();
+        // Now show the Main Container, Spin Wheel & Thrill Level Selection Panel
+        $("#thrill").show(); // this is now the main thrill wheel container
+        $("#wheel").show();
+        $("#title").show();
 
-            if (i > 2){
-                $("#home").show();
-            }
-
-            // After Slide Down - hide all videos
-            $('#video-left').wait(2000).hide();
-            $('#video-right').wait(2000).hide();
-
-            // Reset Videos
-            document.getElementById('video-left').src = "";
-            document.getElementById('video-right').src = "";
-            document.getElementById('videochatwindow-left').className = "col span_1_of_2 chatleft-gray noselect";
-            document.getElementById('videochatwindow-right').className = "col span_1_of_2 chatright-gray noselect";
-            document.getElementById('video-left').className = "";
-            document.getElementById('video-right').className = "";
-
-            theWheel.stopAnimation(false);  // Stop the animation, false as param so does not send callback function.
-/*            theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees. */
-            theWheel.rotationAngle = theWheel.rotationAngle % 360; // reset the wheel but keep its current position
-            theWheel.draw();                // Call draw to render changes to the wheel.
-
-            document.getElementById('pw1').classList.remove('pw1'); // Remove power level colors
-            document.getElementById('pw2').classList.remove('pw2'); // Remove power level colors
-            document.getElementById('pw3').classList.remove('pw3'); // Remove power level colors
-            document.getElementById('spin_button').classList.remove('spin_button', 'clickable');
-            document.getElementById('spin_button').classList.add('disabled');
-            // Mobile Version
-            document.getElementById('mpw1').classList.remove('mpw1'); // Remove power level colors
-            document.getElementById('mpw2').classList.remove('mpw2'); // Remove power level colors
-            document.getElementById('mpw3').classList.remove('mpw3'); // Remove power level colors
-            document.getElementById('mspin_button').classList.remove('mspin_button', 'clickable');
-            document.getElementById('mspin_button').classList.add('disabled');
-
-            // Make sure blueglow fader is working
-            document.getElementById('blueglow').classList.add('blueglow');
-            // Mobile Version
-            document.getElementById('mblueglow').classList.add('blueglow');
-
-            wheelSpinning = false;          // Reset power buttons to false so spin can be clicked again.
-
-            $(window).scrollTop(675);
-            playChatTransition(); 
+        if (i > 2){
+            $("#home").show();
         }
+
+        // After Slide Down - hide all videos
+        $('#video-left').wait(2000).hide();
+        $('#video-right').wait(2000).hide();
+
+        // Reset Videos
+        document.getElementById('video-left').src = "";
+        document.getElementById('video-right').src = "";
+        document.getElementById('videochatwindow-left').className = "col span_1_of_2 chatleft-gray noselect";
+        document.getElementById('videochatwindow-right').className = "col span_1_of_2 chatright-gray noselect";
+        document.getElementById('video-left').className = "";
+        document.getElementById('video-right').className = "";
+
+        theWheel.stopAnimation(false);  // Stop the animation, false as param so does not send callback function.
+/*            theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees. */
+        theWheel.rotationAngle = theWheel.rotationAngle % 360; // reset the wheel but keep its current position
+        theWheel.draw();                // Call draw to render changes to the wheel.
+
+        document.getElementById('pw1').classList.remove('pw1'); // Remove power level colors
+        document.getElementById('pw2').classList.remove('pw2'); // Remove power level colors
+        document.getElementById('pw3').classList.remove('pw3'); // Remove power level colors
+        document.getElementById('spin_button').classList.remove('spin_button', 'clickable');
+        document.getElementById('spin_button').classList.add('disabled');
+        // Mobile Version
+        document.getElementById('mpw1').classList.remove('mpw1'); // Remove power level colors
+        document.getElementById('mpw2').classList.remove('mpw2'); // Remove power level colors
+        document.getElementById('mpw3').classList.remove('mpw3'); // Remove power level colors
+        document.getElementById('mspin_button').classList.remove('mspin_button', 'clickable');
+        document.getElementById('mspin_button').classList.add('disabled');
+
+        // Make sure blueglow fader is working
+        document.getElementById('blueglow').classList.add('blueglow');
+        // Mobile Version
+        document.getElementById('mblueglow').classList.add('blueglow');
+
+        wheelSpinning = false;          // Reset power buttons to false so spin can be clicked again.
+
+        $(window).scrollTop(675);
+        playChatTransition(); 
+    }
 </script>
 <script src="assets/js/vendor/bootstrap3.1.0/bootstrap.min.js"></script>
-    </body>
+</body>
 </html>

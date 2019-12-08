@@ -925,17 +925,39 @@ END ELEMENTS NOT IN USE */
 .square-center{
   display: none;
 }
+/* IPHONE INLINE VIDEO HIDE CONTROLS */
+ .IIV::-webkit-media-controls-play-button,
+ .IIV::-webkit-media-controls-start-playback-button {
+  opacity: 0;
+  pointer-events: none;
+  width: 5px;
+}
 /* ******************************************************************************** */
 /*                                    RESPONSIVE                                    */
 /* ******************************************************************************** */
 
-/* FOR TABLETS AND LANDSCAPE LESS THAN 1170px WIDE */
+/* FOR TABLETS & SMALL LAPTOPS LANDSCAPE LESS THAN 1170px WIDE */
 @media screen and (max-width: 1170px) {
 .round-button {
 /*  width:8%; */
 }
 .button-report{
   top: -150px;
+}
+#diamond-buttons {
+  margin-left: -40px;
+}
+#wheel {
+  width: 10px;
+}
+}
+/* FOR TABLETS PORTRAIT LESS THAN 768px WIDE */
+@media screen and (max-width: 853px) {
+.round-button {
+/*  width:8%; */
+}
+.button-report{
+  top: -250px;
 }
 #diamond-buttons {
   margin-left: -40px;

@@ -19,6 +19,7 @@
     <script src="assets/js/plugins/gsap2.1.2/EasePack.min.js"></script>
     <script src="assets/js/plugins/gsap2.1.2/TweenLite.min.js"></script>
     <script src="assets/js/plugins/jquery.wait.js"></script>
+    <script src="assets/js/plugins/iphone-inline-video.min.js"></script>
 
 </head>
 <!-- START Original attempt basic HTML-->
@@ -169,6 +170,10 @@
             window.location.href = "test.html";
             return false;
         }
+
+        enableInlineVideo(video, {
+            iPad: true
+        });
 
         // --------------------------------------------------------------
         // Function to SCALE video on SCROLL

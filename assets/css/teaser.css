@@ -416,6 +416,13 @@ a {
 .imdb{
   color: #de1b2e;
 }
+/* IPHONE INLINE VIDEO HIDE CONTROLS */
+ .IIV::-webkit-media-controls-play-button,
+ .IIV::-webkit-media-controls-start-playback-button {
+  opacity: 0;
+  pointer-events: none;
+  width: 5px;
+}
 
 /* FOR PHONES 480 x 853 : NEEDS TO STAY THIS LARGE TO AFFECT ALL MOBILE DEVICES BELOW THIS - BUT NEED TO ADJUST & CENTER */
 
