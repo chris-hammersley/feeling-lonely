@@ -159,6 +159,7 @@
 
         playOpening(); // plays the opening sound over the opening title animation
 
+        $('#teaser').get(0);enableInlineVideo('teaser');
         document.getElementById('teaser').addEventListener('play',stopOpening,false);
 
         function pauseTeaser(){
@@ -171,9 +172,9 @@
             return false;
         }
 
-        enableInlineVideo(video, {
+/*        enableInlineVideo(video, {
             iPad: true
-        });
+        }); */
 
         // --------------------------------------------------------------
         // Function to SCALE video on SCROLL
@@ -284,7 +285,8 @@
                 clipTween1.play();
                 }, 2000)
                 setTimeout(function() {
-                $("#thanks").get(0).play();
+                    $('#thanks').get(0);enableInlineVideo('thanks');
+                    $("#thanks").get(0).play();
                 }, 2000)               
             //    setTimeout(function() {
                 // replace the url in quotes below to where you want to the user to be redirected to - will need to change to live page html
