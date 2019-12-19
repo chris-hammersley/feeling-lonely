@@ -151,9 +151,9 @@ END ELEMENTS NOT IN USE */
 }
 #prizePointer{
   position: absolute;
-  left: 191px;
+  left: 241px; /* was 191 */
   z-index: 50;
-  margin-top: 10px;
+  margin-top: 9px; /* was 10 */
 }
 .disabled{
   pointer-events: none;
@@ -598,14 +598,14 @@ END ELEMENTS NOT IN USE */
 /* Formatting for A Wheel of Chance CONNECTIONS */
 .rotate45 {
     text-align: left;
-    top: 225px;
-    left: 130px;
+    top: 250px; /* was 225 for test.html */
+    left: 230px; /* was 130 for test.html */
     position: relative;
-    width: 100px; /* 300*/
-    height: 145px; /*150*/
+    width: 100px; /* was 300 */
+    height: 145px; /* was 150 */
     margin: 5;
     color: #5bbe84;
-    font-size: 12px;
+/*    font-size: 12px; for test.html */
     line-height: 10px; 
     -webkit-transform: rotate(65deg);
     -moz-transform: rotate(65deg);
@@ -615,11 +615,11 @@ END ELEMENTS NOT IN USE */
 }
 .greenglow .word1, .word2, .word3, .word4 { 
   color: #ffffff;
-  letter-spacing: -1px;
+  letter-spacing: 5px; /* was -1 */
 }
 .greenglow .word5 {
   color: #5bbe84;
-  letter-spacing: -1px;
+  letter-spacing: 5px;  /* was -1 */
   animation: fader 3s ease-in-out infinite;
   -moz-animation: fader 3s ease-in-out infinite;
   -ms-animation: fader 3s ease-in-out infinite;
@@ -1086,7 +1086,7 @@ h3{
   position: absolute;
   left: 46%;
   z-index: 50;
-  margin-top: 12px;
+  margin-top: 10px; /* was 12px for test.html */
   height: 25%;
   top:26%;
 }
