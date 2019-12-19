@@ -97,7 +97,8 @@
                 <div id="connections-mobile" class="rotate45" hidden>
                 </div>
                 <img id="prizePointer" src="assets/images/wheel_arrow.png" alt="V" />
-                <canvas id="canvas" class="img-fluid rounded mb-3 mb-md-0" width="520" height="520" data-responsiveMinWidth="180">
+                <canvas id="canvas" width="520" height="520">
+                <!-- data-responsiveMinWidth="180" class="img-fluid rounded mb-3 mb-md-0" -->
                 <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try a browser like Chrome or Firefox to play the game.</p>
                 </canvas>
             </div><!-- END SPIN WHEEL -->
@@ -786,7 +787,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "57.5s");
             $('#connecting').show().wait(54000).hide();
             document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
@@ -818,7 +819,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "40.5s");
             $('#connecting').show().wait(35000).hide();
             $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
@@ -851,7 +852,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "26s");
             $('#connecting').show().wait(23000).hide();
             $('#videochatwindow-left').removeClass("backgroundAnimatedAlan");
@@ -886,7 +887,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "29.5s");
             $('#connecting').show().wait(26000).hide();
             document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
@@ -918,7 +919,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "34.5s");
             $('#connecting').show().wait(32000).hide();
             $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
@@ -951,7 +952,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "32.5s");
             $('#connecting').show().wait(29000).hide();
             $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
@@ -983,7 +984,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "26s");
             $('#connecting').show().wait(24000).hide();
             document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
@@ -1013,7 +1014,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "18s");
             $('#connecting').show().wait(15000).hide();
             document.getElementById('videochatwindow-left').classList.remove('backgroundAnimatedNaomi');
@@ -1045,7 +1046,7 @@
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-right').get(0).play();
-            $("#video-right").prop('muted', false);
+            $("#video-right").wait(1000).prop('muted', false);
             $('body').get(0).style.setProperty("--jitter", "40.5s");
             $('#connecting').show().wait(35000).hide();
             $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
