@@ -776,19 +776,21 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "57.5s");
-            $('#connecting').show().wait(54000).hide();
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-            document.getElementById('video-left').classList.add("jitterLeft");
-            $('#left-name-ryan').wait(5000).show().text('Ryan');
-            $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-            $('#right-location-1').wait(8000).show().text('Guadalajara, Mexico').wait(4000).text('').wait(3000).text('New Orleans, LA').wait(5500).text('').wait(2000).text('Tijuana, Mexico').wait(2500).text('').wait(4000).text('Mexico City, Mexico').wait(7500).text('').wait(1500).text('Guadalajara, Mexico').wait(3500).text('').wait(1000).text('New Orleans, LA').wait(2500).text('').wait(1000).text('Thessaloniki, Greece').wait(4000).remove();
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-name-1').wait(57500).show().text('Yanina');
-            $('#right-status-1').wait(62000).show().text('Guadalajara, Mexico');
+            $('#video-left').on('play', function(){
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);                
+                $('body').get(0).style.setProperty("--jitter", "57.5s");
+                $('#connecting').show().wait(54000).hide();
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-left').classList.add("jitterLeft");
+                $('#left-name-ryan').wait(5000).show().text('Ryan');
+                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
+                $('#right-location-1').wait(8000).show().text('Guadalajara, Mexico').wait(4000).text('').wait(3000).text('New Orleans, LA').wait(5500).text('').wait(2000).text('Tijuana, Mexico').wait(2500).text('').wait(4000).text('Mexico City, Mexico').wait(7500).text('').wait(1500).text('Guadalajara, Mexico').wait(3500).text('').wait(1000).text('New Orleans, LA').wait(2500).text('').wait(1000).text('Thessaloniki, Greece').wait(4000).remove();
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-name-1').wait(57500).show().text('Yanina');
+                $('#right-status-1').wait(62000).show().text('Guadalajara, Mexico');
+            }); // end onplay function
         }
         else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
         {
@@ -808,20 +810,22 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "40.5s");
-            $('#connecting').show().wait(35000).hide();
-            $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
-            document.getElementById('video-left').classList.add("jitterLeft");   
-            $('#left-name-alan').wait(7000).show().text('Alan');
-            $('#left-status-alan').wait(10000).show().text('Tijuana, Mexico');
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-location-2').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
-            $('#right-name-2').wait(41000).show().text('Yanina');
-            $('#right-status-2').wait(44000).show().text('Guadalajara, Mexico');
+            $('#video-left').on('play', function(){
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);
+                $('body').get(0).style.setProperty("--jitter", "40.5s");
+                $('#connecting').show().wait(35000).hide();
+                $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+                document.getElementById('video-left').classList.add("jitterLeft");   
+                $('#left-name-alan').wait(7000).show().text('Alan');
+                $('#left-status-alan').wait(10000).show().text('Tijuana, Mexico');
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-location-2').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
+                $('#right-name-2').wait(41000).show().text('Yanina');
+                $('#right-status-2').wait(44000).show().text('Guadalajara, Mexico');
+            }); // end onplay function
         }
         else if (indicatedSegment.text == "Naomi") // POEM
         {
@@ -841,21 +845,23 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "26s");
-            $('#connecting').show().wait(23000).hide();
-            $('#videochatwindow-left').removeClass("backgroundAnimatedAlan");
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-            document.getElementById('video-left').classList.add("jitterLeft");                    
-            $('#left-name-naomi').wait(4000).show().text('Naomi');
-            $('#left-status-naomi').wait(7000).show().text('Paris, France');
-            $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-location-3').wait(3000).show().text('Leeds, UK').wait(7000).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
-            $('#right-name-3').wait(26000).show().text('Ryan');
-            $('#right-status-3').wait(28000).show().text('Los Angeles, CA');
+            $('#video-left').on('play', function(){ 
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);
+                $('body').get(0).style.setProperty("--jitter", "26s");
+                $('#connecting').show().wait(23000).hide();
+                $('#videochatwindow-left').removeClass("backgroundAnimatedAlan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-naomi').wait(4000).show().text('Naomi');
+                $('#left-status-naomi').wait(7000).show().text('Paris, France');
+                $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-location-3').wait(3000).show().text('Leeds, UK').wait(7000).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
+                $('#right-name-3').wait(26000).show().text('Ryan');
+                $('#right-status-3').wait(28000).show().text('Los Angeles, CA');
+            }); // end onplay function
         }
     } // END TRACK 1 BY COUNTER
 
@@ -876,19 +882,21 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "29.5s");
-            $('#connecting').show().wait(26000).hide();
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-            document.getElementById('video-left').classList.add("jitterLeft");                    
-            $('#left-name-ryan').wait(5000).show().text('Ryan');
-            $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-location-1').wait(7000).show().text('Thessaloniki, Greece').wait(4500).text('').wait(1500).text('Paris, France').wait(6000).remove();
-            $('#right-name-1').wait(29500).show().text('Yanina');
-            $('#right-status-1').wait(32000).show().text('Guadalajara, Mexico');
+            $('#video-left').on('play', function(){
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);
+                $('body').get(0).style.setProperty("--jitter", "29.5s");
+                $('#connecting').show().wait(26000).hide();
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-ryan').wait(5000).show().text('Ryan');
+                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-location-1').wait(7000).show().text('Thessaloniki, Greece').wait(4500).text('').wait(1500).text('Paris, France').wait(6000).remove();
+                $('#right-name-1').wait(29500).show().text('Yanina');
+                $('#right-status-1').wait(32000).show().text('Guadalajara, Mexico');
+            }); // end onplay function
         }
         else if (indicatedSegment.text == "Naomi") // HARP
         {
@@ -908,20 +916,22 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "34.5s");
-            $('#connecting').show().wait(32000).hide();
-            $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-            document.getElementById('video-left').classList.add("jitterLeft");                    
-            $('#left-name-naomi').wait(4000).show().text('Naomi');
-            $('#left-status-naomi').wait(6000).show().text('Paris, France');
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-location-2').wait(7000).show().text('Somewhere in Iowa').wait(5500).text('').wait(4000).text('Somewhere Up a Tree').wait(5500).remove();
-            $('#right-name-2').wait(34500).show().text('Yanina');
-            $('#right-status-2').wait(37000).show().text('Guadalajara, Mexico');
+            $('#video-left').on('play', function(){
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);
+                $('body').get(0).style.setProperty("--jitter", "34.5s");
+                $('#connecting').show().wait(32000).hide();
+                $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-naomi').wait(4000).show().text('Naomi');
+                $('#left-status-naomi').wait(6000).show().text('Paris, France');
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-location-2').wait(7000).show().text('Somewhere in Iowa').wait(5500).text('').wait(4000).text('Somewhere Up a Tree').wait(5500).remove();
+                $('#right-name-2').wait(34500).show().text('Yanina');
+                $('#right-status-2').wait(37000).show().text('Guadalajara, Mexico');
+            }); // end onplay function
         }
         else if (indicatedSegment.text == "Yanina") // NAKED IN SF
         {
@@ -941,21 +951,23 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "32.5s");
-            $('#connecting').show().wait(29000).hide();
-            $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
-            document.getElementById('video-left').classList.add("jitterLeft");                    
-            $('#left-name-yanina').wait(5000).show().text('Yanina');
-            $('#left-status-yanina').wait(9000).show().text('Guadalajara, Mexico');
-            $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-location-3').wait(7000).show().text('Somewhere North of Stonehenge').wait(15000).remove();
-            $('#right-name-3').wait(34000).show().text('Ryan');
-            $('#right-status-3').wait(37000).show().text('Los Angeles, CA');
+            $('#video-left').on('play', function(){
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);
+                $('body').get(0).style.setProperty("--jitter", "32.5s");
+                $('#connecting').show().wait(29000).hide();
+                $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-yanina').wait(5000).show().text('Yanina');
+                $('#left-status-yanina').wait(9000).show().text('Guadalajara, Mexico');
+                $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-location-3').wait(7000).show().text('Somewhere North of Stonehenge').wait(15000).remove();
+                $('#right-name-3').wait(34000).show().text('Ryan');
+                $('#right-status-3').wait(37000).show().text('Los Angeles, CA');
+            }); // end onplay function
         }
     } // END TRACK 2 BY COUNTER
 
@@ -973,19 +985,21 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "26s");
-            $('#connecting').show().wait(24000).hide();
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-            document.getElementById('video-left').classList.add("jitterLeft");                    
-            $('#left-name-naomi').wait(5000).show().text('Naomi');
-            $('#left-status-naomi').wait(8000).show().text('Paris, France');
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-location-1').wait(3500).show().text('Leeds, UK').wait(6500).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
-            $('#right-name-1').wait(27000).show().text('Ryan');
-            $('#right-status-1').wait(28000).show().text('Los Angeles, CA');
+            $('#video-left').on('play', function(){
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);
+                $('body').get(0).style.setProperty("--jitter", "26s");
+                $('#connecting').show().wait(24000).hide();
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+                document.getElementById('video-left').classList.add("jitterLeft");                    
+                $('#left-name-naomi').wait(5000).show().text('Naomi');
+                $('#left-status-naomi').wait(8000).show().text('Paris, France');
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-location-1').wait(3500).show().text('Leeds, UK').wait(6500).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
+                $('#right-name-1').wait(27000).show().text('Ryan');
+                $('#right-status-1').wait(28000).show().text('Los Angeles, CA');
+            }); // end onplay function
         }
         else if (indicatedSegment.text == "Ryan") // EYEBALL
         { 
@@ -1003,21 +1017,23 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "18s");
-            $('#connecting').show().wait(15000).hide();
-            document.getElementById('videochatwindow-left').classList.remove('backgroundAnimatedNaomi');
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-            document.getElementById('video-left').classList.add("jitterLeft");
-            $('#left-name-ryan').wait(5000).show().text('Ryan');
-            $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-            $('#videochatwindow-right').removeClass("backgroundAnimatedRyan");
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-location-2').wait(8000).show().text('Somewhere with Better Music').wait(3500).remove();
-            $('#right-name-2').wait(18000).show().text('Yanina');
-            $('#right-status-2').wait(21000).show().text('Guadalajara, Mexico');
+            $('#video-left').on('play', function(){
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);
+                $('body').get(0).style.setProperty("--jitter", "18s");
+                $('#connecting').show().wait(15000).hide();
+                document.getElementById('videochatwindow-left').classList.remove('backgroundAnimatedNaomi');
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+                document.getElementById('video-left').classList.add("jitterLeft");
+                $('#left-name-ryan').wait(5000).show().text('Ryan');
+                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
+                $('#videochatwindow-right').removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-location-2').wait(8000).show().text('Somewhere with Better Music').wait(3500).remove();
+                $('#right-name-2').wait(18000).show().text('Yanina');
+                $('#right-status-2').wait(21000).show().text('Guadalajara, Mexico');
+            }); // end onplay function
         }
         else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
         {
@@ -1035,20 +1051,22 @@
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
-            $('#video-right').get(0).play();
-            $("#video-right").wait(2000).prop('muted', false);
-            $('body').get(0).style.setProperty("--jitter", "40.5s");
-            $('#connecting').show().wait(35000).hide();
-            $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
-            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
-            document.getElementById('video-left').classList.add("jitterLeft");   
-            $('#left-name-alan').wait(5000).show().text('Alan');
-            $('#left-status-alan').wait(8000).show().text('Tijuana, Mexico');
-            document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-            document.getElementById('video-right').classList.add("jitterRight");
-            $('#right-location-3').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
-            $('#right-name-3').wait(41000).show().text('Yanina');
-            $('#right-status-3').wait(48000).show().text('Guadalajara, Mexico');
+            $('#video-left').on('play', function(){
+                $('#video-right').get(0).play();
+                $("#video-right").wait(2000).prop('muted', false);
+                $('body').get(0).style.setProperty("--jitter", "40.5s");
+                $('#connecting').show().wait(35000).hide();
+                $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
+                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+                document.getElementById('video-left').classList.add("jitterLeft");   
+                $('#left-name-alan').wait(5000).show().text('Alan');
+                $('#left-status-alan').wait(8000).show().text('Tijuana, Mexico');
+                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
+                document.getElementById('video-right').classList.add("jitterRight");
+                $('#right-location-3').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
+                $('#right-name-3').wait(41000).show().text('Yanina');
+                $('#right-status-3').wait(48000).show().text('Guadalajara, Mexico');
+            }); // end onplay function
         }
     } // END TRACK 3 BY COUNTER
 } // CLOSE ELSE
