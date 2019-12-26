@@ -1011,7 +1011,7 @@ END ELEMENTS NOT IN USE */
 /* FOR PHONES 480 x 853 : NEEDS TO STAY THIS LARGE TO AFFECT ALL MOBILE DEVICES BELOW THIS - BUT NEED TO ADJUST & CENTER */
 /* ******************** */
 
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 481px) and (min-width: 360px) {
 body{
   background-image: none;
   background-size: 80%;
@@ -1077,37 +1077,38 @@ h3{
 }
 #wheel{
   width: 100%;
-/*  height: 560px; */
+  height: 380px; /* was 560px */
   margin-left: 1%;
-  margin-top: -30%;
+  margin-top: 7%; /* was -30% */
   margin-bottom: auto;
 }
 #prizePointer{
   position: absolute;
   left: 46%;
   z-index: 50;
-  margin-top: 12px;
-  height: 25%;
-  top:26%;
+  margin-top: 8px; /* was 12px */
+  height: 40%;
+/*  top:26%; */
 }
 /* MODAL ALERT MOBILE */
 .modal {
   width: 100%;
-  height: 30%;
-  top: 50%; /* controls position on page */
+  height: 40%; /* was 30% */
+  top: 30%; /* was 50% controls position on page */
   left: 0%; /* controls position on page */
   overflow: hidden;
 }
 .modal-body {
+  padding-top: 15%; /* was 5% */
   padding: 5%;
-  height: 1%;
+  height: 50%; /* was 1% */
 }
 .modal-button {
   border: none;
-  margin-top: 20%;
+  margin-top: 1%; /* was 20% */
   background-color: #E1B32E;
   width: 100%;
-  height: 60%;
+  height: 50%; /* was 60% */
 }
 /*  COLUMN SETUP  */
 .col {
@@ -1302,11 +1303,8 @@ h3{
   color: #ffffff;
 }
 /* CONNECTIONS format control mobile */
-#connections {
+#connections, #greenglow {
   display: none;
-}
-#connections-mobile{
-  display: inline-block;
 }
 .rotate45 {
   text-align: left;
@@ -1372,11 +1370,11 @@ h3{
   background-color: #5bbe84;
   color: black;
   width: 100%;
-  height: 40px;
+  height: 60px; /* was 40px */
   text-align: center;
   padding-top: 12px;
   position: fixed;
-  font-size: 16px;
+  font-size: 20px; /* was 16px */
   bottom: 0;
   z-index: 999;
 }
@@ -1387,7 +1385,7 @@ h3{
   width: 100%;
   height: 40px;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 20px; /* was 12px */
   position: fixed;
   font-size: 16px;
   bottom: 0;

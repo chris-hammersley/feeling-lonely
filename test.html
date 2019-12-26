@@ -94,8 +94,6 @@
                 <div id="connections" class="rotate45">
                     <p id="greenglow" class="greenglow">A WHEEL OF CHANCE CONNECTIONS...</p>
                 </div>
-                <div id="connections-mobile" class="rotate45" hidden>
-                </div>
                 <img id="prizePointer" src="assets/images/wheel_arrow.png" alt="V" />
                 <canvas id="canvas" class="img-fluid rounded mb-3 mb-md-0" width="420" height="420">
                 <p style="{color: white}" align="center">Sorry, your browser doesn't support canvas. Please try a browser like Chrome or Firefox to play the game.</p>
@@ -222,8 +220,8 @@
         $('#loading').fadeOut(1500);
         $('#scroll2play').fadeOut(1500);
         $("#pw2").wait(5000).addClass('triangle-left-animation');
-        $("#pw1").wait(7000).addClass('triangle-up-animation');
-        $("#pw3").wait(9000).addClass('triangle-right-animation');
+        $("#pw1").wait(6500).addClass('triangle-up-animation');
+        $("#pw3").wait(8000).addClass('triangle-right-animation');
     }
 
     function firstScroll(){
@@ -238,6 +236,8 @@
     function fadePage(){
         $('body').addClass('fade-out');
     }
+
+    setTimeout(hideLoader, 15000);
 
     // Letter & Word formatting control: SPIN, CHOOSE, WHEEL OF CHANCE CONNECTIONS 
     $(document).ready(function() {
@@ -778,9 +778,9 @@
             $('#videochat1').show();
             $('#videochat2').show();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);                
                 $('body').get(0).style.setProperty("--jitter", "57.5s");
@@ -812,9 +812,9 @@
             $('#right-name-1').text('').remove();
             $('#right-status-1').text('').remove();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "40.5s");
@@ -847,9 +847,9 @@
             $('#right-name-2').text('').remove();
             $('#right-status-2').text('').remove();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){ 
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "26s");
@@ -884,9 +884,9 @@
             $('#videochat1').show();
             $('#videochat2').show();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "29.5s");
@@ -918,9 +918,9 @@
             $('#right-name-1').text('').remove();
             $('#right-status-1').text('').remove();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "34.5s");
@@ -953,9 +953,9 @@
             $('#right-name-2').text('').remove();
             $('#right-status-2').text('').remove();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "32.5s");
@@ -987,9 +987,9 @@
             $('#videochat1').show();
             $('#videochat2').show();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "26s");
@@ -1019,9 +1019,9 @@
             $('#right-name-1').text('').remove();
             $('#right-status-1').text('').remove();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "18s");
@@ -1053,9 +1053,9 @@
             $('#right-name-2').text('').remove();
             $('#right-status-2').text('').remove();
             $('#video-left').get(0);enableInlineVideo('video-left');
-            $('#video-right').get(0);enableInlineVideo('video-right');
             $('#video-left').get(0).play();
             $('#video-left').on('play', function(){
+                $('#video-right').get(0);enableInlineVideo('video-right');
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "40.5s");
