@@ -1381,7 +1381,7 @@ h3{
 #report {
   display: none;
   background-color: black;
-  color:white;
+  color:#808080;
   width: 20%; /* was 100% for full horizontal */
   height: 35px; /* was 40px for full horizontal */
   text-align: center;
