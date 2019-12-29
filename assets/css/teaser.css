@@ -1,3 +1,4 @@
+/* # is ID and . is class */
 body {
   background-color: #fff;
   font-family: Helvetica;
@@ -71,7 +72,7 @@ span{
 #scroll2play{
   position: absolute;
   width: 100%;
-  bottom: 80px;
+  bottom: 100px; /* was 80px */
   text-align: center;
   display: block;
   color: #15a6f8;
@@ -184,6 +185,11 @@ div { outline: 1px solid red !important; } */
   border: solid;
   border-color: black;
   margin-top: 40px;
+  z-index: 1000;
+}
+#ok-close{
+  margin-top: 425%;
+  margin-left: 125%;
 }
 /* ABOUT BLOCK */
 .about {
@@ -397,6 +403,12 @@ a {
 }
 #email-submit{
   margin-right:35px;
+}
+.email-field:valid {
+  border-color:#5bbe84;
+}
+.email-field:invalid {
+  border-color:#e74b09;
 }
 #facebook, #instagram {
   margin-right: 15px;

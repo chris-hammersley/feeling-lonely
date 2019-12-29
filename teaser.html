@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Chris Hammersley">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ways of forgetting teaser</title>
+    <title>ways of forgetting - teaser of the feature film by meryl murman</title>
     
     <!-- CSS-->
     <link rel="stylesheet" href="assets/css/teaser.css">
@@ -22,7 +23,6 @@
     <script src="assets/js/plugins/iphone-inline-video.min.js"></script>
 
 </head>
-<!-- START Original attempt basic HTML-->
 <body onLoad="window.scroll(0, 250)">
     <div id="container" class="noselect">
         <div id="title">a feature film by meryl murman
@@ -63,125 +63,109 @@
         <div id="alert" class="modal" data-toggle="modal" hidden>
             <div id="modal-body" class="modal-body">
                 <p>Ryan wants to say <br/>thank you for signing up!</p>
-                <button id="ok-button" class="modal-button" onclick="showThankYou();" data-dismiss="modal">&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                <button id="ok-button" class="modal-button" data-dismiss="modal">&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
         </div>
         <div id="thankyou-window" class="overlay dismiss">
             <div class="thanks-background">
-            <video id="thanks" src="https://player.vimeo.com/external/369221313.sd.mp4?s=6515ee5b566dbcef1b478460e88c7fc9aa672434&profile_id=164?autoplay=1" type="video/mp4" webkit-playsinline playsinline onclick="this.paused ? this.play() : this.pause();">
+            <video id="thanks" src="https://player.vimeo.com/external/369221313.sd.mp4?s=6515ee5b566dbcef1b478460e88c7fc9aa672434&profile_id=164" type="video/mp4" webkit-playsinline playsinline onclick="this.paused ? this.play() : this.pause();">
               video not supported
             </video>
-            <!--button id="ok-close" class="modal-button">&nbsp;&nbsp;&nbsp;&nbsp;OK&nbsp;&nbsp;&nbsp;&nbsp;</button-->
+            <button id="ok-close" class="modal-button" data-dismiss="modal">&nbsp;&nbsp;&nbsp;&nbsp;X&nbsp;&nbsp;&nbsp;&nbsp;</button>
             </div>
         </div>
         <div class="clear"></div>
             <div class="form-group">
                 <p><form id="mG61Hd" class="form" action="https://docs.google.com/forms/u/4/d/e/1FAIpQLSeumUxbAatX7ilCfBDrBOY9kyxsaZ5TSRz8cWURJzQ4qv63_Q/formResponse" target="hidden_iframe" onsubmit="submitted=!0" method="POST">
-                <sub id="email-symbol" class="bw">@</sub><input name="emailAddress" type="email" id="emailNewsletter" onfocus="this.placeholder=''" onBlur="this.placeholder='ways.of.forgetting@gmail.com'" style="color:grey" placeholder="ways.of.forgetting@gmail.com">
-                <button name="fvv" id="email-submit" value="1" type="submit" class="bw" onclick="pauseTeaser();">
+                <sub id="email-symbol" class="bw">@</sub>
+                <input type="email" id="emailNewsletter" name="emailAddress" required onfocus="this.placeholder=''" onBlur="this.placeholder='ways.of.forgetting@gmail.com'" style="color:grey" placeholder="ways.of.forgetting@gmail.com">
+                <button name="fvv" id="email-submit" value="1" type="submit" class="bw" disabled>
                 Submit</button>
-                <!--button onClick="showAlert();">
-                Thank You</button-->
                 <a id="facebook" href="https://www.facebook.com/flockdance.nola/" target="_blank" class="bw">Fb</button>
                 <a id="instagram" href="https://www.instagram.com/motherflockers/" target="_blank" class="bw">Ig</button>
                 <a id="imdb" href="https://www.imdb.com/title/tt7412176/" target="_blank" class="bw">Imbd</button>
                 </form><p>
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
             </div>
-    </div>
-<!-- END Basic HTML-->
-
- 
+    </div> 
     <script>
-/*        setTimeout(function(){
-        document.getElementById("teaser").play();
-        }, 10000);
-*/
+        // REMOVE URL BAR ON MOBILE - NOT SURE IT WORKS
+            setTimeout(function() { window.scrollTo(0, 1) }, 100);
 
-/*        var myVideo = document.getElementById('teaser');
+        // TEASER VIDEO PLAYS FULLSCREEN IN LANDSCAPE ON MOBILE - NOT SURE IT WORKS
+            if ( 'orientation' in screen ){
+                screen.orientation.addEventListener('change', function(){
+                    //Let's request fullscreen if user switches device in landscape mode.
+                    if ( screen.orientation.type.startsWith('landscape') ){
+                        requestFullscreenVideo();
+                    } else if ( document.fullscreenElement ){
+                        document.exitFullscreen();
+                    }
+                })
+            }
 
-        VisSense.VisMon.Builder(VisSense(myVideo, { fullyvisible: 1.0 }))
-        .on('fullyvisible', function(monitor) {
-          myVideo.play();
-        })
-        .on('hidden', function(monitor) {
-          myVideo.pause();
-          
-        })
-        .build()
-        .start();
-*/
-
-        if ( 'orientation' in screen ){
-            screen.orientation.addEventListener('change', function(){
-                //Let's request fullscreen if user switches device in landscape mode.
-                if ( screen.orientation.type.startsWith('landscape') ){
-                    requestFullscreenVideo();
-                } else if ( document.fullscreenElement ){
-                    document.exitFullscreen();
-                }
-            })
-        }
-
-        window.addEventListener('DOMContentLoaded', function(){
+        // ----------------------------------------------------------------
+        // INITIAL FADE IN OF SCREEN AFTER ELEMENTS ARE LOADED
+        // ----------------------------------------------------------------
+            window.addEventListener('DOMContentLoaded', function(){
             $('body').addClass('fade-in');
-        });
+            });
 
         // ----------------------------------------------------------------
         // SHOW/HIDE 'Scroll Down to Play' on SCROLL past 1000
         // ----------------------------------------------------------------
-        window.addEventListener( 'scroll', function() {
-            if ($(window).scrollTop() > 1000){
-                $('#scroll2play').hide();
-                $('#teaser').get(0).play();
+            window.addEventListener( 'scroll', function() {
+                if ($(window).scrollTop() > 1000){
+                    $('#scroll2play').hide();
+                    $('#teaser').get(0).play();
+                }
+                else {
+                    $('#scroll2play').show();
+                }
+                 });
+
+        // -----------------------------------------------------------------
+        // Functions to Setup Opening Background Audio, Fade In, Pause Video
+        // -----------------------------------------------------------------
+            var opening_audio = new Audio('assets/audio/opening.wav');
+            var game_audio = new Audio('assets/audio/play-game.wav');
+            var about_open_audio = new Audio('assets/audio/about_open.wav');
+            var about_closed_audio = new Audio('assets/audio/about_closed.wav');
+            var about_ding = new Audio('assets/audio/about-ding.wav');
+
+            function playOpening() {
+                opening_audio.loop = true;
+                opening_audio.play();
             }
-            else {
-                $('#scroll2play').show();
+
+            function stopOpening() {
+                opening_audio.pause();
             }
-             });
 
-        // --------------------------------------------------------------
-        // Function to Setup Opening Background Audio
-        // --------------------------------------------------------------
-        var opening_audio = new Audio('assets/audio/opening.wav');
-        var game_audio = new Audio('assets/audio/play-game.wav');
-        var about_open_audio = new Audio('assets/audio/about_open.wav');
-        var about_closed_audio = new Audio('assets/audio/about_closed.wav');
-        var about_ding = new Audio('assets/audio/about-ding.wav');
+            var playFirst = true;
+            function playAbout() {
+              if (playFirst) {
+                about_open_audio.play();
+              } else {
+                about_closed_audio.play();
+              }
+              playFirst = !playFirst;
+            }
 
-        function playOpening() {
-            opening_audio.loop = true;
-            opening_audio.play();
-        }
+            playOpening(); // plays the opening sound over the opening title animation
 
-        function stopOpening() {
-            opening_audio.pause();
-        }
+            $('#teaser').get(0);enableInlineVideo('teaser');
+            document.getElementById('teaser').addEventListener('play',stopOpening,false);
 
-        var playFirst = true;
-        function playAbout() {
-          if (playFirst) {
-            about_open_audio.play();
-          } else {
-            about_closed_audio.play();
-          }
-          playFirst = !playFirst;
-        }
+            function pauseTeaser(){
+                $('#teaser').get(0).pause();
+            }
 
-        playOpening(); // plays the opening sound over the opening title animation
-
-        $('#teaser').get(0);enableInlineVideo('teaser');
-        document.getElementById('teaser').addEventListener('play',stopOpening,false);
-
-        function pauseTeaser(){
-            $('#teaser').get(0).pause();
-        }
-
-        function fadePage(){
-            $('body').removeClass('fade-in');
-            window.location.href = "test.html";
-            return false;
-        }
+            function fadePage(){
+                $('body').removeClass('fade-in');
+                window.location.href = "test.html";
+                return false;
+            }
 
 /*        enableInlineVideo(video, {
             iPad: true
@@ -190,70 +174,119 @@
         // --------------------------------------------------------------
         // Function to SCALE video on SCROLL
         // --------------------------------------------------------------
-        window.addEventListener( 'DOMContentLoaded', function() {
-        var box = document.getElementById('teaser-box'),
-        docHeight = document.documentElement.offsetHeight;
-      
-            window.addEventListener( 'scroll', function() {
-            // show box when scroll starts - use with hidden
-            $('#teaser-box').show();
-
-            // normalize scroll position as percentage
-            var scrolled = window.scrollY / ( docHeight - window.innerHeight ),
-            transformValue = 'scale('+scrolled+')';          
-
-            box.style.WebkitTransform = transformValue;
-            box.style.MozTransform = transformValue;
-            box.style.OTransform = transformValue;
-            box.style.transform = transformValue;
-
-            }, false);
+            window.addEventListener( 'DOMContentLoaded', function() {
+            var box = document.getElementById('teaser-box'),
+            docHeight = document.documentElement.offsetHeight;
           
-        }, false);
+                window.addEventListener( 'scroll', function() {
+                // show box when scroll starts - use with hidden
+                $('#teaser-box').show();
+
+                // normalize scroll position as percentage
+                var scrolled = window.scrollY / ( docHeight - window.innerHeight ),
+                transformValue = 'scale('+scrolled+')';          
+
+                box.style.WebkitTransform = transformValue;
+                box.style.MozTransform = transformValue;
+                box.style.OTransform = transformValue;
+                box.style.transform = transformValue;
+
+                }, false);
+              
+            }, false);
 
         // --------------------------------------------------------------
-        // WHEN TEASER FINISHES - INTRODUCE COLOR TO BUTTONS
+        // WHEN TEASER FINISHES OR IS PAUSED - INTRODUCE COLOR TO BUTTONS
         // --------------------------------------------------------------        
 
-        document.getElementById('teaser').addEventListener('ended',changeColors,false);
+            document.getElementById('teaser').addEventListener('ended',changeColors,false);
 
-        function changeColors() {
-            event.preventDefault();
-            // $('#teaser').get(0).load(); //resets video to start and shows poster image
-            $('#teaser-box').hide();
-            $('.gamebutton').wait(3000).removeClass('buttonWhite').addClass('buttonPurple');
-            $('.aboutbutton').wait(4000).removeClass('buttonBlack').addClass('buttonRed');
-            $('.playgame').wait(3000).removeClass('buttonWhiteText').addClass('buttonPurpleText');            
-            $('.clickabout').wait(4000).removeClass('buttonBlackText').addClass('buttonRedText');
-            $('#email-submit').wait(5000).removeClass('bw').addClass('email');
-            $('#email-symbol').wait(5000).removeClass('bw').addClass('email');
-            $('#facebook').wait(6000).removeClass('bw').addClass('facebook');
-            $('#instagram').wait(6000).removeClass('bw').addClass('instagram'); 
-            $('#imdb').wait(6000).removeClass('bw').addClass('imdb');
-        }
+            function changeColors() {
+                event.preventDefault();
+                // $('#teaser').get(0).load(); //resets video to start and shows poster image
+                $('#teaser-box').hide();
+                $('.gamebutton').wait(3000).removeClass('buttonWhite').addClass('buttonPurple');
+                $('.aboutbutton').wait(4000).removeClass('buttonBlack').addClass('buttonRed');
+                $('.playgame').wait(3000).removeClass('buttonWhiteText').addClass('buttonPurpleText');            
+                $('.clickabout').wait(4000).removeClass('buttonBlackText').addClass('buttonRedText');
+                $('#email-submit').wait(5000).removeClass('bw').addClass('email');
+                $('#email-symbol').wait(5000).removeClass('bw').addClass('email');
+                $('#facebook').wait(6000).removeClass('bw').addClass('facebook');
+                $('#instagram').wait(6000).removeClass('bw').addClass('instagram'); 
+                $('#imdb').wait(6000).removeClass('bw').addClass('imdb');
+            }
+
+            document.getElementById('teaser').addEventListener('pause',changeColorOnly,false);
+
+            function changeColorOnly() {
+                event.preventDefault();
+                $('.gamebutton').wait(3000).removeClass('buttonWhite').addClass('buttonPurple');
+                $('.aboutbutton').wait(4000).removeClass('buttonBlack').addClass('buttonRed');
+                $('.playgame').wait(3000).removeClass('buttonWhiteText').addClass('buttonPurpleText');            
+                $('.clickabout').wait(4000).removeClass('buttonBlackText').addClass('buttonRedText');
+                $('#email-submit').wait(5000).removeClass('bw').addClass('email');
+                $('#email-symbol').wait(5000).removeClass('bw').addClass('email');
+                $('#facebook').wait(6000).removeClass('bw').addClass('facebook');
+                $('#instagram').wait(6000).removeClass('bw').addClass('instagram'); 
+                $('#imdb').wait(6000).removeClass('bw').addClass('imdb');
+            }
        
+
         // --------------------------------------------------------------
-        // SLIDE UP TO SHOW ABOUT
+        // SLIDE UP TO SHOW ABOUT FILM
         // --------------------------------------------------------------
 
-        // When the DOM is ready, initialize the scripts.
-        jQuery(function( $ ){
-            var container = $( "#container-about" );
-            $( "#about-button, #about-mobile" ).click(
-                function( event ){
-                    // Prevent the default click button event
-                    event.preventDefault();
-                    // Toggle the slide based on its current visibility
-                    if (container.is( ":visible" )){
-                        // Hide - slide up - 1000 = 1 sec
-                        container.slideUp( 500 );
-                    } else {
-                        // Show - slide down
-                        container.slideDown( 1500 );
+            // When the DOM is ready, initialize the scripts.
+            jQuery(function( $ ){
+                var container = $( '#container-about' );
+                $( '#about-button, #about-mobile' ).click(
+                    function( event ){
+                        // Prevent the default click button event
+                        event.preventDefault();
+                        // Toggle the slide based on its current visibility
+                        if (container.is( ':visible' )){
+                            // Hide - slide up - 1000 = 1 sec
+                            container.slideUp( 500 );
+                        } else {
+                            // Show - slide down
+                            container.slideDown( 1500 );
+                        }
                     }
+                );
+            });
+
+        // --------------------------------------------------------------
+        // SUBMIT EMAIL TO GOOGLE FORM
+        // --------------------------------------------------------------
+            var submitted=false;
+            const submitButton = document.getElementById('email-submit');
+            const emailNewsletter = document.getElementById('emailNewsletter');
+
+            // Script to Enable Submit Button
+            emailNewsletter.addEventListener('input', function(event){
+                isValidEmail = emailNewsletter.checkValidity();
+
+                if (isValidEmail) {
+                    submitButton.removeAttribute('disabled');
+                } else {
+                    submitButton.setAttribute("disabled", null);
                 }
-            );
-        });
+            });
+
+            // Script to Show Alert Modal for Thank You Video
+            submitButton.addEventListener('click', function(){
+            $('#alert').modal("show");
+            }, 1000);
+
+        // --------------------------------------------------------------
+        // SHOW MODAL ALERT
+        // --------------------------------------------------------------
+
+            function showAlert() {
+                $('#alert').modal('show');
+                opening_audio.pause();
+                pauseTeaser();
+            }
 
         // --------------------------------------------------------------
         // SLIDE SIDEWAYS TO SHOW THANK YOU
@@ -264,24 +297,18 @@
                 $('.overlay').removeClass('dismiss').addClass('selected').show();
               }
             //  event.preventDefault();
+                showThankYou();
             });
 
+            // USE TO CLOSE THANK YOU VIDEO - NOT CURRENTLY IN USE
             $('#ok-close').click(function(event) {
                 $('#thanks').get(0).pause();
               if ($('.overlay').hasClass('selected')) {
                 $('.overlay').removeClass('selected').addClass('dismiss');
               }
             //  event.preventDefault();
+            //    hideThankYou();
             });
-
-        // --------------------------------------------------------------
-        // SHOW MODAL ALERT
-        // --------------------------------------------------------------
-
-            function showAlert() {
-                $("#alert").modal("show");
-                opening_audio.pause();
-            }
 
         // --------------------------------------------------------------
         // SHOW THANK YOU VIDEO
@@ -289,15 +316,16 @@
 
             function showThankYou() {
                 opening_audio.pause();
+                pauseTeaser();
                 //GSAP 1.8.0 for Animated Vertical Wipe from Center
-                var box1 = $("#thanks");
-                clipTween1 = TweenLite.from(box1, 1, {clip:"rect(284px 568px 284px 0px)", paused:true});
+                var box1 = $('#thanks');
+                clipTween1 = TweenLite.from(box1, 1, {clip:'rect(284px 568px 284px 0px)', paused:true});
                 setTimeout(function() {
                 clipTween1.play();
                 }, 2000)
                 setTimeout(function() {
                     $('#thanks').get(0);enableInlineVideo('thanks');
-                    $("#thanks").get(0).play();
+                    $('#thanks').get(0).play();
                 }, 2000)               
             //    setTimeout(function() {
                 // replace the url in quotes below to where you want to the user to be redirected to - will need to change to live page html
@@ -308,24 +336,18 @@
             //    document.getElementById("mG61Hd").reset();       
             }
 
-        function resetPage(){
-            window.location = "teaser.html";
-            document.getElementById("mG61Hd").reset();
-        }
+            function hideThankYou(){
+                $('#thanks').get(0).pause();
+            }
 
-        // --------------------------------------------------------------
-        // SUBMIT EMAIL TO GOOGLE FORM
-        // --------------------------------------------------------------
-
-            var submitted=false;
-                // Script to show dialog and reset form
-                document.getElementById("email-submit").addEventListener("click", function(){
-                $("#alert").modal("show");
-                }, 1000);
+            function resetPage(){
+                window.location = "teaser.html";
+                document.getElementById("mG61Hd").reset();
+            }
 
     </script>
 
 </body>
-        <script src="assets/js/plugins/popper1.14.7/popper.min.js"></script>
+        <!--script src="assets/js/plugins/popper1.14.7/popper.min.js"></script-->
         <script src="assets/js/vendor/bootstrap4.3.1/bootstrap.min.js"></script>
 </html>
