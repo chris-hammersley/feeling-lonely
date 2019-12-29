@@ -51,18 +51,18 @@
                     <p id="blueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
                     </div>
                     <div id="pw1" class="col span_1_of_3 triangle-up noselect" onmouseenter="playTruthDare();" onClick="powerSelected(1);">
-                    <p>Truth/Dare</p>
+                    <p>Hear Me</p>
                     </div>
                 </div>
                 <div id="diamond-middle" class="section">
                     <div id="pw2" class="col span_1_of_3 triangle-left noselect" onmouseenter="playMove();" onClick="powerSelected(2);">
-                    <p>Move Me</p>
+                    <p>See Me</p>
                     </div>
                     <div class="col span_1_of_3 square">
                     &nbsp;
                     </div>
                     <div id="pw3" class="col span_1_of_3 triangle-right noselect" onmouseenter="playWild();" onClick="powerSelected(3);">
-                    <p>Wild Card</p>
+                    <p>Touch Me</p>
                     </div>
                 </div>
                 <div id="diamond-bottom" class="section">
@@ -1057,7 +1057,7 @@
                 $('#video-right').get(0).play();
                 $("#video-right").wait(2000).prop('muted', false);
                 $('body').get(0).style.setProperty("--jitter", "40.5s");
-                $('#connecting').show().wait(35000).hide();
+                $('#connecting').show().wait(39000).hide();
                 $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
                 document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
                 document.getElementById('video-left').classList.add("jitterLeft");   
