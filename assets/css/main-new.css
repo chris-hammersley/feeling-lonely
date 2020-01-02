@@ -41,6 +41,9 @@ h3{
   font-size: 12px;
   line-height: 13px;
 }
+.lowercase{
+  text-transform: lowercase !important;
+}
 #loading {
   background: url('../images/background_animation.gif') no-repeat center center;
   background-size: 45%;

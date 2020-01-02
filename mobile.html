@@ -17,9 +17,9 @@
 
     <!-- JS -->
     <script src="assets/js/plugins/Winwheel.js"></script>        
-    <script src="assets/js/vendor/TweenMax.min.js"></script>
+    <!--script src="assets/js/vendor/TweenMax.min.js"></script-->
     <script src="assets/js/vendor/jquery-2.1.1.min.js"></script>
-    <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!--script src="assets/js/vendor/modernizr-2.8.3.min.js"></script-->
     <script src="assets/js/plugins/jquery.lettering-0.6.1.min.js"></script>
     <script src="assets/js/plugins/circletype.min.js"></script>
     <script src="assets/js/plugins/jquery.wait.js"></script>
@@ -31,10 +31,6 @@
     <div id="loading"><!--ANIMATED INTRO BEGIN-->
         <div id="scroll2play"><h2>(Scroll Down to Play)</h2></div>
     </div><!--ANIMATED INTRO END-->
-    <!-- TITLE -->
-    <div id="title" class="title">a feature film by meryl murman
-      <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
-    </div><!-- TITLE END-->
     <!-- MOBILE TITLE -->
     <div id="mtitle" class="title" hidden>a wheel of chance connections...
       <div class="span2">&nbsp;<p>&nbsp;</p> </div> <!-- this spaces the title evenly on top-->
@@ -42,52 +38,6 @@
     <div id="spacer"></div><!--this is the div for spacer/scrolling purposes-->
     <!-- NEW GRID LAYOUT -->
         <div id="thrill" class="section">
-            <!-- DIV FOR THRILL SELECTOR -->
-            <div id="diamond-buttons" class="col module">
-                <div id="padding-top" class="section">
-                </div>
-                <div id="diamond-top" class="section">
-                    <div class="col span_1_of_3"><p></p>
-                    <p id="blueglow" class="rotateNegative45 blueglow">CHOOSE A THRILL LEVEL</p>
-                    </div>
-                    <div id="pw1" class="col span_1_of_3 triangle-up noselect" onmouseenter="playTruthDare();" onClick="powerSelected(1);">
-                    <p>Hear Me</p>
-                    </div>
-                </div>
-                <div id="diamond-middle" class="section">
-                    <div id="pw2" class="col span_1_of_3 triangle-left noselect" onmouseenter="playMove();" onClick="powerSelected(2);">
-                    <p>See Me</p>
-                    </div>
-                    <div class="col span_1_of_3 square">
-                    &nbsp;
-                    </div>
-                    <div id="pw3" class="col span_1_of_3 triangle-right noselect" onmouseenter="playWild();" onClick="powerSelected(3);">
-                    <p>Touch Me</p>
-                    </div>
-                </div>
-                <div id="diamond-bottom" class="section">
-                    <div class="col span_1_of_3">
-                    &nbsp;
-                    </div>
-                    <div id="spin_button" class="col span_1_of_3 disabled triangle-down" onClick="calculatePrize();">
-                    <p class="jumble">SPIN</p>
-                    </div>
-                    <div class="col span_1_of_3">
-                    &nbsp;
-                    </div>
-                </div>
-                <div id="padding-top" class="section">
-                    <div class="col span_1_of_3">
-                    &nbsp;
-                    </div>
-                    <div class="col span_1_of_3">
-                    &nbsp;
-                    </div>
-                    <div class="col span_1_of_3">
-                    &nbsp;
-                    </div>
-                </div>
-            </div> <!--CLOSES DIAMOND-BUTTONS col span DIV -->
             <!-- DIV FOR SPIN WHEEL-->
             <div id="wheel" class="col span_1_of_2 module" align="center" valign="center">
                 <div id="connections" class="rotate45">
@@ -120,18 +70,14 @@
                 </div><!--CLOSES CONTAINER-->
             </div><!--CLOSES CENTER-->
 
-    <!-- HOME BUTTON -->
-    <div id="home" class="round-button button-home rectangular-button" hidden>
-        <div class="round-button-circle">
-            <a href="teaser.html" onmouseenter="playHome()" class="round-button rectangular-button" onclick="fadePage();">Home</a>
-        </div>
-    </div>
-
+            <!-- HOME BUTTON -->
+            <div id="home" class="round-button button-home rectangular-button" hidden>
+                <div class="round-button-circle">
+                    <a href="teaser.html" onmouseenter="playHome()" class="round-button rectangular-button" onclick="fadePage();">Home</a>
+                </div>
+            </div>
         </div><!--CLOSES THRILL SECTION-->
-    <!-- BLACKSCREEN DIV LEFT-->
-    <!--div id="container-blackscreen" hidden>
-        <div id="blackscreen" class="blackscreen col span_1_of_2"></div>
-    </div-->
+
     <!-- NEW GRID LAYOUT -->
           <!-- BEGIN LEFT VIDEO CHAT WINDOW -->
           <div id="videochatwindow-left" class="col span_1_of_2 chatleft-gray noselect" hidden>
@@ -140,37 +86,11 @@
                   video not supported
                 </video>
                 <div id="left-name-ryan" class="overlay-name overlay-left name noselect" hidden></div>
-                <div id="left-status-ryan" class="typewriter status noselect" hidden></div>
                 <div id="left-name-yanina" class="overlay-name overlay-left name noselect" hidden></div>
-                <div id="left-status-yanina" class="typewriter status noselect" hidden></div>
                 <div id="left-name-alan" class="overlay-name overlay-left name noselect" hidden></div>
-                <div id="left-status-alan" class="typewriter status noselect" hidden></div>
                 <div id="left-name-naomi" class="overlay-name overlay-left name noselect" hidden></div>
-                <div id="left-status-naomi" class="typewriter status noselect" hidden></div>
             </div>
           </div> <!--CLOSES LEFT CHAT DIV-->
-    <!-- BLACKSCREEN DIV RIGHT-->
-    <!--div id="container-blackscreen" hidden>
-        <div id="blackscreen" class="blackscreen col span_1_of_2"></div>
-    </div-->
-          <!-- RIGHT VIDEO CHAT WINDOW -->
-          <div id="videochatwindow-right" class="col span_1_of_2 chatright-gray noselect" hidden>
-            <div id="videochat2" class="swing" hidden>
-                <video id="video-right" preload="auto" type="video/mp4" muted webkit-playsinline playsinline hidden>
-                    video not supported
-                </video>
-                <div id="connecting" class="blueglow name noselect" hidden>Connecting...</div>
-                <div id="right-name-1" class="overlay-name overlay-right name noselect" hidden></div>
-                <div id="right-status-1" class="typewriter status noselect" hidden></div>
-                <div id="right-location-1" class="blueglow status noselect" hidden></div>
-                <div id="right-name-2" class="overlay-name overlay-right name noselect" hidden></div>
-                <div id="right-status-2" class="typewriter status noselect" hidden></div>
-                <div id="right-location-2" class="blueglow status noselect" hidden></div>
-                <div id="right-name-3" class="overlay-name overlay-right name noselect" hidden></div>
-                <div id="right-status-3" class="typewriter status noselect" hidden></div>
-                <div id="right-location-3" class="blueglow status noselect" hidden></div>
-            </div>         
-          </div> <!--CLOSES RIGHT CHAT DIV-->
 
     <!-- REPORT USER BUTTON -->
             <div id="report" class="round-button button-report rectangular-button noselect" hidden>
@@ -193,9 +113,8 @@
     </div>
 
     <script>
-    if (screen.width <= 481) {
-    document.location = "mobile.html";
-    }
+
+//        setTimeout(function() { window.scrollTo(0, 1) }, 100);  // supposed to remove the url bar on mobile but caused a page error
 
     // -------------------------------------
     // Start Animated GIF then Fade to Page
@@ -218,9 +137,6 @@
     function hideLoader(){
         $('#loading').fadeOut(1500);
         $('#scroll2play').fadeOut(1500);
-        $("#pw2").wait(5000).addClass('triangle-left-animation');
-        $("#pw1").wait(6500).addClass('triangle-up-animation');
-        $("#pw3").wait(8000).addClass('triangle-right-animation');
     }
 
     function firstScroll(){
@@ -252,14 +168,6 @@
     // This sets the curvature of the wheel of chance connections text on desktop
     const wheelConnection = new CircleType(document.getElementById('connections'));
     wheelConnection.radius(230); /* original is 225 */
-
-    // Sets the wheel of chance connections text on mobile - removed
-//    const wheelConnectionMobile = new CircleType(document.getElementById('connections-mobile'));
-//    wheelConnectionMobile.radius(150); //originally 170
-
-//    video.addEventListener('touchstart', function () {
-//       video.play();
-//    });
 
     // --------------------------------------------------------------------
     // Create new wheel object specifying the parameters at creation time
@@ -440,11 +348,6 @@
         localStorage.setItem("on_load_counter", n);
         document.getElementById('counter').innerHTML = n;
 
-  /*      if (n >= 4) {
-        //    localStorage.removeItem('on_load_counter');
-            localStorage.setItem('on_load_counter', 1);    
-        }  */
-
     // -------------------------------------------------------
     // SPIN COUNTER - used to pick who the wheel lands on
     // -------------------------------------------------------             
@@ -461,13 +364,7 @@
         opening_audio.pause();
 
         // Disable Spin Button so it can't click again while wheel is spinning
-        document.getElementById('spin_button').classList.add('disabled');
         document.getElementById('mspin_button').classList.add('disabled');
-
-        // Disable Thrill Level buttons so they can't be clicked while wheel is spinning
-        document.getElementById('pw1').classList.add('disabled');
-        document.getElementById('pw2').classList.add('disabled');
-        document.getElementById('pw3').classList.add('disabled');
 
         // Mobile Version - disable thrill buttons
         document.getElementById('mpw1').classList.add('disabled');
@@ -563,11 +460,6 @@
         // Ensure that power can't be changed while wheel is spinning
         if (wheelSpinning == false)
         {
-            // Reset all to grey in case this is not the first time the user has selected level
-            document.getElementById('pw1').classList.remove("pw1");
-            document.getElementById('pw2').classList.remove("pw2");
-            document.getElementById('pw3').classList.remove("pw3");
-
             // Mobile Version wheel color reset
             document.getElementById('mpw1').classList.remove("mpw1");
             document.getElementById('mpw2').classList.remove("mpw2");
@@ -602,15 +494,10 @@
             }
 
             // Remove blueglow fader from Choose a Thrill Level text
-            document.getElementById('blueglow').classList.remove('blueglow');
             document.getElementById('mblueglow').classList.remove('blueglow');
 
             // Set wheelPower variable used when spin button is clicked
             wheelPower = powerLevel;
-
-            // Light up the spin button by removing disabled and adding clickable; add spin_button class to light it up
-            document.getElementById('spin_button').classList.add("clickable", "spin_button");
-            document.getElementById('spin_button').classList.remove("disabled");
 
             // Mobile Version activate spin button to be clicked
             document.getElementById('mspin_button').classList.add("clickable", "mspin_button");
@@ -737,9 +624,6 @@
         }
         else {
 
-        // WIPE UP BLACK SCREEN AFTER ALERT IS DISMISSED
-//            $("#blackscreen").slideUp(2000);
-
         // HIDE the Main Container, Spin Wheel & Thrill Level Selection Panel
         $("#wheel").hide();
         $("#title").hide();
@@ -751,16 +635,9 @@
         // SHOW the Video Chat Windows
         $("#videochat").show(); // this is the main video chat container
         $("#videochatwindow-left").show();
-        $("#videochatwindow-right").show();
         $("#report").wait(15000).show();
 
         $("#thrill").wait(2000).hide(); // hide the main container
-
-        // SLIDE UP the Video Chat Windows
-/*            $("#videochat").slideUp(); // this is the main video chat container
-        $("#videochatwindow-left").slideUp();
-        $("#videochatwindow-right").slideUp();
-        $("#report").slideUp(); */
 
     // BEGIN TRACK 1 BY COUNTER (Check Counter to see Which Track to Play)
     if (n == 1) {
@@ -768,103 +645,30 @@
         // Show Different Videos in DIV based on indicatedSegment
         if (indicatedSegment.text == "Ryan") // TANGO
         { 
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369089895.sd.mp4?s=63a7dfb00badc009903eea927e4ecac73317a6b2&profile_id=165&autopause=0";
-            document.getElementById('video-left').controls = false;                
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369089830.sd.mp4?s=cf331c9bf49e1d1484b2226afc03cf53fdf2ac38&profile_id=165&autopause=0";
-            document.getElementById('video-right').controls = false;   
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382352519.sd.mp4?s=c84936f6a6688ddae9a00495ffc06314f537a0b8&profile_id=164";
+            document.getElementById('video-left').controls = false;                 
             $('#video-left').show();
-            $('#video-right').show();
             $('#videochat1').show();
-            $('#videochat2').show();
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);                
-                $('body').get(0).style.setProperty("--jitter", "57.5s");
-                $('#connecting').show().wait(54000).hide();
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-left').classList.add("jitterLeft");
-                $('#left-name-ryan').wait(5000).show().text('Ryan');
-                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-                $('#right-location-1').wait(8000).show().text('Guadalajara, Mexico').wait(4000).text('').wait(3000).text('New Orleans, LA').wait(5500).text('').wait(2000).text('Tijuana, Mexico').wait(2500).text('').wait(4000).text('Mexico City, Mexico').wait(7500).text('').wait(1500).text('Guadalajara, Mexico').wait(3500).text('').wait(1000).text('New Orleans, LA').wait(2500).text('').wait(1000).text('Thessaloniki, Greece').wait(4000).remove();
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-name-1').wait(57500).show().text('Yanina');
-                $('#right-status-1').wait(62000).show().text('Guadalajara, Mexico');
-            }); // end onplay function
         }
         else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
         {
             document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165&autopause=0";
             document.getElementById('video-left').controls = false;                
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165&autopause=0";
-            document.getElementById('video-right').controls = false;  
             $('#video-left').show();
-            $('#video-right').show();
             $('#videochat1').show();
-            $('#videochat2').show();
-            $('#left-name-ryan').text('').remove();
-            $('#left-status-ryan').text('').remove();
-            $('#right-location-1').text('').remove();
-            $('#right-name-1').text('').remove();
-            $('#right-status-1').text('').remove();
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);
-                $('body').get(0).style.setProperty("--jitter", "40.5s");
-                $('#connecting').show().wait(35000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
-                document.getElementById('video-left').classList.add("jitterLeft");   
-                $('#left-name-alan').wait(7000).show().text('Alan');
-                $('#left-status-alan').wait(10000).show().text('Tijuana, Mexico');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-2').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
-                $('#right-name-2').wait(41000).show().text('Yanina');
-                $('#right-status-2').wait(44000).show().text('Guadalajara, Mexico');
-            }); // end onplay function
         }
         else if (indicatedSegment.text == "Naomi") // POEM
         {
             document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165&autopause=0";
             document.getElementById('video-left').controls = false;  
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165&autopause=0";
-            document.getElementById('video-right').controls = false; 
             $('#video-left').show();
-            $('#video-right').show();
             $('#videochat1').show();
-            $('#videochat2').show();
-            $('#left-name-alan').text('').remove();
-            $('#left-status-alan').text('').remove();
-            $('#right-location-2').text('').remove();
-            $('#right-name-2').text('').remove();
-            $('#right-status-2').text('').remove();
             $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){ 
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);
-                $('body').get(0).style.setProperty("--jitter", "26s");
-                $('#connecting').show().wait(23000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedAlan");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-naomi').wait(4000).show().text('Naomi');
-                $('#left-status-naomi').wait(7000).show().text('Paris, France');
-                $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-3').wait(3000).show().text('Leeds, UK').wait(7000).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
-                $('#right-name-3').wait(26000).show().text('Ryan');
-                $('#right-status-3').wait(28000).show().text('Los Angeles, CA');
-            }); // end onplay function
         }
     } // END TRACK 1 BY COUNTER
 
@@ -1076,64 +880,27 @@
     }); // CLOSE ALERT DIALOG FUNCTION
 } // CLOSE ALERT PRIZE FUNCTION
 
-    // ------------------------------------
-    // Report User Alert Button on Videos
-    // ------------------------------------
-
-    function reportUser(indicatedSegment) { // removed indicatedSegment from inside () because it isn't being used to populate a modal anymore
-        $('#video-left').get(0).pause();
-        $('#video-right').get(0).pause();
-
-        // Remove the class from video chat windows
-        document.getElementById("videochatwindow-left").removeAttribute("class");
-        document.getElementById("videochatwindow-right").removeAttribute("class");
-
-        alert_audio.pause();
-        alert_audio.currentTime = 0;
-        alert_audio.play();
-
-        myHandler();
-    }
-
     // ----------------------------------------------------------------------------
     // Function to reset SPIN button/wheel after videos end or after report button
     // ----------------------------------------------------------------------------
 
     document.getElementById('video-left').addEventListener('ended',myHandler,false);
-    document.getElementById('video-right').addEventListener('ended',myHandler,false);
     document.getElementById('escape').addEventListener('click',myHandler,false);
 
     function myHandler(e) {
         $('#video-left').get(0).pause();
-        $('#video-right').get(0).pause();
 
         // Remove the Name & Status Divs after video chat round ends
         $('#left-name-ryan').empty().hide();
         $('#left-name-naomi').empty().hide();
         $('#left-name-yanina').empty().hide();
         $('#left-name-alan').empty().hide();   
-        $('#right-name-1').empty().hide();
-        $('#right-name-2').empty().hide();
-        $('#right-name-3').empty().hide();
-        $('#right-status-1').empty().hide();
-        $('#right-status-2').empty().hide();
-        $('#right-status-3').empty().hide();
-        $('#right-location-1').empty().hide();
-        $('#right-location-2').empty().hide();
-        $('#right-location-3').empty().hide();
 
         // Remove the class from video chat windows
         document.getElementById("videochatwindow-left").removeAttribute("class");
-        document.getElementById("videochatwindow-right").removeAttribute("class");
 
         // Enable Spin Button so it can click again while wheel is spinning
-        document.getElementById('spin_button').classList.remove('disabled');
         document.getElementById('mspin_button').classList.remove('disabled');
-
-        // Disable Thrill Level buttons so they can't be clicked while wheel is spinning
-        document.getElementById('pw1').classList.remove('disabled');
-        document.getElementById('pw2').classList.remove('disabled');
-        document.getElementById('pw3').classList.remove('disabled');
 
         // Mobile Version
         document.getElementById('mpw1').classList.remove('disabled');
@@ -1147,12 +914,10 @@
         i++;
 
         // Hide Videos After Pause
-        $("#videochat").hide();      
+        $("#videochat").hide(); 
 
-        $("#videochatwindow-left").hide();
-        $("#videochatwindow-right").hide();            
+        $("#videochatwindow-left").hide();    
         $("#videochat1").hide();
-        $("#videochat2").hide();
         $("#report").hide();
 
         // Now show the Main Container, Spin Wheel & Thrill Level Selection Panel
@@ -1166,26 +931,16 @@
 
         // After Slide Down - hide all videos
         $('#video-left').wait(2000).hide();
-        $('#video-right').wait(2000).hide();
 
         // Reset Videos
         document.getElementById('video-left').src = "";
-        document.getElementById('video-right').src = "";
         document.getElementById('videochatwindow-left').className = "col span_1_of_2 chatleft-gray noselect";
-        document.getElementById('videochatwindow-right').className = "col span_1_of_2 chatright-gray noselect";
         document.getElementById('video-left').className = "";
-        document.getElementById('video-right').className = "";
 
         theWheel.stopAnimation(false);  // Stop the animation, false as param so does not send callback function.
-/*            theWheel.rotationAngle = 0;     // Re-set the wheel angle to 0 degrees. */
         theWheel.rotationAngle = theWheel.rotationAngle % 360; // reset the wheel but keep its current position
         theWheel.draw();                // Call draw to render changes to the wheel.
 
-        document.getElementById('pw1').classList.remove('pw1'); // Remove power level colors
-        document.getElementById('pw2').classList.remove('pw2'); // Remove power level colors
-        document.getElementById('pw3').classList.remove('pw3'); // Remove power level colors
-        document.getElementById('spin_button').classList.remove('spin_button', 'clickable');
-        document.getElementById('spin_button').classList.add('disabled');
         // Mobile Version
         document.getElementById('mpw1').classList.remove('mpw1'); // Remove power level colors
         document.getElementById('mpw2').classList.remove('mpw2'); // Remove power level colors
