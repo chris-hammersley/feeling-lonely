@@ -944,9 +944,6 @@ END ELEMENTS NOT IN USE */
 /* ******************************************************************************** */
 
 @media screen and (max-width: 1170px) {
-.round-button {
-/*  width:8%; */
-}
 .button-report{
   top: -150px;
 }
@@ -1349,14 +1346,15 @@ h3{
 .round-button, .round-button-circle, .round-button-circle a {
   all: revert;
 }
-.round-button {
-/*  width:8%; */
+.button-report-mobile{
+  position: relative;
+  bottom: 0;
+  top:0;
+  left:10%;
 }
 .rectangular-button {
   width: 100%;
   height: 10%;
-  position: fixed;
-  bottom:0;
   display:block;
 }
 .rectangular-button a {
@@ -1376,23 +1374,24 @@ h3{
   height: 30px; /* was 40px */
   text-align: center;
   padding-top: 12px;
-  position: fixed;
+  position: relative;
   font-size: 20px; /* was 16px */
-  line-height: 20px;
-  bottom: 0;
+  line-height: 10px;
+  top: 0;
   z-index: 999;
+  transform: none;
+  left:0;
 }
 #report {
   display: none;
   background-color: black;
   color:#808080;
   width: 20%; /* was 100% for full horizontal */
-  height: 35px; /* was 40px for full horizontal */
+  height: 5%; /* was 30px, 35px, 40px for full horizontal */
   text-align: center;
-  padding-top: 20px; /* was 12px */
-  position: fixed;
+  padding-top: 10px; /* 20px, 12px */
   font-size: 16px;
-  bottom: 0;
+  top:0;
   z-index: 999;
 }
 }

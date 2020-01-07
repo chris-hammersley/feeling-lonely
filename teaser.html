@@ -10,7 +10,6 @@
     
     <!-- CSS-->
     <link rel="stylesheet" href="assets/css/teaser.css">
-    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"-->
 
     <!-- JS-->
     <!--need jquery 2.0.2 for the slide down function for about block because js3.3.1 breaks it-->
@@ -21,7 +20,6 @@
     <script src="assets/js/plugins/gsap2.1.2/TweenLite.min.js"></script>
     <script src="assets/js/plugins/jquery.wait.js"></script>
     <script src="assets/js/plugins/iphone-inline-video.min.js"></script>
-
 </head>
 <body onLoad="window.scroll(0, 250)">
     <div id="container" class="noselect">
@@ -29,7 +27,7 @@
           <span>&nbsp;<p>&nbsp;</p> </span>
         </div>
         <div id="teaser-box" hidden>
-        <video id="teaser" preload="meta" src="https://player.vimeo.com/external/339585823.hd.mp4?s=93ed0e09d922bf43ba9b32effee3e7ff313f0708&profile_id=175" webkitallowfullscreen mozallowfullscreen allowfullscreen poster="assets/images/poster.png" onclick="this.paused ? this.play() : this.pause();">
+        <video id="teaser" preload="meta" src="https://player.vimeo.com/external/339585823.hd.mp4?s=93ed0e09d922bf43ba9b32effee3e7ff313f0708&profile_id=175" webkitallowfullscreen mozallowfullscreen allowfullscreen poster="assets/images/poster-bridge-optimized.jpg" onclick="this.paused ? this.play() : this.pause();">
         video not supported
         </video>
         </div>
@@ -41,7 +39,7 @@
         </div>
         <div id="about-button" class="round-button button-about">
             <div class="aboutbutton round-button-circle buttonBlack">
-                <a onmouseenter="about_ding.play();" href="#" onclick="playAbout();" class="clickabout round-button buttonBlackText">About</a>
+                <a onmouseenter="about_ding.play();" href="#" class="clickabout round-button buttonBlackText">About</a>
             </div>
         </div>
         <!-- MOBILE BUTTONS -->
@@ -93,11 +91,13 @@
             setTimeout(function() { window.scrollTo(0, 1) }, 100);
 
         // TEASER VIDEO PLAYS FULLSCREEN IN LANDSCAPE ON MOBILE - NOT SURE IT WORKS
+        const teaserVideo = document.getElementById('thanks');
+
             if ( 'orientation' in screen ){
                 screen.orientation.addEventListener('change', function(){
-                    //Let's request fullscreen if user switches device in landscape mode.
+                    //Let's request fullscreen if user rotates device to landscape
                     if ( screen.orientation.type.startsWith('landscape') ){
-                        requestFullscreenVideo();
+                        teaserVideo.requestFullscreenVideo();
                     } else if ( document.fullscreenElement ){
                         document.exitFullscreen();
                     }
@@ -154,8 +154,9 @@
 
             playOpening(); // plays the opening sound over the opening title animation
 
-            $('#teaser').get(0);enableInlineVideo('teaser');
+//            $('#teaser').get(0);enableInlineVideo('teaser');
             document.getElementById('teaser').addEventListener('play',stopOpening,false);
+            document.getElementById('about-button').addEventListener('click',playAbout,false);
 
             function pauseTeaser(){
                 $('#teaser').get(0).pause();
@@ -166,10 +167,6 @@
                 window.location.href = "test.html";
                 return false;
             }
-
-/*        enableInlineVideo(video, {
-            iPad: true
-        }); */
 
         // --------------------------------------------------------------
         // Function to SCALE video on SCROLL
@@ -216,7 +213,7 @@
                 $('#imdb').wait(6000).removeClass('bw').addClass('imdb');
             }
 
-            document.getElementById('teaser').addEventListener('pause',changeColorOnly,false);
+//            document.getElementById('teaser').addEventListener('pause',changeColorOnly,false);
 
             function changeColorOnly() {
                 event.preventDefault();
@@ -231,7 +228,6 @@
                 $('#imdb').wait(6000).removeClass('bw').addClass('imdb');
             }
        
-
         // --------------------------------------------------------------
         // SLIDE UP TO SHOW ABOUT FILM
         // --------------------------------------------------------------
@@ -241,6 +237,7 @@
                 var container = $( '#container-about' );
                 $( '#about-button, #about-mobile' ).click(
                     function( event ){
+                        pauseTeaser();
                         // Prevent the default click button event
                         event.preventDefault();
                         // Toggle the slide based on its current visibility
@@ -348,6 +345,5 @@
     </script>
 
 </body>
-        <!--script src="assets/js/plugins/popper1.14.7/popper.min.js"></script-->
         <script src="assets/js/vendor/bootstrap4.3.1/bootstrap.min.js"></script>
 </html>

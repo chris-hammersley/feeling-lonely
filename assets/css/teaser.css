@@ -90,11 +90,9 @@ span{
 }
 #teaser-box {
   width: 100%;
-/*  height: 88%; */
   margin-top: -70px;
   transform: scale(0.865);
-/*  padding-left: 100px;
-  padding-right: 100px; */
+  z-index: 99;
 }
 #teaser {
   width:100%; /* changed from 85% to center on screen */
@@ -103,7 +101,7 @@ span{
 /* Show to See All Divs
 div { outline: 1px solid red !important; } */
 
-/* Overlay Style for Thank You Video Box */
+/* Thank You Video Box Overlay */
 .overlay {
   background-color: #e74b09;
   text-align: center;
@@ -200,25 +198,13 @@ div { outline: 1px solid red !important; } */
   font-size: 36px;
   text-align: center;
   background-color: #42bcf4;
-/*  position: absolute;
-  top:380px; */
   width: 100%;
-/*  height: 2000px; */
   height: 384px;
 }
 .clear {
     clear:both;
 }
 /* VIDEO CHAT WINDOW ELEMENTS IN ORDER OF APPEARANCE */
-/*#thankyou-window{
-  background-color: #f4a941;
-  text-align: center;
-  position: absolute;
-  height: 2000px;
-  width: 33%
-  top: 0;
-  left: -33%;
-}*/
 #thanks{
   position: fixed; /* needs to be absolute for wipe to work - nope */
   margin-top: 50px;
@@ -356,14 +342,14 @@ div { outline: 1px solid red !important; } */
   bottom: 20px;
   margin-left: 60px;
   transform: translateX(-50%);
-  z-index: 999;
+  z-index: 100;
 }
 .button-about {
   position: absolute;
   bottom: 20px;
   left: 160px;
   transform: translateX(-50%);
-  z-index: 999;
+  z-index: 100;
 }
 /* EMAIL POSITION */
 .form-group {
@@ -436,7 +422,10 @@ a {
   width: 5px;
 }
 
-/* FOR PHONES 480 x 853 : NEEDS TO STAY THIS LARGE TO AFFECT ALL MOBILE DEVICES BELOW THIS - BUT NEED TO ADJUST & CENTER */
+/* ***************** RESPONSIVE ********************** */
+/* FOR PHONES 480 x 853 : NEEDS TO STAY THIS LARGE TO  */
+/* AFFECT ALL MOBILE DEVICES BELOW THIS                */
+/* *************************************************** */
 
 @media screen and (max-width: 481px) {
 body{

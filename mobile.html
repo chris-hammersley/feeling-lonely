@@ -6,6 +6,11 @@
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 -->
 <head>
+    <script>
+    if (screen.width > 481) {
+    document.location = "test.html";
+    }
+    </script>
     <title>ways of forgetting - a feature film by meryl murman</title>
     <meta charset="UTF-8">
     <meta name="author" content="Chris Hammersley">
@@ -17,9 +22,8 @@
 
     <!-- JS -->
     <script src="assets/js/plugins/Winwheel.js"></script>        
-    <!--script src="assets/js/vendor/TweenMax.min.js"></script-->
+    <script src="assets/js/vendor/TweenMax.min.js"></script>
     <script src="assets/js/vendor/jquery-2.1.1.min.js"></script>
-    <!--script src="assets/js/vendor/modernizr-2.8.3.min.js"></script-->
     <script src="assets/js/plugins/jquery.lettering-0.6.1.min.js"></script>
     <script src="assets/js/plugins/circletype.min.js"></script>
     <script src="assets/js/plugins/jquery.wait.js"></script>
@@ -52,14 +56,14 @@
             <div class="square-center">
                 <div class="square-container" hidden>
                     <div id="mpw2" class="mobile-square move noselect" onClick="powerSelected(2);">
-                        <p>Hear Me</p>
+                        <p>Medium</p>
                     </div>
                     <div id="mpw1" class="mobile-square truth noselect" onClick="powerSelected(1);">
-                        <p>See Me</p>
+                        <p>Slow</p>
                     </div>
                     <div style='clear:both'></div>
                     <div id="mpw3" class="mobile-square wild noselect" onClick="powerSelected(3);">
-                        <p>Touch Me</p>
+                        <p>Fast</p>
                     </div>
                     <div id="mspin_button" class="mobile-square spin noselect" onClick="calculatePrize();">
                         <p class="awkward">SPIN</p>
@@ -69,13 +73,12 @@
                     </div>
                 </div><!--CLOSES CONTAINER-->
             </div><!--CLOSES CENTER-->
-
             <!-- HOME BUTTON -->
-            <div id="home" class="round-button button-home rectangular-button" hidden>
-                <div class="round-button-circle">
-                    <a href="teaser.html" onmouseenter="playHome()" class="round-button rectangular-button" onclick="fadePage();">Home</a>
+            <div id="home" class="button-home rectangular-button" hidden>
+                <div>
+                    <a href="teaser.html" class="rectangular-button" onclick="fadePage();">Home</a>
                 </div>
-            </div>
+            </div><!--CLOSES HOME BUTTON-->
         </div><!--CLOSES THRILL SECTION-->
 
     <!-- NEW GRID LAYOUT -->
@@ -85,19 +88,14 @@
                 <video id="video-left" preload="auto" type="video/mp4" webkit-playsinline playsinline hidden>
                   video not supported
                 </video>
-                <div id="left-name-ryan" class="overlay-name overlay-left name noselect" hidden></div>
-                <div id="left-name-yanina" class="overlay-name overlay-left name noselect" hidden></div>
-                <div id="left-name-alan" class="overlay-name overlay-left name noselect" hidden></div>
-                <div id="left-name-naomi" class="overlay-name overlay-left name noselect" hidden></div>
+            </div>
+            <!-- REPORT USER BUTTON -->
+            <div id="report" class="button-report rectangular-button noselect button-report-mobile" hidden>
+            <div>
+            <a id="escape" class="rectangular-button" onclick="playEscape();">Escape</a>
+            </div>
             </div>
           </div> <!--CLOSES LEFT CHAT DIV-->
-
-    <!-- REPORT USER BUTTON -->
-            <div id="report" class="round-button button-report rectangular-button noselect" hidden>
-                <div class="round-button-circle">
-                <a id="escape" class="round-button rectangular-button" onmouseenter="playEscape();">Escape</a>
-                </div>
-            </div>
 
     <!--MODAL-->
     <div id="alert" class="modal" tabindex="-1" role="dialog" aria-labelledby="alert" aria-hidden="true">
@@ -113,9 +111,6 @@
     </div>
 
     <script>
-
-//        setTimeout(function() { window.scrollTo(0, 1) }, 100);  // supposed to remove the url bar on mobile but caused a page error
-
     // -------------------------------------
     // Start Animated GIF then Fade to Page
     // -------------------------------------
@@ -164,10 +159,6 @@
         $(".mobile-greenglow").lettering('words');
         $("#greenglow").lettering('words').children('span').lettering();
     });
-    
-    // This sets the curvature of the wheel of chance connections text on desktop
-    const wheelConnection = new CircleType(document.getElementById('connections'));
-    wheelConnection.radius(230); /* original is 225 */
 
     // --------------------------------------------------------------------
     // Create new wheel object specifying the parameters at creation time
@@ -230,12 +221,12 @@
 
     // create audio array of tick sound files
     var audiosource = [
-      "assets/audio/WOF Website Sounds__Tick 1.wav",
-      "assets/audio/WOF Website Sounds__Tick 2.wav",
-      "assets/audio/WOF Website Sounds__Tick 3.wav",
-      "assets/audio/WOF Website Sounds__Tick 4.wav",
-      "assets/audio/WOF Website Sounds__Tick 5.wav",
-      "assets/audio/WOF Website Sounds__Tick 6.wav"
+      "assets/audio/tick 1.wav",
+      "assets/audio/tick 2.wav",
+      "assets/audio/tick 3.wav",
+      "assets/audio/tick 4.wav",
+      "assets/audio/tick 5.wav",
+      "assets/audio/tick 6.wav"
     ];
 
     function playSound() {
@@ -426,17 +417,17 @@
 
         if (n == 3) {
             if (i == 1) {
-                stopAt = (258 + Math.floor((Math.random() * 43))); // Naomi
+                stopAt = (103 + Math.floor((Math.random() * 43))); // Alan
                 theWheel.animation.stopAngle = stopAt; 
                 theWheel.startAnimation();
             }
             if (i == 2) {
-                 stopAt = (3 + Math.floor((Math.random() * 43))); // Ryan
+                stopAt = (3 + Math.floor((Math.random() * 43))); // Ryan
                 theWheel.animation.stopAngle = stopAt; 
                 theWheel.startAnimation();
             } 
             if (i == 3) {
-                stopAt = (103 + Math.floor((Math.random() * 43))); // Alan
+                stopAt = (258 + Math.floor((Math.random() * 43))); // Naomi
                 theWheel.animation.stopAngle = stopAt; 
                 theWheel.startAnimation();
             } 
@@ -471,7 +462,6 @@
                 truthdare_audio.pause();
                 truthdare_audio.currentTime = 0;
                 truthdare_audio.play();
-                document.getElementById('pw1').classList.add("pw1");
                 document.getElementById('mpw1').classList.add("mpw1");
             }
 
@@ -480,7 +470,6 @@
                 move_audio.pause();
                 move_audio.currentTime = 0;
                 move_audio.play();
-                document.getElementById('pw2').classList.add("pw2");
                 document.getElementById('mpw2').classList.add("mpw2");
             }
 
@@ -489,7 +478,6 @@
                 wild_audio.pause();
                 wild_audio.currentTime = 0;
                 wild_audio.play();
-                document.getElementById('pw3').classList.add("pw3");
                 document.getElementById('mpw3').classList.add("mpw3");
             }
 
@@ -636,244 +624,133 @@
         $("#videochat").show(); // this is the main video chat container
         $("#videochatwindow-left").show();
         $("#report").wait(15000).show();
-
         $("#thrill").wait(2000).hide(); // hide the main container
 
     // BEGIN TRACK 1 BY COUNTER (Check Counter to see Which Track to Play)
     if (n == 1) {
-
         // Show Different Videos in DIV based on indicatedSegment
         if (indicatedSegment.text == "Ryan") // TANGO
-        { 
+        {
             document.getElementById('video-left').src = "https://player.vimeo.com/external/382352519.sd.mp4?s=c84936f6a6688ddae9a00495ffc06314f537a0b8&profile_id=164";
             document.getElementById('video-left').controls = false;                 
             $('#video-left').show();
             $('#videochat1').show();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "57.5s");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
         else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
         {
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165&autopause=0";
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382644255.sd.mp4?s=6b795248c9608f38abe554fe0edbb08f41a9b305&profile_id=164";
             document.getElementById('video-left').controls = false;                
             $('#video-left').show();
             $('#videochat1').show();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "41s");
+            $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
         else if (indicatedSegment.text == "Naomi") // POEM
         {
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165&autopause=0";
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382689945.sd.mp4?s=657c55ebbcb76dafbbacf8d41a31d9e50651f3e2&profile_id=164";
             document.getElementById('video-left').controls = false;  
             $('#video-left').show();
             $('#videochat1').show();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
+            $('body').get(0).style.setProperty("--jitter", "26.5s");
+            $('#videochatwindow-left').removeClass("backgroundAnimatedAlan");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
     } // END TRACK 1 BY COUNTER
 
     // BEGIN TRACK 2 BY COUNTER
     if (n == 2) {
-
         // Show Different Videos in DIV based on indicatedSegment
         if (indicatedSegment.text == "Ryan") // DRILL
         { 
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369177617.sd.mp4?s=e729c7a1e59fb1e7489174d71d62d1c8b8275ec2&profile_id=165&autopause=0";
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382705150.sd.mp4?s=cc9da4659c8d9cc67f975f1000b00913b671ef51&profile_id=165";
             document.getElementById('video-left').controls = false; 
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369177468.sd.mp4?s=f9925b27525b46000f7cfad150349788fbbee2c8&profile_id=165&autopause=0";
-            document.getElementById('video-right').controls = false; 
             $('#video-left').show();
-            $('#video-right').show();
             $('#videochat1').show();
-            $('#videochat2').show();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);
-                $('body').get(0).style.setProperty("--jitter", "29.5s");
-                $('#connecting').show().wait(26000).hide();
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-ryan').wait(5000).show().text('Ryan');
-                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-1').wait(7000).show().text('Thessaloniki, Greece').wait(4500).text('').wait(1500).text('Paris, France').wait(6000).remove();
-                $('#right-name-1').wait(29500).show().text('Yanina');
-                $('#right-status-1').wait(32000).show().text('Guadalajara, Mexico');
-            }); // end onplay function
+            $('body').get(0).style.setProperty("--jitter", "27.5s");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
-        else if (indicatedSegment.text == "Naomi") // HARP
+        else if (indicatedSegment.text == "Naomi") // POEM
         {
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369176601.sd.mp4?s=ba330522843dbe23a8f8326208d6fab244f9fc61&profile_id=164&autopause=0";
-            document.getElementById('video-left').controls = false; 
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369175753.sd.mp4?s=4c6f3ad2f38124a17c213f30706a3e9b4c95d14d&profile_id=165&autopause=0";
-            document.getElementById('video-right').controls = false; 
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382689945.sd.mp4?s=657c55ebbcb76dafbbacf8d41a31d9e50651f3e2&profile_id=164";
+            document.getElementById('video-left').controls = false;  
             $('#video-left').show();
-            $('#video-right').show(); 
             $('#videochat1').show();
-            $('#videochat2').show();
-            $('#left-name-ryan').text('').remove();
-            $('#left-status-ryan').text('').remove();
-            $('#right-location-1').text('').remove();
-            $('#right-name-1').text('').remove();
-            $('#right-status-1').text('').remove();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);
-                $('body').get(0).style.setProperty("--jitter", "34.5s");
-                $('#connecting').show().wait(32000).hide();
-                $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-naomi').wait(4000).show().text('Naomi');
-                $('#left-status-naomi').wait(6000).show().text('Paris, France');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-2').wait(7000).show().text('Somewhere in Iowa').wait(5500).text('').wait(4000).text('Somewhere Up a Tree').wait(5500).remove();
-                $('#right-name-2').wait(34500).show().text('Yanina');
-                $('#right-status-2').wait(37000).show().text('Guadalajara, Mexico');
-            }); // end onplay function
+            $('body').get(0).style.setProperty("--jitter", "25.5s");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
         else if (indicatedSegment.text == "Yanina") // NAKED IN SF
         {
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369089997.sd.mp4?s=3bcc122e733c56fb24083e84463cd2849484f62e&profile_id=164&autopause=0";
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382791337.sd.mp4?s=43d53527bd6a7caa85d5490e5c69d7c0c33ddd3e&profile_id=165";
             document.getElementById('video-left').controls = false; 
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369089951.sd.mp4?s=b13c69637d02feaca1fb01597fefb687a02a55b2&profile_id=164&autopause=0";
-            document.getElementById('video-right').controls = false; 
             $('#video-left').show();
-            $('#video-right').show();
             $('#videochat1').show();
-            $('#videochat2').show();
-            $('#left-name-naomi').text('').remove();
-            $('#left-status-naomi').text('').remove();
-            $('#right-location-2').text('').remove();
-            $('#right-name-2').text('').remove();
-            $('#right-status-2').text('').remove();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);
-                $('body').get(0).style.setProperty("--jitter", "32.5s");
-                $('#connecting').show().wait(29000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-yanina').wait(5000).show().text('Yanina');
-                $('#left-status-yanina').wait(9000).show().text('Guadalajara, Mexico');
-                $('#videochatwindow-right').removeClass("backgroundAnimatedYanina");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-3').wait(7000).show().text('Somewhere North of Stonehenge').wait(15000).remove();
-                $('#right-name-3').wait(34000).show().text('Ryan');
-                $('#right-status-3').wait(37000).show().text('Los Angeles, CA');
-            }); // end onplay function
+            $('body').get(0).style.setProperty("--jitter", "32.5s");
+            $('#videochatwindow-left').removeClass("backgroundAnimatedNaomi");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedYanina");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
     } // END TRACK 2 BY COUNTER
 
     // BEGIN TRACK 3 BY COUNTER
     if (n == 3) {
-
-        if (indicatedSegment.text == "Naomi") // POEM
+        // Show Different Videos in DIV based on indicatedSegment
+        if (indicatedSegment.text == "Alan") // 8-BIT DANCE
         {
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369174052.sd.mp4?s=151dd644928a3a457109252b224cd14cb28e0ae0&profile_id=165&autopause=0";
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369173952.sd.mp4?s=3370f22db2444ff66d5b7e0c48c38695690caaeb&profile_id=165&autopause=0";
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382644255.sd.mp4?s=6b795248c9608f38abe554fe0edbb08f41a9b305&profile_id=164";
+            document.getElementById('video-left').controls = false;  
             $('#video-left').show();
-            $('#video-right').show(); 
             $('#videochat1').show();
-            $('#videochat2').show();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);
-                $('body').get(0).style.setProperty("--jitter", "26s");
-                $('#connecting').show().wait(24000).hide();
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
-                document.getElementById('video-left').classList.add("jitterLeft");                    
-                $('#left-name-naomi').wait(5000).show().text('Naomi');
-                $('#left-status-naomi').wait(8000).show().text('Paris, France');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-1').wait(3500).show().text('Leeds, UK').wait(6500).text('').wait(1000).text('Los Angeles, CA').wait(5000).text('').wait(2000).text('Leeds, UK').wait(4500).remove();
-                $('#right-name-1').wait(27000).show().text('Ryan');
-                $('#right-status-1').wait(28000).show().text('Los Angeles, CA');
-            }); // end onplay function
+            $('body').get(0).style.setProperty("--jitter", "41s");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
-        else if (indicatedSegment.text == "Ryan") // EYEBALL
+        else if (indicatedSegment.text == "Ryan") // EYE OF TIGER
         { 
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369179252.sd.mp4?s=ea4b2e9c7187a10101aa7e8a1672a3d6aeb7ba09&profile_id=165&autopause=0";
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369179202.sd.mp4?s=2ae3bf5299b9824adfe8bdb795376d07fcaa503a&profile_id=165&autopause=0";
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382795362.sd.mp4?s=a268eb7a737141bd3cc1c341c9eda394561f4850&profile_id=164";
+            document.getElementById('video-left').controls = false;  
             $('#video-left').show();
-            $('#video-right').show();
             $('#videochat1').show();
-            $('#videochat2').show();
-            $('#left-name-naomi').text('').remove();
-            $('#left-status-naomi').text('').remove();
-            $('#right-location-1').text('').remove();
-            $('#right-name-1').text('').remove();
-            $('#right-status-1').text('').remove();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);
-                $('body').get(0).style.setProperty("--jitter", "18s");
-                $('#connecting').show().wait(15000).hide();
-                document.getElementById('videochatwindow-left').classList.remove('backgroundAnimatedNaomi');
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
-                document.getElementById('video-left').classList.add("jitterLeft");
-                $('#left-name-ryan').wait(5000).show().text('Ryan');
-                $('#left-status-ryan').wait(8000).show().text('Los Angeles, CA');
-                $('#videochatwindow-right').removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-2').wait(8000).show().text('Somewhere with Better Music').wait(3500).remove();
-                $('#right-name-2').wait(18000).show().text('Yanina');
-                $('#right-status-2').wait(21000).show().text('Guadalajara, Mexico');
-            }); // end onplay function
+            $('body').get(0).style.setProperty("--jitter", "17s");
+            $('#videochatwindow-left').removeClass('backgroundAnimatedAlan');
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedRyan");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
-        else if (indicatedSegment.text == "Alan") // 8-BIT DANCE
+        else if (indicatedSegment.text == "Naomi") // HARP
         {
-            document.getElementById('video-left').src = "https://player.vimeo.com/external/369090087.sd.mp4?s=28abd84cc163f03e82e28aae0c8ca3d20fefd0eb&profile_id=165&autopause=0";
-            document.getElementById('video-right').src = "https://player.vimeo.com/external/369090045.sd.mp4?s=8709e01fb9ac87ac9c672ebf3341195683f75d68&profile_id=165&autopause=0";
+            document.getElementById('video-left').src = "https://player.vimeo.com/external/382724098.sd.mp4?s=a9a662079c252bb6df299c44cb023b67f3dd1a5b&profile_id=164";
+            document.getElementById('video-left').controls = false; 
             $('#video-left').show();
-            $('#video-right').show();
             $('#videochat1').show();
-            $('#videochat2').show();
-            $('#left-name-ryan').text('').remove();
-            $('#left-status-ryan').text('').remove();
-            $('#right-location-2').text('').remove();
-            $('#right-name-2').text('').remove();
-            $('#right-status-2').text('').remove();
-            $('#video-left').get(0);enableInlineVideo('video-left');
+//            $('#video-left').get(0);enableInlineVideo('video-left');
             $('#video-left').get(0).play();
-            $('#video-left').on('play', function(){
-                $('#video-right').get(0);enableInlineVideo('video-right');
-                $('#video-right').get(0).play();
-                $("#video-right").wait(2000).prop('muted', false);
-                $('body').get(0).style.setProperty("--jitter", "40.5s");
-                $('#connecting').show().wait(39000).hide();
-                $('#videochatwindow-left').removeClass("backgroundAnimatedRyan");
-                document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedAlan");
-                document.getElementById('video-left').classList.add("jitterLeft");   
-                $('#left-name-alan').wait(5000).show().text('Alan');
-                $('#left-status-alan').wait(8000).show().text('Tijuana, Mexico');
-                document.getElementById('videochatwindow-right').classList.add("backgroundAnimatedYanina");
-                document.getElementById('video-right').classList.add("jitterRight");
-                $('#right-location-3').wait(8000).show().text('Nairobi, Kenya').wait(8000).text('').wait(3000).text('Philadelphia, PA').wait(7500).text('').wait(1000).text('New Orleans, LA').wait(5000).remove();
-                $('#right-name-3').wait(41000).show().text('Yanina');
-                $('#right-status-3').wait(48000).show().text('Guadalajara, Mexico');
-            }); // end onplay function
+            $('body').get(0).style.setProperty("--jitter", "34s");
+            $("#videochatwindow-left").removeClass("backgroundAnimatedRyan");
+            document.getElementById('videochatwindow-left').classList.add("backgroundAnimatedNaomi");
+            document.getElementById('video-left').classList.add("jitterLeft");
         }
     } // END TRACK 3 BY COUNTER
 } // CLOSE ELSE
@@ -889,12 +766,6 @@
 
     function myHandler(e) {
         $('#video-left').get(0).pause();
-
-        // Remove the Name & Status Divs after video chat round ends
-        $('#left-name-ryan').empty().hide();
-        $('#left-name-naomi').empty().hide();
-        $('#left-name-yanina').empty().hide();
-        $('#left-name-alan').empty().hide();   
 
         // Remove the class from video chat windows
         document.getElementById("videochatwindow-left").removeAttribute("class");
@@ -941,7 +812,6 @@
         theWheel.rotationAngle = theWheel.rotationAngle % 360; // reset the wheel but keep its current position
         theWheel.draw();                // Call draw to render changes to the wheel.
 
-        // Mobile Version
         document.getElementById('mpw1').classList.remove('mpw1'); // Remove power level colors
         document.getElementById('mpw2').classList.remove('mpw2'); // Remove power level colors
         document.getElementById('mpw3').classList.remove('mpw3'); // Remove power level colors
