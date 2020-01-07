@@ -172,7 +172,7 @@ div { outline: 1px solid red !important; } */
   left: 30%;
   background-color: #e74b09;
   text-align: center;
-  z-index: 1; /* 1px higher than the overlay layer */
+  z-index: 105;
 }
 /* MODAL OK BUTTON */
 .modal-button {
@@ -184,7 +184,7 @@ div { outline: 1px solid red !important; } */
   border: solid;
   border-color: black;
   margin-top: 40px;
-  z-index: 1000;
+  z-index: 105;
 }
 #ok-close{
   margin-top: 425%;
@@ -511,7 +511,7 @@ body{
   height: 100%;
   overflow: visible;
   width: 100%;
-  z-index: 1;
+  z-index: 105;
 }
 /* MODAL ALERT MOBILE */
 .modal {
@@ -534,7 +534,7 @@ body{
   font-size: 24px;
   line-height: 26px;
   text-align: center;
-  top:25%;
+/*  top:25%; */
 }
 /* EMAIL POSITION */
 .form-group {
