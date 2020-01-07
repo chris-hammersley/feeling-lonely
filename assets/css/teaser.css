@@ -472,7 +472,7 @@ body{
   display: block;
   padding-top: 60px;
   padding-right:5px;
-  font-size: 32px;
+  font-size: 1.9em; /* was 32px */
   line-height: 34px;
   height: 75%;
   z-index: 10;
