@@ -47,7 +47,7 @@ body.fade-in {
   bottom: 0px;
   display: none;
   position: fixed;
-  z-index: 9; /* was 0 but changed so about covers teaser video */
+  z-index: 100; /* was 0 but changed so about covers teaser video */
 }
 .container{
   clear: both;
