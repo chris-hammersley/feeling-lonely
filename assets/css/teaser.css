@@ -47,6 +47,7 @@ body.fade-in {
   bottom: 0px;
   display: none;
   position: fixed;
+  z-index: 9; /* was 0 but changed so about covers teaser video */
 }
 .container{
   clear: both;
@@ -483,7 +484,6 @@ body{
   height: 100%;
   position: fixed;
   bottom:-8%;
-  z-index: 0;
 }
 #thanks{
   position: fixed; /* needs to be absolute for wipe to work - nope */
