@@ -500,6 +500,13 @@ body{
   background-color: #e74b09;
   overflow: visible;
 }
+#ok-close{
+  margin-top: 0;
+  margin-left: 0;
+  position: absolute;
+  top:-90%;
+  left:40%;
+}
 /* Overlay Style for Thank You Video Box */
 .overlay {
   background-color: #db8420;
