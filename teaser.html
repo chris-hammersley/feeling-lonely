@@ -28,7 +28,7 @@
         </div>
         <div id="teaser-box" hidden>
         <video id="teaser" preload="meta" src="https://player.vimeo.com/external/339585823.hd.mp4?s=93ed0e09d922bf43ba9b32effee3e7ff313f0708&profile_id=175" webkitallowfullscreen mozallowfullscreen allowfullscreen poster="assets/images/poster-bridge-optimized.jpg" onclick="this.paused ? this.play() : this.pause();">
-        video not supported
+        your web browser doesn't support HTML 5 video - try a better web browser!
         </video>
         </div>
         <div id="scroll2play"><h2>(Scroll to Watch)</h2></div>
@@ -88,21 +88,47 @@
     </div> 
     <script>
         // REMOVE URL BAR ON MOBILE - NOT SURE IT WORKS
-            setTimeout(function() { window.scrollTo(0, 1) }, 100);
+        setTimeout(function() { window.scrollTo(0, 1) }, 100);
 
         // TEASER VIDEO PLAYS FULLSCREEN IN LANDSCAPE ON MOBILE - NOT SURE IT WORKS
-        const teaserVideo = document.getElementById('thanks');
+        var teaserVideo = document.getElementById('teaser');
 
-            if ( 'orientation' in screen ){
-                screen.orientation.addEventListener('change', function(){
-                    //Let's request fullscreen if user rotates device to landscape
-                    if ( screen.orientation.type.startsWith('landscape') ){
-                        teaserVideo.requestFullscreenVideo();
-                    } else if ( document.fullscreenElement ){
-                        document.exitFullscreen();
-                    }
-                })
-            }
+        /* View in fullscreen */
+        function openFullscreen() {
+          if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+          } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+          } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            elem.webkitRequestFullscreen();
+          } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+          }
+        }
+
+        /* Close fullscreen */
+        function closeFullscreen() {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.mozCancelFullScreen) { /* Firefox */
+            document.mozCancelFullScreen();
+          } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) { /* IE/Edge */
+            document.msExitFullscreen();
+          }
+        }
+
+        if ( 'orientation' in screen ){
+            screen.orientation.addEventListener('change', function(){
+                //Let's request fullscreen if user rotates device to landscape
+                if ( screen.orientation.type.startsWith('landscape') ){
+                    openFullscreen();
+                } else if ( document.fullscreenElement ){
+                    closeFullscreen();
+                }
+            })
+        }
 
         // ----------------------------------------------------------------
         // INITIAL FADE IN OF SCREEN AFTER ELEMENTS ARE LOADED
