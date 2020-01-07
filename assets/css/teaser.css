@@ -47,7 +47,7 @@ body.fade-in {
   bottom: 0px;
   display: none;
   position: fixed;
-  z-index: 100; /* was 0 but changed so about covers teaser video */
+  z-index: 99; /* was 0 but changed so about covers teaser video */
 }
 .container{
   clear: both;
@@ -193,7 +193,6 @@ div { outline: 1px solid red !important; } */
 /* ABOUT BLOCK */
 .about {
   display: block;
-  z-index: 0;
   padding-top: 50px;
   padding-right: 140px;
   font-size: 36px;
@@ -476,7 +475,6 @@ body{
   font-size: 1.9em; /* was 32px */
   line-height: 34px;
   height: 75%;
-  z-index: 10;
 }
 #container-about {
   display: none;
@@ -484,6 +482,7 @@ body{
   height: 100%;
   position: fixed;
   bottom:-8%;
+  z-index: 101;
 }
 #thanks{
   position: fixed; /* needs to be absolute for wipe to work - nope */
